@@ -1,0 +1,290 @@
+\documentclass[12pt,letterpaper]{article}
+
+% Paquetes esenciales
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[table]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{microtype}
+
+% Definición de colores celestes personalizados
+\definecolor{celesteprincipal}{RGB}{0,150,200}
+\definecolor{celestesuave}{RGB}{135,206,235}
+\definecolor{celesteclaro}{RGB}{173,216,230}
+\definecolor{celesteoscuro}{RGB}{0,105,148}
+\definecolor{celestefondo}{RGB}{230,245,255}
+\definecolor{grisoscuro}{RGB}{64,64,64}
+\definecolor{gristitulo}{RGB}{45,45,45}
+
+% Configuración de página
+\geometry{left=2.5cm, right=2.5cm, top=2.8cm, bottom=2.8cm}
+\setlength{\headheight}{24.65pt}
+\setlength{\parskip}{8pt}
+\onehalfspacing
+
+% Configuración de enlaces con tonos celestes
+\hypersetup{
+    colorlinks=true,
+    linkcolor=celesteoscuro,
+    citecolor=celesteprincipal,
+    urlcolor=celesteprincipal,
+    linktoc=all,
+    pdfborder={0 0 0}
+}
+
+% Configuración de encabezados con línea celeste
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textcolor{celesteoscuro}{\small\thepage}}
+\lhead{\textcolor{celesteoscuro}{\small\textit{Proyecto Final - EYP2417 Muestreo}}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{celesteprincipal}\leaders\hrule height \headrulewidth\hfill}}
+
+% Configuración de títulos de sección mejorada
+\titleformat{\section}
+{\LARGE\bfseries\color{celesteoscuro}}
+{\thesection}{1em}{}
+[\vspace{-0.3em}{\titlerule[1.5pt]\color{celesteprincipal}}]
+
+\titleformat{\subsection}
+{\Large\bfseries\color{celesteprincipal}}
+{\thesubsection}{1em}{}
+[\vspace{-0.5em}{\color{celestesuave}\titlerule[0.8pt]}]
+
+\titleformat{\subsubsection}
+{\large\bfseries\color{celesteoscuro}}
+{\thesubsubsection}{1em}{}
+
+% Configuración de captions mejorada
+\captionsetup{
+    labelfont={bf,color=celesteoscuro},
+    textfont={small,color=grisoscuro},
+    justification=justified,
+    singlelinecheck=false,
+    margin=10pt
+}
+
+% Configuración de listas mejorada
+\setlist[enumerate]{itemsep=6pt, topsep=8pt, leftmargin=1.5em}
+\setlist[itemize]{itemsep=6pt, topsep=8pt, leftmargin=1.5em}
+
+% Configuración de tcolorbox para cajas destacadas
+\tcbuselibrary{skins,breakable}
+
+\newtcolorbox{destacado}{
+    colback=celestefondo,
+    colframe=celesteprincipal,
+    boxrule=1.5pt,
+    arc=4pt,
+    left=10pt,
+    right=10pt,
+    top=10pt,
+    bottom=10pt,
+    breakable,
+    enhanced
+}
+
+\newtcolorbox{insightbox}{
+    colback=white,
+    colframe=celestesuave,
+    boxrule=2pt,
+    arc=2pt,
+    left=12pt,
+    right=12pt,
+    top=8pt,
+    bottom=8pt,
+    breakable,
+    enhanced,
+    borderline west={3pt}{0pt}{celesteprincipal}
+}
+
+\newtcolorbox{hallazgobox}{
+    colback=celestefondo!50,
+    colframe=celesteoscuro,
+    boxrule=1pt,
+    arc=3pt,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt,
+    breakable,
+    enhanced
+}
+
+\begin{document}
+
+% ========== PORTADA ==========
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    
+    {\LARGE\textcolor{celesteoscuro}{\textbf{Facultad de Matemáticas}}}
+    
+    \vspace{0.5cm}
+    {\Large\textcolor{grisoscuro}{Pontificia Universidad Católica de Chile}}
+    
+    \vspace{2cm}
+    
+    {\Huge\textcolor{celesteprincipal}{\textbf{Proyecto Final}}}
+    
+    \vspace{0.5cm}
+    {\LARGE\textcolor{celesteoscuro}{\textbf{Entrega 1: Informe de Objetivos}}}
+    
+    \vspace{1.5cm}
+    
+    \begin{tcolorbox}[colback=celestefondo, colframe=celesteprincipal, boxrule=2pt, arc=5pt, width=0.8\textwidth]
+        \centering
+        {\Large\textcolor{celesteoscuro}{\textbf{EYP2417 - Muestreo}}}
+        
+        \vspace{0.3cm}
+        {\large\textcolor{grisoscuro}{Segundo Semestre 2025}}
+    \end{tcolorbox}
+    
+    \vspace{2cm}
+    
+    \begin{flushleft}
+    {\large\textcolor{celesteoscuro}{\textbf{Grupo 4}}}
+    
+    \vspace{0.8cm}
+    
+    {\large\textcolor{grisoscuro}{
+    \begin{tabular}{ll}
+        \textbf{Integrantes:} & \\
+        & Francisca Sepúlveda \\
+        & Esteban Román \\
+        & Alexander Pinto \\
+        & Julian Vargas \\
+    \end{tabular}
+    }}
+    \end{flushleft}
+    
+    \vfill
+    
+    {\large\textcolor{celesteoscuro}{Fecha de entrega: 24 de octubre de 2025}}
+\end{titlepage}
+
+% ========== CONTENIDO ==========
+\section{Objetivo General del Proyecto}
+
+\begin{destacado}
+\textbf{Pregunta de Investigación:} ¿Cuáles son los factores asociados a la desigualdad de ingresos en los hogares chilenos según datos de la encuesta CASEN?
+\end{destacado}
+
+El presente proyecto tiene como objetivo general analizar los factores socioeconómicos que explican la desigualdad de ingresos en los hogares chilenos. Utilizando datos de la encuesta CASEN, se busca identificar patrones de desigualdad según variables demográficas, territoriales y educacionales, contribuyendo así a una mejor comprensión de la estructura socioeconómica del país.
+
+\subsection{Relevancia del Estudio}
+
+La desigualdad de ingresos es uno de los problemas estructurales más relevantes de Chile. Este estudio es importante porque permite identificar los mecanismos a través de los cuales se genera la desigualdad económica, facilitando así el diseño de políticas públicas más efectivas. Los resultados pueden servir como insumo para organismos como el Ministerio de Desarrollo Social, universidades y centros de investigación.
+
+\section{Encuesta Seleccionada}
+
+\subsection{Descripción General}
+
+\begin{insightbox}
+\begin{itemize}
+    \item \textbf{Nombre de la encuesta:} Encuesta de Caracterización Socioeconómica Nacional (CASEN)
+    \item \textbf{Institución responsable:} Ministerio de Desarrollo Social y Familia
+    \item \textbf{Año(s) disponibles:} 2017, 2020, 2022
+    \item \textbf{Población objetivo:} Hogares residentes en viviendas particulares de todo Chile
+    \item \textbf{Periodicidad:} Bienal
+\end{itemize}
+\end{insightbox}
+
+\subsection{Variables de Interés}
+
+Las variables principales utilizadas en este análisis incluyen el ingreso total del hogar (variable de respuesta) y un conjunto de variables auxiliares que permiten explicar los patrones de desigualdad. Estas incluyen características demográficas (edad, género del jefe de hogar), educacionales (años de escolaridad), laborales (condición de ocupación, rama de actividad) y territoriales (región y zona urbana/rural).
+
+\begin{table}[H]
+\centering
+\caption{Variables principales del estudio}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{6cm}}
+\toprule
+\rowcolor{celestefondo}
+\textbf{Variable} & \textbf{Tipo} & \textbf{Descripción} \\
+\midrule
+Ingreso Total Hogar & Cuantitativa & Ingresos totales mensuales del hogar en pesos chilenos \\
+Escolaridad del Jefe & Cuantitativa & Años de educación formal completados por el jefe de hogar \\
+Condición de Ocupación & Cualitativa & Categoría ocupacional (empleado, trabajador independiente, desempleado) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Variables Auxiliares}
+
+Se utilizarán variables demográficas como edad, género y región de residencia; variables educacionales tales como nivel de escolaridad; variables laborales incluyendo rama de actividad económica y tipo de contrato; y variables territoriales distinguiendo entre zonas urbanas y rurales. Estas variables permitirán segmentar el análisis y controlar por factores que pueden confundir la asociación entre variables.
+
+\section{Base de Datos y Factibilidad de Acceso}
+
+\subsection{Acceso a los Datos}
+
+Los datos de CASEN están disponibles públicamente a través del sitio web del Ministerio de Desarrollo Social y Familia. La encuesta cuenta con una muestra representativa a nivel nacional y regional, con información de aproximadamente 250,000 personas. Los archivos se encuentran documentados y disponibles en múltiples formatos para facilitar el análisis.
+
+\subsection{Exploración Preliminar}
+
+Se realizará una exploración inicial de los datos que incluya: número total de observaciones (hogares), estructura de las variables, estadísticas descriptivas de ingresos según variables demográficas, análisis de datos faltantes y evaluación de la representatividad de la muestra en diferentes regiones del país.
+
+\section{Objetivos Específicos}
+
+El análisis se estructura alrededor de tres objetivos específicos que buscan responder preguntas concretas sobre los factores asociados a la desigualdad de ingresos en Chile.
+
+\begin{enumerate}
+    \item \textbf{Objetivo Específico 1:} Estimar y comparar el ingreso promedio de los hogares según nivel educacional del jefe de hogar, analizando el diferencial de ingresos entre grupos educacionales.
+    
+    \item \textbf{Objetivo Específico 2:} Analizar la asociación entre condición de ocupación y nivel de ingresos, controlando por variables demográficas y educacionales.
+    
+    \item \textbf{Objetivo Específico 3:} Comparar los patrones de desigualdad de ingresos entre regiones y entre zonas urbanas y rurales.
+\end{enumerate}
+
+\subsection{Plan de Análisis Preliminar}
+
+Se utilizarán técnicas de estadística descriptiva para caracterizar los patrones de desigualdad de ingresos. Posteriormente, se aplicarán modelos de regresión lineal para analizar la asociación entre variables independientes e ingreso del hogar, incorporando términos de interacción cuando sea pertinente. Finalmente, se calcularán índices de desigualdad (Gini, deciles) para diferentes subgrupos poblacionales y se realizarán comparaciones territoriales.
+
+\section{Revisión de Antecedentes}
+
+\subsection{Publicaciones Previas}
+
+\begin{itemize}
+    \item \textbf{Ministerio de Desarrollo Social (2023).} \textit{Resultados CASEN 2022}. Informe disponible en el sitio web oficial. Presentan análisis actualizados sobre pobreza, ingresos y desigualdad en Chile.
+    
+    \item \textbf{Contreras, D., Larrañaga, O. \& Litchfield, J. (2010).} \textit{Inequality and the self-selection of individuals into the informal sector in Chile}. Journal of Economic Inequality. Analiza la desigualdad y la relación con el sector informal.
+    
+    \item \textbf{World Bank (2020).} \textit{Desigualdad en América Latina: una perspectiva regional}. Reporte que contextualiza la desigualdad chilena dentro del panorama regional.
+\end{itemize}
+
+\subsection{Gaps Identificados}
+
+Aunque existen múltiples estudios sobre desigualdad en Chile, pocos han realizado un análisis integrado de los factores educacionales, ocupacionales y territoriales de manera simultánea utilizando datos recientes de CASEN. Este proyecto contribuirá a llenar ese vacío mediante un análisis multivariado que identifique los mecanismos principales de generación de desigualdad y proporcione evidencia actualizada para la formulación de políticas públicas.
+
+\section{Conclusiones Preliminares}
+
+La encuesta CASEN constituye una fuente de datos adecuada y robusta para responder las preguntas planteadas sobre factores asociados a la desigualdad de ingresos en Chile. Los datos son públicamente accesibles, cuentan con documentación completa y representatividad a nivel nacional y regional. La disponibilidad de variables educacionales, ocupacionales y demográficas permite realizar un análisis multivariado de calidad. Por lo anterior, se considera que este proyecto tiene la viabilidad técnica necesaria para contribuir al conocimiento sobre desigualdad socioeconómica en Chile.
+
+% ========== BIBLIOGRAFÍA ==========
+\newpage
+\section*{Referencias}
+\addcontentsline{toc}{section}{Referencias}
+
+\begin{enumerate}[label={[\arabic*]}]
+    \item Ministerio de Desarrollo Social y Familia. (2023). \textit{Resultados de la Encuesta CASEN 2022}. Disponible en \url{https://www.ministeriodesarrollosocial.gob.cl/casen/}
+    \item Contreras, D., Larrañaga, O. \& Litchfield, J. (2010). Inequality and the self-selection of individuals into the informal sector in Chile. \textit{Journal of Economic Inequality}, 8(4), 463-483.
+    \item World Bank. (2020). \textit{Inclusión y desigualdad económica en América Latina}. Washington, D.C.
+    \item Organización para la Cooperación y el Desarrollo Económicos (OCDE). (2021). \textit{Hacia una mejora del bienestar en Chile}. París.
+\end{enumerate}
+
+\end{document}
