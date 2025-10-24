@@ -1,0 +1,86 @@
+% ============================================================================
+% 01_Estructura/metodologia.tex
+% ============================================================================
+
+\section{Diseño Muestral y Metodología Analítica}
+
+\subsection{Características del Diseño Muestral CASEN 2022}
+
+CASEN 2022 utiliza un \textbf{diseño muestral estratificado polietápico}:
+
+\begin{itemize}
+    \item \textbf{Primera etapa:} Estratificación por región (1-16) y zona (urbano/rural)
+    \item \textbf{Segunda etapa:} Selección de Unidades Primarias de Muestreo (UPM) - Secciones censales
+    \item \textbf{Tercera etapa:} Selección de viviendas y personas dentro de UPM
+    \item \textbf{Ponderación:} Variable \texttt{expr} (factor de expansión) ajusta por probabilidades de selección, no-respuesta y calibración
+\end{itemize}
+
+Este diseño complejo requiere metodología especializada para estimación insesgada de parámetros poblacionales.
+
+\subsection{Marco Teórico: Thompson (2012)}
+
+Seguimos el marco de Thompson (2012, Capítulos 8-9) para diseños estratificados multietápicos. Para un parámetro poblacional $Y = \sum_i y_i$, el estimador insesgado ponderado es:
+
+\[
+\hat{Y} = \sum_i w_i y_i
+\]
+
+donde $w_i$ es el peso del elemento $i$ (proporcionalmente igual a \texttt{expr}). Para medias poblacionales:
+
+\[
+\hat{\bar{Y}} = \frac{\sum_i y_i w_i}{\sum_i w_i}
+\]
+
+La varianza del estimador bajo diseño complejo se calcula considerando estratificación y conglomeración. Implementamos métodos de linearización (Taylor) para construcción de intervalos de confianza.
+
+\subsection{Métodos Analíticos}
+
+\subsubsection*{Análisis Descriptivo Ponderado}
+
+Se calculan:
+\begin{itemize}
+    \item Promedios y medianas ponderados usando \texttt{expr}
+    \item Proporciones ponderadas (e.g., \% de pobres por región)
+    \item Comparaciones estratificadas por región, zona (urbano/rural), educación y edad
+    \item Deviaciones estándar e intervalos de confianza al 95\% (Wald)
+\end{itemize}
+
+\subsubsection*{Tablas Analíticas}
+
+Se generan tablas ponderadas para:
+\begin{itemize}
+    \item \textbf{Pobreza:} Incidencia de pobreza por región y zona
+    \item \textbf{Brecha salarial:} Ingresos comparativos por sexo, educación y edad
+    \item \textbf{Análisis estratificado:} Desagregación por subgrupos poblacionales
+\end{itemize}
+
+\subsubsection*{Visualización}
+
+Gráficos producen:
+\begin{itemize}
+    \item Mapeo de distribución geográfica de pobreza
+    \item Comparaciones urbano/rural
+    \item Evolución de brecha salarial por factores de control
+\end{itemize}
+
+\subsection{Control de Calidad}
+
+Se valida:
+\begin{itemize}
+    \item Coincidencia entre totales ponderados y cifras oficiales CASEN (validación de \texttt{expr})
+    \item Ausencia de valores faltantes (missing) en variables clave
+    \item Comparación de estimadores ponderados versus no ponderados
+    \item Consistencia de tablas cruzadas
+\end{itemize}
+
+\subsection{Software y Reproducibilidad}
+
+Todos los análisis son realizados en Python con librerías:
+\begin{itemize}
+    \item \textbf{pandas:} Manipulación de datos y operaciones ponderadas
+    \item \textbf{numpy:} Computación numérica
+    \item \textbf{scipy:} Funciones estadísticas y distribuciones
+    \item \textbf{matplotlib/seaborn:} Visualización
+\end{itemize}
+
+Los scripts y notebooks son completamente reproducibles y disponibles en \texttt{03\_Scripts/} y \texttt{02\_Analisis/}.

@@ -1,2 +1,126 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# ============================================================================
+# .gitattributes - Configuración de atributos de Git
+# ============================================================================
+# Define cómo Git debe manejar diferentes tipos de archivos
+# Especialmente importante para saltos de línea (CRLF vs LF)
+
+# ============================================================================
+# ============================================================================
+# Archivos de documentación
+*.md text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+
+# Código Python
+*.py text eol=lf
+*.pyc binary
+__pycache__ export-ignore
+
+# Archivos LaTeX
+*.tex text eol=lf
+*.sty text eol=lf
+*.cls text eol=lf
+*.bbl text eol=lf
+*.bib text eol=lf
+
+# Configuraciones
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+
+# Datos de texto
+*.csv text eol=lf
+*.tsv text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+# ============================================================================
+# ARCHIVOS BINARIOS - No modificar
+# ============================================================================
+# Documentos compilados
+*.pdf binary
+*.dvi binary
+*.ps binary
+
+# Imágenes
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.tiff binary
+*.tif binary
+*.ico binary
+*.svg binary
+
+# Datos binarios
+*.dta binary
+*.sav binary
+*.sas7bdat binary
+*.mat binary
+*.npy binary
+
+# Comprimidos
+*.zip binary
+*.7z binary
+*.rar binary
+*.tar binary
+*.tar.gz binary
+*.gz binary
+
+# Ejecutables
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+
+# ============================================================================
+# ARCHIVOS DE JUPYTER NOTEBOOKS
+# ============================================================================
+# Notebooks son JSON, pero con contenido especial
+*.ipynb text diff=jupyter
+.ipynb_checkpoints/** export-ignore
+
+# ============================================================================
+# FILTROS ESPECIALES
+# ============================================================================
+# Para mostrar diffs más legibles en ciertos archivos
+*.json diff=json
+*.yaml diff=yaml
+
+# ============================================================================
+# EXPORT-IGNORE - No incluir en archivos generados
+# ============================================================================
+.gitignore export-ignore
+.gitattributes export-ignore
+.git export-ignore
+.github export-ignore
+.DS_Store export-ignore
+Thumbs.db export-ignore
+__pycache__ export-ignore
+*.pyc export-ignore
+.ipynb_checkpoints export-ignore
+venv export-ignore
+.venv export-ignore
+
+# ============================================================================
+# NOTAS
+# ============================================================================
+# eol=lf: Usar saltos de línea Unix (LF)
+# eol=crlf: Usar saltos de línea Windows (CRLF)
+# binary: Archivo binario, no modificar
+# diff=tipo: Usar tipo de diff especial
+# export-ignore: No incluir en archives (zip, tar, etc)
+#
+# Ventajas:
+# ✓ Consistencia entre sistemas (macOS, Linux, Windows)
+# ✓ Diffs más limpios
+# ✓ Evita problemas de carriage return
+# ✓ Colaboración más fácil
+

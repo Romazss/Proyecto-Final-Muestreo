@@ -1,0 +1,119 @@
+% ============================================================================
+% 01_Estructura/02_encuesta_casen.tex
+% ============================================================================
+
+\section{Encuesta CASEN 2022: Descripción y Accesibilidad}
+
+\subsection{Nombre e Institución Responsable}
+
+La \textbf{Encuesta de Caracterización Socioeconómica Nacional (CASEN 2022)} es el principal instrumento de caracterización socioeconómica de la población en Chile. Es levantada por el \textbf{Ministerio de Desarrollo Social y Familia}, con el apoyo técnico del Banco Interamericano de Desarrollo (BID).
+
+\subsection{Año(s) Disponibles y Cobertura}
+
+La encuesta CASEN se realiza periódicamente desde 1987. La base de datos utilizada en este proyecto corresponde a:
+
+\begin{itemize}
+    \item \textbf{Año de levantamiento:} 2022
+    \item \textbf{Fecha de disponibilidad:} 18 de marzo de 2024
+    \item \textbf{Cobertura:} Nacional, representativa a nivel de región, zona (urbano/rural) y comuna
+    \item \textbf{Muestra:} Aproximadamente 202.000 personas en 70.000 hogares
+\end{itemize}
+
+\subsection{Variables de Interés}
+
+Las variables principales utilizadas en este análisis se clasifican en dos categorías según el eje temático:
+
+\subsubsection*{Eje 1: Distribución de la Pobreza}
+
+\begin{itemize}
+    \item \textbf{pobreza:} Condición de pobreza (1 = No pobre, 2 = Pobre, 3 = Extremo pobre)
+    \item \textbf{ytotcorh:} Ingreso total corregido del hogar (pesos chilenos)
+    \item \textbf{tot\_per\_h:} Total de personas en el hogar
+    \item \textbf{esc:} Años de educación formal completados del jefe de hogar
+\end{itemize}
+
+\subsubsection*{Eje 2: Brecha Salarial de Género}
+
+\begin{itemize}
+    \item \textbf{sexo:} Sexo del jefe de hogar (1 = Hombre, 2 = Mujer)
+    \item \textbf{yoprinc:} Ingreso del trabajo principal (pesos chilenos)
+    \item \textbf{esc:} Años de educación formal del jefe
+    \item \textbf{edad:} Edad del jefe de hogar (años)
+    \item \textbf{ocup:} Ocupación (códigos CIUO)
+\end{itemize}
+
+\subsection{Variables Auxiliares}
+
+\begin{itemize}
+    \item \textbf{expr:} Factor de expansión (ponderador de muestreo) para ajustar por diseño complejo
+    \item \textbf{region:} Región de residencia (1-16, según división política actual)
+    \item \textbf{area:} Zona geográfica (1 = Urbano, 2 = Rural)
+    \item \textbf{edad:} Edad de la persona encuestada
+    \item \textbf{hogar:} Identificador del hogar
+\end{itemize}
+
+\subsection{Base de Datos y Factibilidad de Acceso}
+
+\subsubsection*{Formato y Ubicación}
+
+\begin{itemize}
+    \item \textbf{Nombre del archivo:} \texttt{Base de datos Casen 2022 STATA\_18 marzo 2024.dta}
+    \item \textbf{Formato:} STATA (.dta), versión 18
+    \item \textbf{Tamaño:} Aproximadamente 501 MB
+    \item \textbf{Ubicación en proyecto:} \texttt{01\_Datos/}
+\end{itemize}
+
+\subsubsection*{Acceso y Disponibilidad}
+
+La encuesta CASEN 2022 está disponible públicamente en:
+
+\begin{itemize}
+    \item \textbf{Sitio oficial:} Ministerio de Desarrollo Social y Familia
+    \item \textbf{Base de datos:} \url{https://www.ministeriodesarrollososocial.gob.cl/}
+    \item \textbf{Modalidad de acceso:} Descarga directa sin restricciones de acceso
+    \item \textbf{Documentación:} Manual técnico, cuestionario y guía de variables disponibles en el mismo sitio
+\end{itemize}
+
+El acceso es \textbf{sin restricciones y de carácter público}, permitiendo replicabilidad completa del análisis. La base de datos es implementada en este proyecto y todos los análisis son reproducibles en R, Python o STATA.
+
+\subsection{Tabla Resumen de Variables}
+
+\vspace{0.3cm}
+
+\begin{table}[H]
+\centering
+\caption{Resumen de variables principales utilizadas en el análisis}
+\label{tab:variables_resumen}
+\footnotesize
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{4.5cm}}
+\toprule
+\rowcolor{celesteprincipal}
+\textcolor{white}{\textbf{Variable}} & \textcolor{white}{\textbf{Código}} & \textcolor{white}{\textbf{Descripción y Tipo}} \\
+\midrule
+\rowcolor{celestefondo}
+\multicolumn{3}{l}{\textcolor{celesteoscuro}{\textbf{$\bullet$ Variables de Estratificación}}} \\
+\addlinespace[2pt]
+Región & \texttt{\color{celesteprincipal}region} & Región de residencia (1-16, numérica) \\
+Zona geográfica & \texttt{\color{celesteprincipal}area} & Urbano (1) / Rural (2) \\
+Factor expansión & \texttt{\color{celesteprincipal}expr} & Ponderador para representatividad (numérica) \\
+\midrule
+\rowcolor{celestefondo}
+\multicolumn{3}{l}{\textcolor{celesteoscuro}{\textbf{$\nabla$ Eje 1: Pobreza}}} \\
+\addlinespace[2pt]
+Condición pobreza & \texttt{\color{celesteprincipal}pobreza} & 1=No pobre, 2=Pobre, 3=Extremo pobre \\
+Ingreso hogar & \texttt{\color{celesteprincipal}ytotcorh} & Ingreso total anual corregido (pesos \$) \\
+Escolaridad & \texttt{\color{celesteprincipal}esc} & Años de educación formal del jefe \\
+Tamaño hogar & \texttt{\color{celesteprincipal}tot\_per\_h} & Número de personas en el hogar \\
+\midrule
+\rowcolor{celestefondo}
+\multicolumn{3}{l}{\textcolor{celesteoscuro}{\textbf{$\equiv$ Eje 2: Brecha Salarial de Género}}} \\
+\addlinespace[2pt]
+Sexo jefe hogar & \texttt{\color{celesteprincipal}sexo} & 1=Hombre, 2=Mujer \\
+Ingreso principal & \texttt{\color{celesteprincipal}yoprinc} & Ingreso del trabajo principal (pesos \$) \\
+Edad & \texttt{\color{celesteprincipal}edad} & Edad del jefe de hogar (años) \\
+Ocupación & \texttt{\color{celesteprincipal}ocup} & Código CIUO de ocupación \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent\textcolor{grisoscuro}{\small\textit{Nota: Todas las variables están ponderadas usando el factor de expansión (\texttt{expr}) para asegurar representatividad a nivel nacional y regional.}}

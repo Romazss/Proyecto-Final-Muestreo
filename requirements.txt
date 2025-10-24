@@ -1,0 +1,84 @@
+# ============================================================================
+# requirements.txt - Dependencias del Proyecto
+# ============================================================================
+# Instalar con: pip install -r requirements.txt
+#
+# Este archivo especifica todas las librerías Python necesarias para ejecutar
+# el análisis de CASEN 2022
+
+# ============================================================================
+# MANEJO DE DATOS
+# ============================================================================
+pandas>=1.5.0
+numpy>=1.23.0
+
+# Para leer archivos STATA (.dta)
+pyreadstat>=1.2.0
+
+# Para archivos Excel
+openpyxl>=3.9.0
+
+# ============================================================================
+# ANÁLISIS ESTADÍSTICO
+# ============================================================================
+scipy>=1.9.0
+statsmodels>=0.13.0
+
+# Para cálculos numéricos avanzados
+scikit-learn>=1.2.0
+
+# ============================================================================
+# VISUALIZACIÓN
+# ============================================================================
+matplotlib>=3.5.0
+seaborn>=0.12.0
+
+# Para gráficos interactivos (opcional pero recomendado)
+plotly>=5.0.0
+
+# ============================================================================
+# JUPYTER & NOTEBOOKS
+# ============================================================================
+jupyter>=1.0.0
+jupyterlab>=3.5.0
+notebook>=6.4.0
+
+# ============================================================================
+# UTILIDADES
+# ============================================================================
+# Para manejo de directorios y archivos
+pathlib2>=2.3.0
+
+# Para formateo de números y datos
+humanize>=4.0.0
+
+# ============================================================================
+# DESARROLLO (OPCIONAL)
+# ============================================================================
+# Para linting y formato de código
+# flake8>=4.0.0
+# black>=22.0.0
+# pylint>=2.15.0
+
+# Para testing
+# pytest>=7.2.0
+
+# ============================================================================
+# INSTALACIÓN
+# ============================================================================
+# Instalación básica (recomendada):
+# $ pip install -r requirements.txt
+#
+# Instalación en entorno virtual (recomendado):
+# $ python3 -m venv venv
+# $ source venv/bin/activate  # macOS/Linux
+# $ pip install -r requirements.txt
+#
+# Actualizar todos los paquetes:
+# $ pip install --upgrade -r requirements.txt
+#
+# Ver paquetes instalados:
+# $ pip list
+#
+# Ver qué paquetes tienen actualizaciones:
+# $ pip list --outdated

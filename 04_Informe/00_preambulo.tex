@@ -1,0 +1,110 @@
+% ============================================================================
+% 00_preambulo.tex
+% ============================================================================
+% Preámbulo común para todo el documento LaTeX
+% Contiene paquetes, configuración de estilos y colores
+
+% Paquetes esenciales
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[table]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{amsmath}
+
+% Definición de colores PUC (celestes)
+\definecolor{celesteprincipal}{RGB}{0,150,200}
+\definecolor{celestesuave}{RGB}{135,206,235}
+\definecolor{celesteclaro}{RGB}{173,216,230}
+\definecolor{celesteoscuro}{RGB}{0,105,148}
+\definecolor{celestefondo}{RGB}{230,245,255}
+\definecolor{grisoscuro}{RGB}{64,64,64}
+
+% Configuración de página
+\geometry{left=2.5cm, right=2.5cm, top=2.8cm, bottom=2.8cm}
+\setlength{\headheight}{24.65pt}
+\setlength{\parskip}{6pt}
+\setlength{\footskip}{60pt}
+\onehalfspacing
+
+% Configuración de enlaces
+\hypersetup{
+    colorlinks=true,
+    linkcolor=celesteoscuro,
+    citecolor=celesteprincipal,
+    urlcolor=celesteprincipal,
+    pdfborder={0 0 0}
+}
+
+% Configuración de encabezados
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textcolor{celesteoscuro}{\small\thepage}}
+\lhead{\textcolor{celesteoscuro}{\small\textit{EYP2417 Muestreo - Grupo 4}}}
+\rfoot{\includegraphics[width=0.08\textwidth]{03_Logos/logo_kovan.jpg}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{celesteprincipal}\leaders\hrule height \headrulewidth\hfill}}
+
+% Configuración de títulos
+\titleformat{\section}
+{\Large\bfseries\color{celesteoscuro}}
+{\thesection}{1em}{}
+[\vspace{-0.3em}{\color{celesteprincipal}\hrule height 1.5pt}]
+
+\titleformat{\subsection}
+{\large\bfseries\color{celesteprincipal}}
+{\thesubsection}{1em}{}
+
+% Configuración de captions
+\captionsetup{
+    labelfont={bf,color=celesteoscuro},
+    textfont={small,color=grisoscuro},
+    justification=justified,
+    margin=8pt
+}
+
+% Configuración de listas
+\setlist[enumerate]{itemsep=4pt, topsep=6pt}
+\setlist[itemize]{itemsep=4pt, topsep=6pt}
+
+% Cajas destacadas
+\newtcolorbox{hallazgobox}{
+    colback=celestefondo,
+    colframe=celesteprincipal,
+    boxrule=1.5pt,
+    arc=3pt,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt
+}
+
+% Personalización de Tabla de Contenidos
+\usepackage{titletoc}
+\titlecontents{section}
+    [0em]
+    {\vspace{8pt}\large\bfseries\color{celesteoscuro}}
+    {\contentslabel{1.5em}}
+    {}
+    {\normalfont\color{celesteprincipal}\dotfill\thecontentspage}
+
+\titlecontents{subsection}
+    [2em]
+    {\vspace{4pt}\normalfont\color{grisoscuro}}
+    {\contentslabel{1.5em}}
+    {}
+    {\normalfont\color{celesteprincipal}\dotfill\thecontentspage}

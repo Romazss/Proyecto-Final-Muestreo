@@ -1,0 +1,80 @@
+% ============================================================================
+% ARCHIVO PRINCIPAL: informe_principal.tex
+% ============================================================================
+% Documento LaTeX modular que integra todas las secciones del informe.
+% Este archivo es el único que se debe compilar con pdflatex.
+%
+% Para compilar:
+%   xelatex -interaction=nonstopmode informe_principal.tex
+%
+% Estructura modular:
+% - Preámbulo: Paquetes y configuración
+% - Portada: Título y datos del grupo
+% - Cuerpo: Secciones separadas en archivos .tex
+% - Bibliografía: Referencias
+
+\documentclass[12pt,letterpaper]{article}
+
+% ============================================================================
+% PREÁMBULO (Paquetes y configuración)
+% ============================================================================
+\input{00_preambulo.tex}
+
+% ============================================================================
+% INICIO DEL DOCUMENTO
+% ============================================================================
+\begin{document}
+
+% Desactiva numeración de página en portada
+\thispagestyle{empty}
+
+% ============================================================================
+% PORTADA
+% ============================================================================
+\input{01_Estructura/portada.tex}
+
+\newpage
+
+% Reinicia numeración desde página 1 después de portada
+\setcounter{page}{1}
+
+% ============================================================================
+% TABLA DE CONTENIDOS (opcional, comentado)
+% ============================================================================
+\tableofcontents
+\newpage
+
+% ============================================================================
+% CUERPO DEL INFORME (Secciones modulares)
+% ============================================================================
+
+% Objetivo General
+\input{01_Estructura/introduccion.tex}
+
+% Encuesta CASEN
+\input{01_Estructura/02_encuesta_casen.tex}
+
+% Objetivos Específicos
+\input{01_Estructura/03_objetivos_especificos.tex}
+
+% Revisión de Antecedentes
+\input{01_Estructura/04_revision_antecedentes.tex}
+
+% % Metodología (Comentado - Sección 5 en adelante)
+% \input{01_Estructura/metodologia.tex}
+
+% % Resultados: Análisis de Pobreza
+% \input{01_Estructura/resultados_pobreza.tex}
+
+% % Resultados: Brecha Salarial de Género
+% \input{01_Estructura/resultados_brecha.tex}
+
+% % Conclusiones
+% \input{01_Estructura/conclusiones.tex}
+
+% % ============================================================================
+% % REFERENCIAS BIBLIOGRÁFICAS
+% % ============================================================================
+% \input{01_Estructura/referencias.tex}
+
+\end{document}

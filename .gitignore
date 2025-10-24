@@ -1,0 +1,213 @@
+# ============================================================================
+# .gitignore - Proyecto Final EYP2417 Muestreo
+# ============================================================================
+# Excluye archivos grandes, datos sensibles y archivos temporales
+# Permite versionar solo código, documentación y configuración
+
+# ============================================================================
+# DATOS PESADOS (CASEN 2022)
+# ============================================================================
+# Archivos de base de datos - MUY PESADOS (>500MB)
+01_Datos/*.dta
+01_Datos/*.stata
+01_Datos/*.sas7bdat
+01_Datos/*.csv
+01_Datos/*.xlsx
+01_Datos/*.xls
+01_Datos/*.parquet
+
+# Archivos comprimidos de datos
+01_Datos/*.zip
+01_Datos/*.7z
+01_Datos/*.rar
+01_Datos/*.tar.gz
+
+# ============================================================================
+# OUTPUTS GENERADOS (archivos derivados)
+# ============================================================================
+# Tablas y figuras generadas
+05_Outputs/*.csv
+05_Outputs/*.xlsx
+05_Outputs/*.json
+05_Outputs/*.pdf
+05_Outputs/*.png
+05_Outputs/*.jpg
+05_Outputs/*.jpeg
+05_Outputs/*.svg
+
+# ============================================================================
+# NOTEBOOKS (jupyter)
+# ============================================================================
+# Checkpoints de Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Archivos temporales de Jupyter
+*.ipynb_checkpoints
+*~
+
+# Notebooks compilados
+02_Analisis/**/.ipynb_checkpoints
+
+# ============================================================================
+# PYTHON
+# ============================================================================
+# Archivos compilados
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribuciones
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Entornos virtuales
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ============================================================================
+# LaTeX
+# ============================================================================
+# Archivos compilados por LaTeX
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.lof
+*.lot
+*.dvi
+*.ps
+
+# Directorios temporales
+_minted-*/
+
+# ============================================================================
+# macOS
+# ============================================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ============================================================================
+# ARCHIVOS SENSIBLES
+# ============================================================================
+# Credenciales y configuración privada
+.env
+.env.local
+*.key
+*.pem
+secrets.json
+
+# ============================================================================
+# ARCHIVOS TEMPORALES GENERALES
+# ============================================================================
+*.bak
+*.tmp
+*.temp
+*.cache
+*.swp
+.cache/
+.tmp/
+
+# ============================================================================
+# DOCUMENTACIÓN COMPILADA
+# ============================================================================
+# PDF final se versionaría si es necesario
+# Descomenta si quieres excluir PDFs
+# *.pdf
+
+# ============================================================================
+# ESTADÍSTICAS DE GIT
+# ============================================================================
+.gitstats/
+
+# ============================================================================
+# EXCEPCIONES - INCLUIR ESTOS ARCHIVOS
+# ============================================================================
+# Los siguientes archivos SÍ se versionar aunque coincidan con patrones arriba
+
+# Gitignore este mismo archivo
+!.gitignore
+
+# Mantener estructura de carpetas vacías
+!**/
+!.gitkeep
+
+# Documentación (siempre incluir)
+!README.md
+!PROYECTO.md
+!00_Documentacion/*.md
+!*.md
+
+# Código Python (siempre incluir)
+!*.py
+
+# LaTeX fuente (siempre incluir)
+!*.tex
+
+# Configuraciones importantes
+!setup.py
+!requirements.txt
+!pyproject.toml
+
+# ============================================================================
+# NOTAS IMPORTANTES
+# ============================================================================
+# Este .gitignore:
+#
+# ✅ EXCLUYE:
+#   - Base de datos CASEN 2022 (.dta) - muy pesada
+#   - Outputs generados (CSV, figuras)
+#   - Checkpoints de Jupyter
+#   - Archivos compilados de Python
+#   - Archivos temporales de LaTeX
+#   - Archivos del sistema (macOS, Windows)
+#   - Archivos temporales
+#
+# ✅ INCLUYE (mediante excepciones):
+#   - Documentación (.md)
+#   - Código Python (.py)
+#   - Archivos LaTeX fuente (.tex)
+#   - Especificaciones técnicas
+#   - Este mismo .gitignore
+#
+# ⚠️ SI NECESITAS SUBIR DATOS:
+#   - Crea rama "datos" separada
+#   - O usa Git LFS para archivos grandes
+#   - O comparte link de descarga en README
