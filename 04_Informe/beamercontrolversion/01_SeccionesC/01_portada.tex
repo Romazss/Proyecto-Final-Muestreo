@@ -1,0 +1,100 @@
+% ============================================================================
+% PORTADA PERSONALIZADA - SIMPLIFICADA
+% ============================================================================
+{
+\setbeamertemplate{footline}{} % Quitar número de página en portada
+\begin{frame}[plain]
+\begin{center}
+
+% ============================================================================
+% LOGO INSTITUCIONAL CENTRADO
+% ============================================================================
+\vspace{0.8cm}
+\includegraphics[height=4cm]{../../logos/logo-matuc-2126x1352.jpg}
+
+\vspace{1.5cm}
+
+% ============================================================================
+% INSTITUCIÓN
+% ============================================================================
+{\large \textcolor{celesteoscuro}{\textbf{Pontificia Universidad Católica de Chile}}}\\[0.3cm]
+{\normalsize \textcolor{grisoscuro}{Facultad de Matemáticas}}\\[0.2cm]
+{\small \textcolor{grisoscuro}{EYP2417 - Muestreo}}
+
+\vspace{1.2cm}
+
+% ============================================================================
+% TÍTULO PRINCIPAL
+% ============================================================================
+{\huge \textcolor{celesteoscuro}{\textbf{Análisis de Desigualdades}}}\\[0.2cm]
+{\huge \textcolor{celesteoscuro}{\textbf{Socioeconómicas}}}
+
+\vspace{2.2cm}
+
+% ============================================================================
+% FECHA
+% ============================================================================
+{\small \textcolor{grisoscuro}{Santiago, Chile}}\\[0.1cm]
+{\small \textcolor{grisoscuro}{Noviembre de 2025}}
+
+\end{center}
+\end{frame}
+}
+
+% ============================================================================
+% DIAPOSITIVA DE INFORMACIÓN DEL PROYECTO
+% ============================================================================
+{
+\setbeamertemplate{footline}{} % Quitar número de página
+\begin{frame}[plain]
+
+\vspace{1.5cm}
+
+% ============================================================================
+% TÍTULO PRINCIPAL CON CAJA DESTACADA
+% ============================================================================
+\begin{center}
+\begin{tikzpicture}
+\node[rectangle, rounded corners=5pt, fill=celesteprincipal!15, 
+      inner sep=15pt, minimum width=0.85\textwidth] {
+    \begin{minipage}{0.75\textwidth}
+    \centering
+    {\LARGE \textcolor{celesteoscuro}{\textbf{Proyecto de Muestreo}}}\\[0.4cm]
+    {\Large \textcolor{celesteprincipal}{\textbf{Encuesta CASEN 2022}}}\\[0.2cm]
+    {\normalsize \textcolor{grisoscuro}{Métodos y Diseño Muestral}}
+    \end{minipage}
+};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.3cm}
+
+% ============================================================================
+% AUTORES - GRUPO 4 CON DISEÑO EN GRID
+% ============================================================================
+\begin{center}
+{\large \textcolor{celesteprincipal}{\textbf{Grupo 4}}}
+\vspace{0.2cm}
+
+\begin{tikzpicture}
+% Definir posiciones en grid 2x2
+\node[rectangle, rounded corners=3pt, fill=celestefondo, 
+      inner sep=8pt, minimum width=0.35\textwidth, minimum height=0.8cm] 
+      at (0,0) {\textcolor{celesteoscuro}{\textbf{Alexander Pinto}}};
+      
+\node[rectangle, rounded corners=3pt, fill=celestefondo, 
+      inner sep=8pt, minimum width=0.35\textwidth, minimum height=0.8cm] 
+      at (5,0) {\textcolor{celesteoscuro}{\textbf{Esteban Román}}};
+
+\node[rectangle, rounded corners=3pt, fill=celestefondo, 
+      inner sep=8pt, minimum width=0.35\textwidth, minimum height=0.8cm] 
+      at (0,-1.1) {\textcolor{celesteoscuro}{\textbf{Julián Vargas}}};
+      
+\node[rectangle, rounded corners=3pt, fill=celestefondo, 
+      inner sep=8pt, minimum width=0.35\textwidth, minimum height=0.8cm] 
+      at (5,-1.1) {\textcolor{celesteoscuro}{\textbf{Francisca Sepúlveda}}};
+\end{tikzpicture}
+\end{center}
+
+\end{frame}
+}

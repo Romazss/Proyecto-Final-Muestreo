@@ -128,7 +128,12 @@ Proyecto-Final-Muestreo/
 │  ├─ RESUMEN_EJECUTIVO.md
 │  ├─ EJEMPLOS_CODIGO.md
 │  ├─ SINTESIS_FINAL.md
-│  └─ INDICE.md (este archivo)
+│  ├─ GAPS_INFORMACIONALES_CUBIERTOS.md  ← NUEVO
+│  ├─ REFERENCIAS_TECNICAS_DISEÑO_COMPLEJO.md  ← NUEVO
+│  ├─ INDICE.md (este archivo)
+│  ├─ ESTRATEGIA_GIT.md
+│  ├─ README_GITHUB.md
+│  └─ VERIFICACION_GITHUB.md
 │
 ├─ 📂 01_Datos/                 ← Aquí va CASEN 2022
 │
@@ -318,9 +323,39 @@ Para ir de un documento a otro:
 
 ---
 
+## 📘 NUEVOS DOCUMENTOS METODOLÓGICOS (Nov 2025)
+
+### Gaps Informacionales y Referencias Técnicas
+
+**📄 [GAPS_INFORMACIONALES_CUBIERTOS.md](GAPS_INFORMACIONALES_CUBIERTOS.md)**
+- Detalle completo de gaps identificados en diseño muestral CASEN 2022
+- Cómo fueron integrados en el beamer presentation
+- Cobertura del marco, niveles de inferencia, exclusiones
+- Métodos de análisis con diseño complejo
+- Referencias cruzadas a diapositivas específicas
+
+**📄 [REFERENCIAS_TECNICAS_DISEÑO_COMPLEJO.md](REFERENCIAS_TECNICAS_DISEÑO_COMPLEJO.md)**
+- Fórmulas completas: Horvitz-Thompson, Hájek, varianzas
+- Método EVCU/WR y linealización de Taylor
+- Regresión lineal y logística con diseño complejo
+- Errores estándar robustos (cluster)
+- Imputación múltiple (Reglas de Rubin)
+- Ajustes por comparaciones múltiples (BH, Holm-Bonferroni)
+- Dominios de estimación CASEN 2022
+- Referencias bibliográficas completas
+
+**Cuándo usar estos documentos:**
+- Cuando necesites justificar metodología estadística
+- Para incluir fórmulas en el informe LaTeX
+- Al responder preguntas sobre diseño muestral
+- Como material de referencia técnica
+- Para entender limitaciones de inferencia
+
+---
+
 ## 🏁 RESUMEN
 
-Has recibido **8 documentos** que cubren:
+Has recibido **10+ documentos** que cubren:
 - ✅ Introducción rápida (5 min)
 - ✅ Especificaciones completas (30 min)
 - ✅ Ejemplos de código (15 min)
@@ -328,6 +363,8 @@ Has recibido **8 documentos** que cubren:
 - ✅ Estructura visual (3 min)
 - ✅ Scripts Python reutilizables
 - ✅ Plantillas LaTeX listas
+- ✅ **Gaps informacionales cubiertos (NUEVO)**
+- ✅ **Referencias técnicas completas (NUEVO)**
 
 **Todo está aquí. Elige por dónde empezar.**
 
