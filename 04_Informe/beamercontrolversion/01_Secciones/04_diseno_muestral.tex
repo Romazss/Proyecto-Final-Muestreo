@@ -1,0 +1,137 @@
+% ============================================================================
+% DISEÑO MUESTRAL
+% ============================================================================
+\section{Diseño Muestral}
+
+\begin{frame}{Diseño Muestral}
+\begin{block}{Características principales}
+El diseño muestral de la Encuesta CASEN se caracteriza por ser:
+\end{block}
+
+\vspace{0.5cm}
+
+\begin{enumerate}
+    \item[\textcolor{celesteprincipal}{\textbf{1.}}] \textbf{Probabilístico:} Todas las unidades de la población tienen una probabilidad conocida y distinta de cero de ser seleccionadas
+    
+    \vspace{0.3cm}
+    
+    \item[\textcolor{celesteprincipal}{\textbf{2.}}] \textbf{Estratificado:} El territorio se divide en \textcolor{celesteoscuro}{\textbf{estratos geográficos y socioeconómicos}}
+    
+    \begin{itemize}
+        \item Mejora la precisión de las estimaciones
+        \item Asegura representatividad en distintos niveles (nacional, regional y urbano/rural)
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Diseño Muestral}
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item[\textcolor{celesteprincipal}{\textbf{3.}}] \textbf{Bietápico:} La selección se realiza en dos etapas:
+    
+    \vspace{0.4cm}
+    
+    \begin{block}{Primera etapa}
+    Selección \textbf{sistemática con probabilidad proporcional al tamaño (PPT)} de las \textcolor{celesteoscuro}{\textbf{unidades primarias de muestreo (UPM)}} - conglomerados de viviendas
+    \end{block}
+    
+    \vspace{0.3cm}
+    
+    \begin{block}{Segunda etapa}
+    Selección \textbf{aleatoria simple (MAS)} de \textcolor{celesteoscuro}{\textbf{viviendas}} dentro de cada unidad primaria
+    \end{block}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Tamaño Muestral}
+\begin{block}{Consideraciones para el tamaño de muestra óptimo}
+CASEN considera los siguientes criterios:
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{enumerate}
+    \item[\textcolor{celesteprincipal}{\textbf{1.}}] Representatividad del \textbf{territorio nacional}, regiones y zonas urbanas/rurales
+    
+    \vspace{0.2cm}
+    
+    \item[\textcolor{celesteprincipal}{\textbf{2.}}] \textbf{Simulaciones} para optimizar precisión
+\end{enumerate}     
+\end{frame}
+
+\begin{frame}{Tamaño de Muestra CASEN 2022}
+\begin{table}[h]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{>{\columncolor{celestefondo}}l l c c c c}
+\toprule
+\rowcolor{celesteprincipal}
+\textcolor{white}{\textbf{}} & \textcolor{white}{\textbf{Nivel}}  & \textcolor{white}{\textbf{Tamaño}} & \textcolor{white}{\textbf{Error}} & \textcolor{white}{\textbf{Error}} & \textcolor{white}{\textbf{Tamaño con}} \\
+\rowcolor{celesteprincipal}
+\textcolor{white}{\textbf{}} & \textcolor{white}{\textbf{}}  & \textcolor{white}{\textbf{Objetivo}} & \textcolor{white}{\textbf{Absoluto}} & \textcolor{white}{\textbf{Relativo}} & \textcolor{white}{\textbf{Sobremuestreo}} \\
+\midrule
+\rowcolor{white}
+ & \textbf{País}  & 71.028 & 0,4\% & 3,3\% & 106.856 \\
+\rowcolor{celestefondo}
+ & Urbano & 56.905 & 0,5\% & 4,6\% & 87.252  \\
+\rowcolor{white}
+ & Rural  & 14.123 & 1,3\% & 9,2\% & 19.604  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.2cm}
+\small
+\textcolor{grisoscuro}{\textit{Fuente: Manual Metodológico CASEN 2022, p. 35}}
+\end{frame}
+
+\begin{frame}{Marco Muestral}
+\begin{block}{Construcción del Marco}
+A partir del \textcolor{celesteoscuro}{\textbf{MMV 2020}} se elabora el marco de selección para CASEN 2022
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{itemize}
+    \item Conformado por \textbf{335 comunas} definidas para el nuevo diseño de la Encuesta Nacional de Empleo (ENE 2020)
+    
+    \vspace{0.2cm}
+    
+    \item Las UPM del marco muestral están estratificadas por:
+    \begin{enumerate}
+        \item[\textcolor{celesteprincipal}{$\bullet$}] \textbf{Geografía} (comunas)
+        \item[\textcolor{celesteprincipal}{$\bullet$}] \textbf{Áreas} (urbana–rural)
+        \item[\textcolor{celesteprincipal}{$\bullet$}] \textbf{Nivel socioeconómico (NSE)} - construida a partir de la clasificación del MMV 2020
+    \end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Nivel de Inferencia}
+\begin{block}{Objetivo Analítico}
+Producir inferencias hacia la población que reside en \textcolor{celesteoscuro}{\textbf{viviendas particulares ocupadas}} (elegibles)
+\end{block}
+
+\vspace{0.4cm}
+
+\begin{alertblock}{Exclusiones}
+No se consideran para fines analíticos las viviendas \textbf{no elegibles}:
+\end{alertblock}
+
+\vspace{0.2cm}
+
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+\begin{itemize}
+    \item Oficinas de empresas
+    \item Viviendas abandonadas
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{itemize}
+    \item Viviendas de veraneo
+    \item Viviendas demolidas
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}

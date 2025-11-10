@@ -1,0 +1,85 @@
+% ============================================================================
+% 00_preambulo_beamer.tex
+% ============================================================================
+% Preámbulo común para la presentación Beamer
+% Contiene paquetes, configuración de estilos y colores
+
+% ============================================================================
+% PAQUETES
+% ============================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+% ============================================================================
+% DEFINICIÓN DE COLORES PUC (Coherente con el informe)
+% ============================================================================
+\definecolor{celesteprincipal}{RGB}{0,150,200}
+\definecolor{celestesuave}{RGB}{135,206,235}
+\definecolor{celesteclaro}{RGB}{173,216,230}
+\definecolor{celesteoscuro}{RGB}{0,105,148}
+\definecolor{celestefondo}{RGB}{230,245,255}
+\definecolor{grisoscuro}{RGB}{64,64,64}
+
+% ============================================================================
+% CONFIGURACIÓN DE COLORES DEL TEMA
+% ============================================================================
+\setbeamercolor{structure}{fg=celesteoscuro}
+\setbeamercolor{palette primary}{bg=celesteprincipal,fg=white}
+\setbeamercolor{palette secondary}{bg=celestesuave,fg=white}
+\setbeamercolor{palette tertiary}{bg=celesteoscuro,fg=white}
+\setbeamercolor{palette quaternary}{bg=celesteclaro,fg=grisoscuro}
+
+\setbeamercolor{titlelike}{parent=palette primary}
+\setbeamercolor{frametitle}{bg=celesteprincipal,fg=white}
+\setbeamercolor{block title}{bg=celesteprincipal,fg=white}
+\setbeamercolor{block body}{bg=celestefondo,fg=grisoscuro}
+\setbeamercolor{item}{fg=celesteoscuro}
+\setbeamercolor{section in toc}{fg=celesteoscuro}
+
+% ============================================================================
+% CONFIGURACIÓN DE PLANTILLAS
+% ============================================================================
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[default]
+
+% Configuración de bloques con bordes redondeados
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+% ============================================================================
+% INFORMACIÓN DEL DOCUMENTO
+% ============================================================================
+\title[Métodos - CASEN 2022]{Análisis de Desigualdades Socioeconómicas}
+\subtitle{Encuesta CASEN 2022 - Métodos y Diseño Muestral}
+\author[Grupo 4]{
+    Alexander Pinto \and 
+    Esteban Román \and 
+    Julián Vargas \and 
+    Francisca Sepúlveda
+}
+\institute[PUC]{
+    \Large Pontificia Universidad Católica de Chile \\[0.3cm]
+    \small EYP2417 - Muestreo \\
+    \small Grupo 4
+}
+\date{11 de noviembre de 2025}
+
+% Logo en el pie de página
+\logo{\includegraphics[height=0.8cm]{../03_Logos/logo_kovan.jpg}}
+
+% ============================================================================
+% CONFIGURACIÓN DE BIBLIOGRAFÍA
+% ============================================================================
+\bibliographystyle{apalike}

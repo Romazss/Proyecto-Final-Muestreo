@@ -1,0 +1,76 @@
+% ============================================================================
+% METODOLOGÍA DETALLADA
+% ============================================================================
+\section{Metodología Detallada}
+
+\begin{frame}{Estimador de Horvitz-Thompson}
+\begin{block}{Estimador de la media ponderada}
+Para estimar medias y proporciones bajo un diseño muestral complejo, utilizamos el estimador de Horvitz-Thompson ajustado por el factor de expansión:
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{equation*}
+\textcolor{celesteoscuro}{\hat{\bar{Y}} = \frac{\sum_{i \in s} \frac{y_i}{\pi_i}}{\sum_{i \in s} \frac{1}{\pi_i}} \approx
+\frac{\sum_{i \in s} expr_i \, y_i}{\sum_{i \in s} expr_i}}
+\end{equation*}
+
+\vspace{0.3cm}
+
+donde:
+\begin{itemize}
+    \item $y_i$ corresponde a la \textbf{variable de interés}
+    \item $expr_i$ es el \textcolor{celesteoscuro}{\textbf{factor de expansión}} provisto por CASEN 2022
+    \item $\pi_i$ es la probabilidad de inclusión de la unidad $i$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Varianza del Estimador}
+\begin{block}{Varianza e intervalos de confianza}
+La varianza del estimador se calcula considerando el \textbf{efecto del diseño} (estratificación y conglomeración):
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{equation*}
+\textcolor{celesteoscuro}{V(\hat{Y}) = \sum_h \left(1 - \frac{n_h}{N_h}\right) \frac{s_h^2}{n_h}}
+\end{equation*}
+
+\vspace{0.4cm}
+
+\begin{alertblock}{Ponderadores}
+Se usará el factor de expansión \texttt{expr} para corregir las \textbf{probabilidades desiguales de selección} en el diseño muestral
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Software y Herramientas}
+\begin{block}{Implementación en R}
+Los métodos se implementarán utilizando los siguientes paquetes:
+\end{block}
+
+\vspace{0.4cm}
+
+\begin{columns}[t]
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+    \item[\textcolor{celesteprincipal}{$\checkmark$}] \texttt{survey} y \texttt{srvyr}
+    \begin{itemize}
+        \item Estimaciones bajo diseño complejo
+    \end{itemize}
+\end{itemize}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+    \item[\textcolor{celesteprincipal}{$\checkmark$}] \texttt{ggplot2}
+    \begin{itemize}
+        \item Visualización de datos
+    \end{itemize}
+    \item[\textcolor{celesteprincipal}{$\checkmark$}] \texttt{dplyr}
+    \begin{itemize}
+        \item Procesamiento de datos
+    \end{itemize}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
