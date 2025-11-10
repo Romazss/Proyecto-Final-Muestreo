@@ -1,0 +1,64 @@
+% ============================================================================
+% ARCHIVO PRINCIPAL: beamer_principal.tex
+% ============================================================================
+% Documento Beamer modular que integra todas las secciones de la presentación.
+% Este archivo es el único que se debe compilar con pdflatex.
+%
+% Para compilar:
+%   pdflatex -interaction=nonstopmode beamer_principal.tex
+%
+% Estructura modular:
+% - Preámbulo: Paquetes y configuración de colores
+% - Portada: Título y datos del grupo
+% - Cuerpo: Secciones separadas en archivos .tex
+% ============================================================================
+
+\documentclass[11pt,aspectratio=169]{beamer}
+
+% ============================================================================
+% TEMA Y CONFIGURACIÓN VISUAL
+% ============================================================================
+\usetheme{Madrid}
+\usecolortheme{default}
+\usefonttheme{serif}
+
+% ============================================================================
+% PREÁMBULO (Paquetes y configuración)
+% ============================================================================
+\input{00_preambulo_beamer.tex}
+
+% ============================================================================
+% INICIO DEL DOCUMENTO
+% ============================================================================
+\begin{document}
+
+% ============================================================================
+% PORTADA
+% ============================================================================
+\input{01_Secciones/01_portada.tex}
+
+% ============================================================================
+% TABLA DE CONTENIDOS
+% ============================================================================
+\input{01_Secciones/02_contenido.tex}
+
+% ============================================================================
+% CUERPO DE LA PRESENTACIÓN (Secciones modulares)
+% ============================================================================
+
+% Introducción
+\input{01_Secciones/03_introduccion.tex}
+
+% Diseño Muestral
+\input{01_Secciones/04_diseno_muestral.tex}
+
+% Plan de Análisis
+\input{01_Secciones/05_plan_analisis.tex}
+
+% Metodología Detallada
+\input{01_Secciones/06_metodologia_detallada.tex}
+
+% Cierre
+\input{01_Secciones/07_cierre.tex}
+
+\end{document}
