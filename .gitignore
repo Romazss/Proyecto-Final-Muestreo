@@ -211,3 +211,4 @@ secrets.json
 #   - Crea rama "datos" separada
 #   - O usa Git LFS para archivos grandes
 #   - O comparte link de descarga en README
+.Rproj.user

@@ -1,0 +1,67 @@
+% Preámbulo del informe final
+% Configuración de paquetes y estilos
+
+\documentclass[12pt, a4paper, oneside]{article}
+
+% Paquetes de idioma y codificación
+\usepackage[utf-8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% Márgenes y espaciado
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% Tipografía
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Gráficos y tablas
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{float}
+
+% Enlaces y referencias
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% Colores
+\usepackage{xcolor}
+
+% Numeración y estilos de secciones
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection.}{0.5em}{}
+
+% Encabezados y pies de página
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Informe Final - Proyecto de Muestreo}
+\lfoot{\today}
+\rfoot{\thepage}
+
+% Configuración de referencias bibliográficas
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\addbibresource{referencias.bib}
+
+% Configuración de código (si es necesario)
+\usepackage{listings}
+\lstset{
+    language=R,
+    breaklines=true,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    showstringspaces=false
+}
+
+% Configuración de títulos y autores
+\title{Informe Final - Proyecto de Muestreo}
+\author{Equipo de Proyecto}
+\date{\today}

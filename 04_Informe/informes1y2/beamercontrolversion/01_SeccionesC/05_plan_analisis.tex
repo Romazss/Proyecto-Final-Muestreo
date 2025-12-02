@@ -1,0 +1,155 @@
+% ============================================================================
+% PLAN DE ANÁLISIS
+% ============================================================================
+\section{Plan de Análisis}
+
+\begin{frame}{Objetivo 1: Brecha Salarial de Género}
+\begin{block}{Objetivo}
+Cuantificar y explicar las diferencias salariales por género controlando por factores socioeconómicos, laborales y educativos
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{alertblock}{Hipótesis de Investigación}
+\footnotesize
+\textbf{H1:} Existe una brecha salarial significativa entre hombres y mujeres ($\mu_{\text{hombre}} > \mu_{\text{mujer}}$), \\
+\phantom{\textbf{H1:}} incluso controlando por educación, edad, ocupación y composición del hogar
+\end{alertblock}
+
+\vspace{0.2cm}
+
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Variables principales:}}
+\begin{itemize}
+    \footnotesize
+    \item \texttt{sexo}: Sexo de la persona
+    \item \texttt{ytrabajocorh}: Ingreso del trabajo principal corregido
+    \item \texttt{esc}: Años de educación formal
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Variables de control:}}
+\begin{itemize}
+    \footnotesize
+    \item \texttt{edad}: Edad de la persona
+    \item \texttt{oficio4\_08}: Ocupación
+    \item \texttt{tot\_per\_h}: Total personas en el hogar
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Metodología - Objetivo 1}
+\begin{block}{Estrategia de Contrastación}
+Estimación en tres etapas con creciente control de confusores
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{enumerate}
+    \item[\textcolor{celesteprincipal}{\textbf{1.}}] \textbf{Análisis bivariado:} Test de diferencia de medias
+    \begin{itemize}
+        \footnotesize
+        \item \texttt{svyttest(ytrabajocorh \textasciitilde\  sexo)} 
+        \item Reporta brecha bruta sin controles
+    \end{itemize}
+    
+    \vspace{0.2cm}
+    
+    \item[\textcolor{celesteprincipal}{\textbf{2.}}] \textbf{Modelo ajustado (controles socioeconómicos):}
+    \begin{itemize}
+        \footnotesize
+        \item \texttt{svyglm(ytrabajocorh \textasciitilde\  sexo + esc + edad)}
+        \item Aísla efecto directo del género
+    \end{itemize}
+    
+    \vspace{0.2cm}
+    
+    \item[\textcolor{celesteprincipal}{\textbf{3.}}] \textbf{Modelo completo (controles laborales):}
+    \begin{itemize}
+        \footnotesize
+        \item Incluye \texttt{oficio4\_08} y \texttt{tot\_per\_h}
+        \item Evalúa mediación por segregación ocupacional
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.1cm}
+\footnotesize
+\textcolor{grisoscuro}{\textit{Decisión: Rechazar H0 si p < 0.05 en modelo completo con coeficiente $\beta_{\text{sexo}} < 0$}}
+\end{frame}
+
+\begin{frame}{Objetivo 2: Distribución de la Pobreza}
+\begin{block}{Objetivo}
+Cuantificar disparidades territorial-educativas en la prevalencia de pobreza y sus determinantes estructurales
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{alertblock}{Hipótesis de Investigación}
+\footnotesize
+\textbf{H2a:} La tasa de pobreza en zona rural es significativamente mayor que en zona urbana ($p_{\text{rural}} > p_{\text{urbano}}$) \\[0.1cm]
+\textbf{H2b:} La educación reduce la probabilidad de pobreza, con efecto más pronunciado en zonas urbanas
+\end{alertblock}
+
+\vspace{0.2cm}
+
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Variables principales:}}
+\begin{itemize}
+    \footnotesize
+    \item \texttt{pobreza}: Condición de pobreza
+    \item \texttt{ytotcorh}: Ingreso total corregido
+    \item \texttt{zona}: Rural/Urbana
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Variables de control:}}
+\begin{itemize}
+    \footnotesize
+    \item \texttt{esc}: Años de educación
+    \item \texttt{región}: Región del país
+    \item \texttt{edad}: Edad de la persona
+    \item \texttt{expr}: Factor de expansión
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Metodología - Objetivo 2}
+\begin{block}{Estrategia de Contrastación Secuencial}
+Tres análisis complementarios para triangular evidencia
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{enumerate}
+    \item[\textcolor{celesteprincipal}{\textbf{1.}}] \textbf{H2a - Test bivariado:} 
+    \begin{itemize}
+        \footnotesize
+        \item \texttt{svychisq(\textasciitilde\  pobreza + zona)} - Prueba de independencia
+        \item \texttt{svyttest(ytotcorh \textasciitilde\  zona)} - Diferencia de ingresos
+    \end{itemize}
+    
+    \vspace{0.1cm}
+    
+    \item[\textcolor{celesteprincipal}{\textbf{2.}}] \textbf{H2b - Modelo logístico principal:}
+    \begin{itemize}
+        \footnotesize
+        \item \texttt{svyglm(pobreza \textasciitilde\  zona + esc + edad, family=quasibinomial())}
+        \item Comparar OR de educación entre zonas
+    \end{itemize}
+    
+    \vspace{0.1cm}
+    
+    \item[\textcolor{celesteprincipal}{\textbf{3.}}] \textbf{H2b - Análisis de mediación:}
+    \begin{itemize}
+        \footnotesize
+        \item Estimar efecto indirecto de zona vía educación
+        \item Test de Sobel para significancia del efecto mediador
+    \end{itemize}
+\end{enumerate}
+\end{frame}

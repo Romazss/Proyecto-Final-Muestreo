@@ -1,0 +1,100 @@
+% ============================================================================
+% PLAN DE ANÁLISIS
+% ============================================================================
+\section{Plan de Análisis}
+
+\begin{frame}{Objetivo 1: Brecha Salarial de Género}
+\begin{block}{Objetivo}
+Analizar diferencias por género en variables socioeconómicas, laborales y educativas utilizando CASEN 2022
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Variables principales:}}
+\begin{itemize}
+    \item \texttt{sexo}: Sexo de la persona
+    \item \texttt{ytrabajocorh}: Ingreso del trabajo principal corregido
+    \item \texttt{esc}: Años de educación formal
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Variables de control:}}
+\begin{itemize}
+    \item \texttt{edad}: Edad de la persona
+    \item \texttt{oficio4\_08}: Ocupación
+    \item \texttt{tot\_per\_h}: Total personas en el hogar
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Metodología - Objetivo 1}
+\begin{block}{Métodos Propuestos}
+Análisis de la brecha salarial de género
+\end{block}
+
+\vspace{0.4cm}
+
+\begin{enumerate}
+    \item[\textcolor{celesteprincipal}{\textbf{1.}}] \textbf{Análisis descriptivo:} Cálculo de ingresos promedio del trabajo principal según sexo
+    
+    \vspace{0.3cm}
+    
+    \item[\textcolor{celesteprincipal}{\textbf{2.}}] \textbf{Modelo de regresión lineal ponderado:}
+    \begin{itemize}
+        \item Variable dependiente: \texttt{ytrabajocorh} (Ingreso)
+        \item Variables explicativas: sexo, educación, edad y ocupación
+        \item Utiliza factores de expansión del diseño muestral
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Objetivo 2: Distribución de la Pobreza}
+\begin{block}{Objetivo}
+Explorar la distribución de la pobreza y diferencias entre zonas rural y urbana
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Variables principales:}}
+\begin{itemize}
+    \item \texttt{pobreza}: Condición de pobreza
+    \item \texttt{ytotcorh}: Ingreso total corregido
+    \item \texttt{zona}: Rural/Urbana
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Variables de control:}}
+\begin{itemize}
+    \item \texttt{esc}: Años de educación
+    \item \texttt{región}: Región del país
+    \item \texttt{edad}: Edad de la persona
+    \item \texttt{expr}: Factor de expansión
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Metodología - Objetivo 2}
+\begin{block}{Métodos Propuestos}
+Análisis multidimensional de la pobreza
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{enumerate}
+    \item[\textcolor{celesteprincipal}{\textbf{1.}}] Calcular el \textbf{porcentaje de hogares en pobreza} por región y zona (rural/urbana)
+    
+    \item[\textcolor{celesteprincipal}{\textbf{2.}}] Comparar el \textbf{ingreso promedio} según nivel educativo y tamaño del hogar
+    
+    \item[\textcolor{celesteprincipal}{\textbf{3.}}] \textbf{Pruebas de hipótesis ponderadas} para determinar si las diferencias entre zonas son estadísticamente significativas
+    
+    \item[\textcolor{celesteprincipal}{\textbf{4.}}] \textbf{Modelo de regresión logística} para explorar condiciones de pobreza con variables: educación, tamaño del hogar, edad y zona
+\end{enumerate}
+\end{frame}

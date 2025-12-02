@@ -1,0 +1,105 @@
+% ============================================================================
+% DISEÑO MUESTRAL
+% ============================================================================
+\section{Diseño Muestral}
+
+\begin{frame}{Tipo de Diseño Muestral}
+\begin{block}{CASEN 2022: Diseño Estratificado Bietápico}
+Diseño \textbf{probabilístico}, \textbf{estratificado} y \textbf{bietápico}
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Etapa 1: Selección UPM}}
+\begin{itemize}
+    \footnotesize
+    \item \textbf{PPT sistemática sin reemplazo} de conglomerados (UPM)
+    \item Variable de tamaño: \textbf{número de viviendas} por UPM
+    \item 12.545 UPM seleccionadas
+    \item 764 estratos (comuna × área × NSE)
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Etapa 2: Selección viviendas}}
+\begin{itemize}
+    \footnotesize
+    \item \textbf{MAS} dentro de cada UPM
+    \item Total: 106.856 viviendas
+    \item Con sobremuestreo
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{Estratificación}
+\footnotesize
+Estratos definidos por: \textbf{Geografía} (335 comunas) × \textbf{Área} (urbano/rural) × \textbf{NSE}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Tamaño de Muestra CASEN 2022}
+\begin{table}[h]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{>{\columncolor{celestefondo}}l l c c c c}
+\toprule
+\rowcolor{celesteprincipal}
+\textcolor{white}{\textbf{}} & \textcolor{white}{\textbf{Nivel}}  & \textcolor{white}{\textbf{Tamaño}} & \textcolor{white}{\textbf{Error}} & \textcolor{white}{\textbf{Error}} & \textcolor{white}{\textbf{Tamaño con}} \\
+\rowcolor{celesteprincipal}
+\textcolor{white}{\textbf{}} & \textcolor{white}{\textbf{}}  & \textcolor{white}{\textbf{Objetivo}} & \textcolor{white}{\textbf{Absoluto}} & \textcolor{white}{\textbf{Relativo}} & \textcolor{white}{\textbf{Sobremuestreo}} \\
+\midrule
+\rowcolor{white}
+ & \textbf{País}  & 71.028 & 0,4\% & 3,3\% & 106.856 \\
+\rowcolor{celestefondo}
+ & Urbano & 56.905 & 0,5\% & 4,6\% & 87.252  \\
+\rowcolor{white}
+ & Rural  & 14.123 & 1,3\% & 9,2\% & 19.604  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.2cm}
+\small
+\textcolor{grisoscuro}{\textit{Fuente: Manual Metodológico CASEN 2022, p. 35}}
+\end{frame}
+
+\begin{frame}{Marco Muestral y Niveles de Inferencia}
+\begin{block}{Marco: MMV 2020}
+Base: Censo 2017 actualizado a 2020 con verificación local (335 comunas, 12.545 UPM)
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Niveles de Inferencia:}}
+\begin{itemize}
+    \footnotesize
+    \item[\checkmark] Nacional
+    \item[\checkmark] Nacional urbano/rural
+    \item[\checkmark] Regional (16 regiones)
+    \item[$\times$] \textbf{NO comunal}
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Exclusiones:}}
+\begin{itemize}
+    \footnotesize
+    \item 10 comunas especiales (Isla de Pascua, Juan Fernández, etc.)
+    \item UPM específicas (11 UPM)
+    \item Viviendas no elegibles
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.3cm}
+
+\footnotesize
+\textcolor{grisoscuro}{\textit{Fuente: Diseño Muestral CASEN 2022; Nota Técnica N°3}}
+\end{frame}

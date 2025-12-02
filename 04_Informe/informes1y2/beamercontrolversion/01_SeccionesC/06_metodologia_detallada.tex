@@ -1,0 +1,181 @@
+% ============================================================================
+% METODOLOGÍA DETALLADA
+% ============================================================================
+\section{Metodología Detallada}
+
+\begin{frame}{Estimadores}
+\begin{block}{Estimador de Horvitz-Thompson (Media ponderada)}
+$$\textcolor{celesteoscuro}{\hat{\bar{Y}} = \frac{\sum_{i \in s} w_i \, y_i}{\sum_{i \in s} w_i}}$$
+donde $w_i = \texttt{expr}_i$ es el factor de expansión de CASEN 2022
+\end{block}
+
+\vspace{0.4cm}
+
+\begin{block}{Aplicación en CASEN}
+\begin{itemize}
+    \item Corrige probabilidades desiguales de selección (PPT en 1ª etapa)
+    \item Factor $w_i$ incluye ajustes de no-respuesta y calibración
+    \item Se usa para medias, totales y proporciones poblacionales
+\end{itemize}
+\end{block}
+
+\vspace{0.3cm}
+
+\footnotesize
+\textcolor{grisoscuro}{\textit{Ref: Diseño Muestral CASEN 2022, ecs. (43)–(44)}}
+\end{frame}
+
+\begin{frame}{Varianzas y Errores Estándar}
+\begin{block}{Varianzas: EVCU/WR oficial (sin FPC, $f_h=0$)}
+$$\textcolor{celesteoscuro}{V(\hat{\bar{Y}}) = \sum_{h} \frac{1}{n_h(n_h-1)} \sum_{i=1}^{n_h} \left(z_{hi} - \bar{z}_h\right)^2}$$
+\footnotesize
+donde $z_{hi} = w_{hi}(y_{hi} - \hat{\bar{Y}})$ es el residuo ponderado en estrato $h$
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{block}{Implementación}
+\footnotesize
+Variables de diseño: \texttt{varstrat} (estratos) y \texttt{varunit} (UPM). Linealización de Taylor para totales/razones.
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{alertblock}{Nota: Aproximación WR}
+\scriptsize
+Aunque la 1ª etapa es \textbf{sin reemplazo} (PPT sistemática), se usa fórmula \textbf{WR sin FPC} como aproximación conservadora estándar en encuestas complejas (fracciones de muestreo pequeñas $\Rightarrow$ efecto despreciable).
+\end{alertblock}
+
+\vspace{0.1cm}
+
+\footnotesize
+\textcolor{grisoscuro}{\textit{Ref: Diseño Muestral CASEN 2022, ecs. (45)–(47)}}
+\end{frame}
+
+\begin{frame}{Software y Ponderadores}
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Software Principal (R):}}
+\begin{itemize}
+    \footnotesize
+    \item \texttt{survey} / \texttt{srvyr}: Diseño complejo, svyglm()
+    \item \texttt{mice} / \texttt{mitools}: Imputación múltiple
+    \item \texttt{sandwich}: Errores robustos
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textcolor{celesteoscuro}{\textbf{Soporte (Python):}}
+\begin{itemize}
+    \footnotesize
+    \item \texttt{pandas}, \texttt{numpy}: Procesamiento
+    \item Solo para QA descriptivo
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Ponderadores:}}
+\begin{itemize}
+    \footnotesize
+    \item Variable: \texttt{expr} (CASEN 2022)
+    \item Corrige probabilidades desiguales de selección
+    \item Aplicado en todos los estimadores
+\end{itemize}
+
+\vspace{0.2cm}
+
+\begin{alertblock}{Inferencia}
+\footnotesize
+Toda inferencia por diseño se realiza en R con \texttt{survey}
+\end{alertblock}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Regresiones con Diseño Complejo}
+\begin{block}{Método: \texttt{survey::svyglm()} con Linealización de Taylor}
+Declarar diseño (\texttt{svydesign}) antes de estimar. Respeta estratos, UPM y pesos.
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Modelos GLM:}}
+\begin{itemize}
+    \footnotesize
+    \item Lineal: \texttt{svyglm(y \textasciitilde\  x)}
+    \item Logística: \texttt{family=quasibinomial()}
+    \item Poisson: \texttt{family=quasipoisson()}
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textcolor{celesteoscuro}{\textbf{Errores Estándar:}}
+\begin{itemize}
+    \footnotesize
+    \item \textbf{Estándar:} EE por diseño (Taylor)
+    \item \textbf{Sensibilidad:} HC/cluster documentada
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+% Sección 'Grados de Libertad' eliminada según solicitud del autor.
+% (Originalmente: DF = degf(design) = #PSU - #estratos; se quitó para simplificar la diapositiva.)
+\vspace{0.1cm}
+
+\textcolor{celesteoscuro}{\textbf{Inferencia:}}
+\begin{itemize}
+    \footnotesize
+    \item $\alpha = 0.05$ | IC 95\% por diseño
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Manejo de Datos Faltantes}
+\begin{block}{Política Oficial CASEN}
+\textbf{CASEN no imputa} excepto variables de ingreso (metodología Mideplan oficial).
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Análisis Principal:}}
+\begin{itemize}
+    \footnotesize
+    \item \texttt{subset()} sobre diseño (preserva pesos)
+    \item Reportar \% missingness por variable
+    \item Justificar exclusión si >5\%
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textcolor{celesteoscuro}{\textbf{Sensibilidad (si aplica):}}
+\begin{itemize}
+    \footnotesize
+    \item IM solo si \% missing sustantivo
+    \item Justificar supuesto MAR explícitamente
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textcolor{celesteoscuro}{\textbf{Flujo IM + Diseño:}}
+\begin{enumerate}
+    \footnotesize
+    \item \texttt{mice::mice(data, m=20)}
+    \item \texttt{svydesign} por imputación
+    \item Ajustar modelo en cada una
+    \item \texttt{MIcombine()} (Reglas de Rubin)
+\end{enumerate}
+
+\vspace{0.1cm}
+
+\begin{alertblock}{\footnotesize Nota}
+\footnotesize
+Documentar mecanismo de missing y comparar con casos completos
+\end{alertblock}
+\end{column}
+\end{columns}
+\end{frame}

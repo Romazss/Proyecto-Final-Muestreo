@@ -1,0 +1,793 @@
+% ============================================================================
+% ANÁLISIS DE GAPS - VERIFICACIÓN DE CONTENIDOS MÍNIMOS
+% Documento para identificar información faltante en la presentación
+% ============================================================================
+
+\documentclass[11pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usefonttheme{serif}
+
+% Cargar preámbulo
+\input{../00_preambulo_beamer.tex}
+
+% Definir colores adicionales para gaps
+\definecolor{gapurgente}{RGB}{220,20,60}      % Rojo para gaps críticos
+\definecolor{gapmedio}{RGB}{255,165,0}        % Naranja para gaps medios
+\definecolor{gapbajo}{RGB}{255,215,0}         % Amarillo para gaps menores
+\definecolor{completo}{RGB}{34,139,34}        % Verde para secciones completas
+
+\title{Análisis de Gaps}
+\subtitle{Verificación de Contenidos Mínimos}
+\author{Grupo 4}
+\date{Noviembre 2025}
+
+\begin{document}
+
+% ============================================================================
+% PORTADA
+% ============================================================================
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+% ============================================================================
+% TABLA DE CONTENIDOS
+% ============================================================================
+\begin{frame}{Índice de Verificación}
+\tableofcontents
+\end{frame}
+
+% ============================================================================
+% SECCIÓN 1: DISEÑO MUESTRAL
+% ============================================================================
+\section{Diseño Muestral}
+
+\begin{frame}{1. Diseño Muestral - Estado General}
+\begin{block}{Resumen de Completitud}
+Estado de verificación de los 4 componentes del diseño muestral
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{tabular}{l c l}
+\toprule
+\textbf{Componente} & \textbf{Estado} & \textbf{Completitud} \\
+\midrule
+Tipo de Diseño & \textcolor{completo}{✓} & 95\% \\
+Tamaño de Muestra & \textcolor{gapmedio}{⚠} & 70\% \\
+Marco Muestral & \textcolor{completo}{✓} & 90\% \\
+Nivel de Inferencia & \textcolor{gapmedio}{⚠} & 65\% \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{Completitud General}
+\textbf{80\%} - Requiere ajustes en 2 componentes
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{1.1 Tipo de Diseño - Análisis Detallado}
+\begin{block}{\textcolor{completo}{✓} Información Presente (95\%)}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Diseño probabilístico claramente explicado
+    \item[\textcolor{completo}{✓}] Estratificación geográfica y socioeconómica detallada
+    \item[\textcolor{completo}{✓}] Diseño bietápico con etapas bien definidas
+    \item[\textcolor{completo}{✓}] PPT en primera etapa y MAS en segunda etapa
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Gap Menor Identificado (5\%)}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Justificación explícita de por qué se eligió diseño bietápico vs. otras alternativas
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Mención del efecto de diseño (DEFF) estimado
+\end{itemize}
+\end{frame}
+
+\begin{frame}{1.2 Tamaño de Muestra - Análisis Detallado}
+\begin{block}{\textcolor{completo}{✓} Información Presente (70\%)}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Tabla con tamaño de muestra por nivel (nacional, urbano, rural)
+    \item[\textcolor{completo}{✓}] Errores absolutos y relativos presentados
+    \item[\textcolor{completo}{✓}] Mención de sobremuestreo
+    \item[\textcolor{completo}{✓}] Criterios generales para tamaño de muestra
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Gaps Identificados (30\%)}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Explicación de cómo se calcularon los errores (fórmulas)
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Justificación del nivel de confianza usado (95\%?)
+    \item[\textcolor{gapurgente}{✗}] \textbf{Falta:} Tasa de respuesta esperada vs. obtenida
+    \item[\textcolor{gapurgente}{✗}] \textbf{Falta:} Impacto de no respuesta en precisión
+\end{itemize}
+\end{frame}
+
+\begin{frame}{1.3 Marco Muestral - Análisis Detallado}
+\begin{block}{\textcolor{completo}{✓} Información Presente (90\%)}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Mención del MMV 2020 como base
+    \item[\textcolor{completo}{✓}] 335 comunas identificadas
+    \item[\textcolor{completo}{✓}] Estratificación por geografía, área y NSE
+    \item[\textcolor{completo}{✓}] Conexión con ENE 2020
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Gaps Menores (10\%)}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Fecha de actualización del marco (¿2020 está actualizado para 2022?)
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Número total de UPM en el marco
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Cobertura del marco (¿qué \% de la población?)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{1.4 Nivel de Inferencia - Análisis Detallado}
+\begin{block}{\textcolor{completo}{✓} Información Presente (65\%)}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Objetivo: viviendas particulares ocupadas
+    \item[\textcolor{completo}{✓}] Exclusión de viviendas no elegibles claramente listada
+    \item[\textcolor{completo}{✓}] Mención de áreas especiales excluidas (introducción)
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapurgente}{✗} Gaps Importantes (35\%)}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapurgente}{✗}] \textbf{Falta:} Niveles específicos de inferencia (¿nacional? ¿regional? ¿comunal?)
+    \item[\textcolor{gapurgente}{✗}] \textbf{Falta:} ¿Se puede inferir a nivel de zona urbana/rural por región?
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Limitaciones de inferencia explícitas
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} ¿Qué \% de la población queda excluida?
+\end{itemize}
+\end{frame}
+
+% ============================================================================
+% SECCIÓN 2: PLAN DE ANÁLISIS
+% ============================================================================
+\section{Plan de Análisis}
+
+\begin{frame}{2. Plan de Análisis - Estado General}
+\begin{block}{Resumen de Completitud}
+Estado de verificación de los 3 componentes del plan de análisis
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{tabular}{l c l}
+\toprule
+\textbf{Componente} & \textbf{Estado} & \textbf{Completitud} \\
+\midrule
+Objetivos Específicos & \textcolor{completo}{✓} & 85\% \\
+Variables Involucradas & \textcolor{completo}{✓} & 90\% \\
+Métodos Propuestos & \textcolor{gapmedio}{⚠} & 70\% \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{Completitud General}
+\textbf{82\%} - Requiere ajustes en métodos propuestos
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{2.1 Objetivos Específicos - Análisis Detallado}
+\begin{block}{\textcolor{completo}{✓} Información Presente (85\%)}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Objetivo 1: Brecha salarial de género claramente definido
+    \item[\textcolor{completo}{✓}] Objetivo 2: Distribución de pobreza bien articulado
+    \item[\textcolor{completo}{✓}] Ambos objetivos son medibles y específicos
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Gaps Identificados (15\%)}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Conexión explícita entre objetivos y diseño muestral
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} ¿Por qué estos objetivos son importantes para CASEN?
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Hipótesis de investigación explícitas
+\end{itemize}
+\end{frame}
+
+\begin{frame}{2.2 Variables Involucradas - Análisis Detallado}
+\begin{block}{\textcolor{completo}{✓} Información Presente (90\%)}
+\end{block}
+
+\textbf{Objetivo 1 - Brecha Salarial:}
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Variable dependiente: \texttt{ytrabajocorh}
+    \item[\textcolor{completo}{✓}] Variables principales: sexo, esc, edad, oficio4\_08
+    \item[\textcolor{completo}{✓}] Variable estructural: tot\_per\_h
+\end{itemize}
+
+\textbf{Objetivo 2 - Pobreza:}
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Variable dependiente: \texttt{pobreza}
+    \item[\textcolor{completo}{✓}] Variables principales: zona, ytotcorh, esc, región, edad
+    \item[\textcolor{completo}{✓}] Ponderador: expr
+\end{itemize}
+
+\vspace{0.2cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Gap Menor (10\%)}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Descripción de escalas de medición (continua, categórica, ordinal)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{2.3 Métodos Propuestos - Análisis Detallado (1/2)}
+\begin{block}{\textcolor{completo}{✓} Información Presente (70\%)}
+\end{block}
+
+\textbf{Objetivo 1:}
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Análisis descriptivo mencionado
+    \item[\textcolor{completo}{✓}] Regresión lineal ponderada propuesta
+    \item[\textcolor{completo}{✓}] Uso de factores de expansión mencionado
+\end{itemize}
+
+\textbf{Objetivo 2:}
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Cálculo de porcentajes de pobreza
+    \item[\textcolor{completo}{✓}] Comparación de ingresos promedio
+    \item[\textcolor{completo}{✓}] Pruebas de hipótesis ponderadas
+    \item[\textcolor{completo}{✓}] Regresión logística propuesta
+\end{itemize}
+\end{frame}
+
+\begin{frame}{2.3 Métodos Propuestos - Análisis Detallado (2/2)}
+\begin{alertblock}{\textcolor{gapurgente}{✗} Gaps Importantes (30\%)}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapurgente}{✗}] \textbf{Falta:} ¿Cómo se incorpora el diseño complejo en las regresiones?
+    \item[\textcolor{gapurgente}{✗}] \textbf{Falta:} ¿Qué paquetes de R/Python se usarán para cada método?
+    \item[\textcolor{gapurgente}{✗}] \textbf{Falta:} ¿Cómo se calculan errores estándar robustos?
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Nivel de significancia para pruebas de hipótesis
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} ¿Cómo se manejan valores missing?
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} ¿Se harán ajustes por comparaciones múltiples?
+\end{itemize}
+\end{frame}
+
+% ============================================================================
+% SECCIÓN 3: METODOLOGÍA DETALLADA
+% ============================================================================
+\section{Metodología Detallada}
+
+\begin{frame}{3. Metodología Detallada - Estado General}
+\begin{block}{Resumen de Completitud}
+Estado de verificación de los 5 componentes de metodología detallada
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{tabular}{l c l}
+\toprule
+\textbf{Componente} & \textbf{Estado} & \textbf{Completitud} \\
+\midrule
+Estimadores Usados & \textcolor{completo}{✓} & 85\% \\
+Varianzas & \textcolor{gapmedio}{⚠} & 75\% \\
+Ponderadores & \textcolor{completo}{✓} & 90\% \\
+Software & \textcolor{completo}{✓} & 95\% \\
+Limitaciones & \textcolor{gapurgente}{✗} & 0\% \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{Completitud General}
+\textbf{69\%} - \textcolor{gapurgente}{¡GAP CRÍTICO en limitaciones!}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{3.1 Estimadores Usados - Análisis Detallado}
+\begin{block}{\textcolor{completo}{✓} Información Presente (85\%)}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Estimador de Horvitz-Thompson presentado
+    \item[\textcolor{completo}{✓}] Fórmula matemática correcta
+    \item[\textcolor{completo}{✓}] Notación bien definida ($y_i$, $\pi_i$, $expr_i$)
+    \item[\textcolor{completo}{✓}] Aproximación con factor de expansión mostrada
+    \item[\textcolor{completo}{✓}] Explicación de componentes incluida
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Gaps Menores (15\%)}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Relación entre $\pi_i$ y $expr_i$ (¿son inversos?)
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} ¿Cómo se obtienen las probabilidades de inclusión?
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Estimador para totales además de medias
+\end{itemize}
+\end{frame}
+
+\begin{frame}{3.2 Varianzas - Análisis Detallado}
+\begin{block}{\textcolor{completo}{✓} Información Presente (75\%)}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Fórmula de varianza presentada
+    \item[\textcolor{completo}{✓}] Consideración del efecto del diseño mencionada
+    \item[\textcolor{completo}{✓}] Estratificación incluida en fórmula
+    \item[\textcolor{completo}{✓}] Corrección por población finita (1 - n/N)
+    \item[\textcolor{completo}{✓}] Mención de intervalos de confianza
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Gaps Identificados (25\%)}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapurgente}{✗}] \textbf{Falta:} ¿Cómo se incorpora la conglomeración en la varianza?
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Método de estimación de varianza (linearización, bootstrap, jackknife?)
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} ¿Cómo se calculan grados de libertad?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{3.3 Ponderadores - Análisis Detallado}
+\begin{block}{\textcolor{completo}{✓} Información Presente (90\%)}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Factor de expansión \texttt{expr} claramente identificado
+    \item[\textcolor{completo}{✓}] Justificación: corrección de probabilidades desiguales
+    \item[\textcolor{completo}{✓}] Integración en estimador de Horvitz-Thompson
+    \item[\textcolor{completo}{✓}] Uso en análisis de regresión mencionado
+    \item[\textcolor{completo}{✓}] Alertblock destacando importancia de ponderadores
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Gaps Menores (10\%)}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} ¿Los ponderadores incluyen ajustes por no respuesta?
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Rango de valores del factor de expansión
+\end{itemize}
+\end{frame}
+
+\begin{frame}{3.4 Software - Análisis Detallado}
+\begin{block}{\textcolor{completo}{✓} Información Presente (95\%)}
+\end{block}
+
+\textbf{Paquetes de R:}
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] \texttt{survey} y \texttt{srvyr} - diseño complejo
+    \item[\textcolor{completo}{✓}] \texttt{ggplot2} - visualización
+    \item[\textcolor{completo}{✓}] \texttt{dplyr} - procesamiento
+\end{itemize}
+
+\textbf{Paquetes de Python:}
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] \texttt{pandas} - manipulación
+    \item[\textcolor{completo}{✓}] \texttt{numpy} - cálculos numéricos
+    \item[\textcolor{completo}{✓}] \texttt{matplotlib} y \texttt{seaborn} - visualización
+    \item[\textcolor{completo}{✓}] \texttt{statsmodels} - análisis estadístico
+\end{itemize}
+
+\vspace{0.2cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Gap Menor (5\%)}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapmedio}{⚠}] \textbf{Falta:} Versiones específicas de software/paquetes
+\end{itemize}
+\end{frame}
+
+\begin{frame}{3.5 Limitaciones - Análisis Detallado}
+\begin{alertblock}{\textcolor{gapurgente}{✗✗✗ GAP CRÍTICO (0\% de información)}}
+\textbf{NO HAY NINGUNA DIAPOSITIVA SOBRE LIMITACIONES}
+\end{alertblock}
+
+\vspace{0.3cm}
+
+\begin{block}{Limitaciones que DEBEN ser agregadas:}
+\end{block}
+
+\begin{enumerate}
+    \item[\textcolor{gapurgente}{✗}] \textbf{Limitaciones del diseño muestral:}
+    \begin{itemize}
+        \item Exclusión de áreas especiales
+        \item No inferencia a nivel comunal en todos los casos
+        \item Efecto del diseño aumenta varianza vs. MAS
+    \end{itemize}
+    
+    \item[\textcolor{gapurgente}{✗}] \textbf{Limitaciones de los datos:}
+    \begin{itemize}
+        \item Sesgo de no respuesta
+        \item Datos autoreportados (subjetividad)
+        \item Missing values en variables clave
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{3.5 Limitaciones - Análisis Detallado (cont.)}
+\begin{block}{Limitaciones que DEBEN ser agregadas (continuación):}
+\end{block}
+
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item[\textcolor{gapurgente}{✗}] \textbf{Limitaciones metodológicas:}
+    \begin{itemize}
+        \item Causalidad vs. asociación en análisis de regresión
+        \item Variables confundidoras no incluidas
+        \item Supuestos de los modelos estadísticos
+    \end{itemize}
+    
+    \item[\textcolor{gapurgente}{✗}] \textbf{Limitaciones de inferencia:}
+    \begin{itemize}
+        \item Representatividad solo para viviendas particulares
+        \item Datos de corte transversal (no se puede analizar cambios temporales)
+        \item Intervalos de confianza pueden ser amplios en subgrupos pequeños
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{Acción Requerida}
+\textbf{CREAR UNA O DOS DIAPOSITIVAS DE LIMITACIONES}
+\end{alertblock}
+\end{frame}
+
+% ============================================================================
+% SECCIÓN 4: CRITERIOS DE EVALUACIÓN
+% ============================================================================
+\section{Criterios de Evaluación}
+
+\begin{frame}{4. Criterios de Evaluación - Estado General}
+\begin{block}{Resumen de Completitud}
+Evaluación contra criterios del curso
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{tabular}{l c l}
+\toprule
+\textbf{Criterio} & \textbf{Estado} & \textbf{Evaluación} \\
+\midrule
+Claridad Exposición Oral & \textcolor{completo}{✓} & Bueno \\
+Comprensión Diseño & \textcolor{completo}{✓} & Muy Bueno \\
+Rigor Metodológico & \textcolor{gapmedio}{⚠} & Regular \\
+Calidad Diapositivas & \textcolor{completo}{✓} & Muy Bueno \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{Evaluación General}
+\textbf{Bueno con reservas} - Rigor metodológico afectado por falta de limitaciones
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{4.1 Claridad en Exposición Oral}
+\begin{block}{\textcolor{completo}{✓} Fortalezas}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Texto conciso en diapositivas
+    \item[\textcolor{completo}{✓}] Puntos clave bien resaltados con colores
+    \item[\textcolor{completo}{✓}] Uso de bloques para organizar información
+    \item[\textcolor{completo}{✓}] Buena estructura con secciones claras
+    \item[\textcolor{completo}{✓}] Transiciones lógicas entre temas
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Áreas de Mejora}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapmedio}{⚠}] Algunas diapositivas tienen mucho texto (especialmente metodología)
+    \item[\textcolor{gapmedio}{⚠}] Falta estimación de tiempo por sección
+    \item[\textcolor{gapmedio}{⚠}] Considerar agregar más ejemplos visuales
+\end{itemize}
+\end{frame}
+
+\begin{frame}{4.2 Comprensión del Diseño Muestral}
+\begin{block}{\textcolor{completo}{✓} Fortalezas}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Explicación clara de diseño bietápico
+    \item[\textcolor{completo}{✓}] Buena descripción de estratificación
+    \item[\textcolor{completo}{✓}] Conexión entre marco muestral y UPM
+    \item[\textcolor{completo}{✓}] Presentación de tamaño de muestra con tabla
+    \item[\textcolor{completo}{✓}] Mención de métodos de selección (PPT, MAS)
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Áreas de Mejora}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapmedio}{⚠}] Falta justificación de elecciones de diseño
+    \item[\textcolor{gapmedio}{⚠}] No se explicita nivel de inferencia específico
+    \item[\textcolor{gapmedio}{⚠}] Falta discusión de implicaciones del diseño para análisis
+\end{itemize}
+\end{frame}
+
+\begin{frame}{4.3 Rigurosidad y Coherencia Metodológica}
+\begin{block}{\textcolor{completo}{✓} Fortalezas}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Estimador de Horvitz-Thompson bien presentado
+    \item[\textcolor{completo}{✓}] Uso apropiado de ponderadores
+    \item[\textcolor{completo}{✓}] Métodos apropiados para objetivos
+    \item[\textcolor{completo}{✓}] Coherencia entre objetivos y variables
+    \item[\textcolor{completo}{✓}] Software apropiado identificado
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapurgente}{✗} Debilidades Importantes}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapurgente}{✗}] \textbf{FALTA COMPLETAMENTE: Sección de limitaciones}
+    \item[\textcolor{gapurgente}{✗}] Falta explicación de cómo se incorpora diseño complejo en regresiones
+    \item[\textcolor{gapmedio}{⚠}] Falta detalles sobre estimación de varianza con conglomeración
+    \item[\textcolor{gapmedio}{⚠}] No se discuten supuestos de los modelos
+\end{itemize}
+\end{frame}
+
+\begin{frame}{4.4 Calidad de las Diapositivas}
+\begin{block}{\textcolor{completo}{✓} Fortalezas}
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{✓}] Diseño consistente con colores institucionales PUC
+    \item[\textcolor{completo}{✓}] Excelente legibilidad de texto
+    \item[\textcolor{completo}{✓}] Buen uso de ecuaciones matemáticas
+    \item[\textcolor{completo}{✓}] Tablas bien formateadas con colores
+    \item[\textcolor{completo}{✓}] Balance apropiado entre texto y espacio blanco
+    \item[\textcolor{completo}{✓}] Uso efectivo de bloques de color
+    \item[\textcolor{completo}{✓}] Logo institucional bien posicionado en portada
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{\textcolor{gapmedio}{⚠} Mejora Menor}
+\end{alertblock}
+
+\begin{itemize}
+    \item[\textcolor{gapmedio}{⚠}] Considerar agregar más gráficos/diagramas visuales
+\end{itemize}
+\end{frame}
+
+% ============================================================================
+% RESUMEN EJECUTIVO
+% ============================================================================
+\section{Resumen y Recomendaciones}
+
+\begin{frame}{Resumen Ejecutivo - Completitud por Sección}
+\begin{table}
+\centering
+\footnotesize
+\begin{tabular}{l c c}
+\toprule
+\textbf{Sección Principal} & \textbf{Completitud} & \textbf{Estado} \\
+\midrule
+\textbf{1. Diseño Muestral} & 80\% & \textcolor{gapmedio}{⚠} Regular \\
+\quad 1.1 Tipo de Diseño & 95\% & \textcolor{completo}{✓} Excelente \\
+\quad 1.2 Tamaño de Muestra & 70\% & \textcolor{gapmedio}{⚠} Regular \\
+\quad 1.3 Marco Muestral & 90\% & \textcolor{completo}{✓} Muy Bueno \\
+\quad 1.4 Nivel de Inferencia & 65\% & \textcolor{gapmedio}{⚠} Regular \\
+\midrule
+\textbf{2. Plan de Análisis} & 82\% & \textcolor{gapmedio}{⚠} Regular \\
+\quad 2.1 Objetivos & 85\% & \textcolor{completo}{✓} Muy Bueno \\
+\quad 2.2 Variables & 90\% & \textcolor{completo}{✓} Muy Bueno \\
+\quad 2.3 Métodos & 70\% & \textcolor{gapmedio}{⚠} Regular \\
+\midrule
+\textbf{3. Metodología Detallada} & 69\% & \textcolor{gapurgente}{✗} Deficiente \\
+\quad 3.1 Estimadores & 85\% & \textcolor{completo}{✓} Muy Bueno \\
+\quad 3.2 Varianzas & 75\% & \textcolor{gapmedio}{⚠} Regular \\
+\quad 3.3 Ponderadores & 90\% & \textcolor{completo}{✓} Muy Bueno \\
+\quad 3.4 Software & 95\% & \textcolor{completo}{✓} Excelente \\
+\quad 3.5 Limitaciones & \textcolor{gapurgente}{0\%} & \textcolor{gapurgente}{✗✗✗} Ausente \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.2cm}
+
+\begin{alertblock}{Completitud Global}
+\textbf{77\%} - Presentación necesita ajustes antes de entrega final
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Prioridades de Acción}
+\begin{block}{\textcolor{gapurgente}{PRIORIDAD CRÍTICA} (Requiere atención inmediata)}
+\end{block}
+
+\begin{enumerate}
+    \item[\textcolor{gapurgente}{1.}] \textbf{CREAR DIAPOSITIVA(S) DE LIMITACIONES}
+    \begin{itemize}
+        \item Del diseño muestral
+        \item De los datos
+        \item Metodológicas
+        \item De inferencia
+    \end{itemize}
+    
+    \item[\textcolor{gapurgente}{2.}] \textbf{Especificar niveles de inferencia exactos}
+    \begin{itemize}
+        \item Nacional, regional, zona urbana/rural
+        \item Limitaciones por tamaño de muestra
+    \end{itemize}
+    
+    \item[\textcolor{gapurgente}{3.}] \textbf{Explicar incorporación de diseño complejo en análisis}
+    \begin{itemize}
+        \item ¿Cómo se usa \texttt{survey} en regresiones?
+        \item Estimación de errores estándar robustos
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Prioridades de Acción (continuación)}
+\begin{block}{\textcolor{gapmedio}{PRIORIDAD ALTA} (Debe completarse antes de presentación)}
+\end{block}
+
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item[\textcolor{gapmedio}{4.}] Agregar explicación de cálculo de errores muestrales
+    
+    \item[\textcolor{gapmedio}{5.}] Incluir tasa de respuesta y su impacto
+    
+    \item[\textcolor{gapmedio}{6.}] Detallar método de estimación de varianza con conglomeración
+    
+    \item[\textcolor{gapmedio}{7.}] Especificar nivel de significancia y manejo de missing values
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\begin{block}{\textcolor{gapbajo}{PRIORIDAD MEDIA} (Mejoras recomendadas)}
+\end{block}
+
+\begin{enumerate}
+    \setcounter{enumi}{7}
+    \item[\textcolor{gapbajo}{8.}] Agregar justificación de elección de diseño bietápico
+    
+    \item[\textcolor{gapbajo}{9.}] Incluir escalas de medición de variables
+    
+    \item[\textcolor{gapbajo}{10.}] Agregar más visualizaciones (gráficos, diagramas)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Recomendaciones Finales}
+\begin{block}{Para mejorar la calidad de la presentación:}
+\end{block}
+
+\begin{enumerate}
+    \item \textbf{Agregar 1-2 diapositivas de Limitaciones} después de Software
+    \begin{itemize}
+        \item Es un requisito explícito de contenidos mínimos
+        \item Demuestra comprensión profunda del análisis
+        \item Aumenta credibilidad académica
+    \end{itemize}
+    
+    \item \textbf{Mejorar conexiones explícitas} entre secciones
+    \begin{itemize}
+        \item "Debido al diseño bietápico, usaremos..."
+        \item "Para incorporar la estratificación, el software..."
+    \end{itemize}
+    
+    \item \textbf{Preparar respuestas a preguntas potenciales}
+    \begin{itemize}
+        \item ¿Por qué Horvitz-Thompson y no otro estimador?
+        \item ¿Cómo afecta la conglomeración a la precisión?
+        \item ¿Qué limitaciones tiene el marco muestral?
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Cronograma Sugerido}
+\begin{table}
+\centering
+\footnotesize
+\begin{tabular}{l l l}
+\toprule
+\textbf{Prioridad} & \textbf{Tarea} & \textbf{Tiempo Estimado} \\
+\midrule
+\textcolor{gapurgente}{Crítica} & Crear diapositivas de limitaciones & 2-3 horas \\
+\textcolor{gapurgente}{Crítica} & Especificar niveles de inferencia & 1 hora \\
+\textcolor{gapurgente}{Crítica} & Explicar diseño complejo en análisis & 1-2 horas \\
+\midrule
+\textcolor{gapmedio}{Alta} & Agregar cálculo de errores & 1 hora \\
+\textcolor{gapmedio}{Alta} & Incluir tasa de respuesta & 30 min \\
+\textcolor{gapmedio}{Alta} & Detallar varianza con conglomeración & 1 hora \\
+\textcolor{gapmedio}{Alta} & Nivel de significancia y missing values & 30 min \\
+\midrule
+\textcolor{gapbajo}{Media} & Justificación de diseño & 1 hora \\
+\textcolor{gapbajo}{Media} & Escalas de medición & 30 min \\
+\textcolor{gapbajo}{Media} & Agregar visualizaciones & 2 horas \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.2cm}
+
+\begin{alertblock}{Tiempo Total Estimado}
+\textbf{11-13 horas} para completar todos los gaps
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Conclusión}
+\begin{block}{Estado Actual}
+La presentación tiene una \textbf{base sólida} (77\% de completitud) con:
+\end{block}
+
+\begin{itemize}
+    \item[\textcolor{completo}{+}] Excelente calidad visual
+    \item[\textcolor{completo}{+}] Buena explicación del diseño muestral
+    \item[\textcolor{completo}{+}] Software bien identificado
+    \item[\textcolor{completo}{+}] Objetivos claros
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{Gap Crítico}
+\textbf{FALTA SECCIÓN DE LIMITACIONES} - Requisito obligatorio
+\end{alertblock}
+
+\vspace{0.3cm}
+
+\begin{block}{Con los ajustes sugeridos:}
+Se puede alcanzar \textbf{90-95\% de completitud} y obtener una excelente evaluación
+\end{block}
+\end{frame}
+
+% ============================================================================
+% CIERRE
+% ============================================================================
+\begin{frame}[plain]
+\begin{center}
+\vspace{2cm}
+{\huge \textcolor{celesteoscuro}{\textbf{¿Preguntas?}}}
+
+\vspace{1cm}
+
+{\large Grupo 4}
+
+\vspace{0.5cm}
+
+{\normalsize Alexander Pinto, Esteban Román,}\\
+{\normalsize Julián Vargas, Francisca Sepúlveda}
+
+\vspace{1cm}
+
+{\small \textcolor{grisoscuro}{Este análisis de gaps fue generado automáticamente}}\\
+{\small \textcolor{grisoscuro}{basado en la verificación de contenidos mínimos}}
+\end{center}
+\end{frame}
+
+\end{document}
