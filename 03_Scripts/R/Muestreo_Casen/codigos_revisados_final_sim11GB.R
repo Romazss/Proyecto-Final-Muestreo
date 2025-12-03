@@ -16,10 +16,38 @@ library(scales)
 
 # --- 1. CARGA Y PREPARACIÓN DE DATOS ----------------------------------------
 
+# Diccionario de regiones con orden geográfico (norte a sur)
+regiones_chile <- c(
+  "1"  = "Arica y Parinacota",
+  "2"  = "Tarapacá",
+  "3"  = "Antofagasta",
+  "4"  = "Atacama",
+  "5"  = "Coquimbo",
+  "6"  = "Valparaíso",
+  "7"  = "Metropolitana",
+  "8"  = "O'Higgins",
+  "9"  = "Maule",
+  "10" = "Ñuble",
+  "11" = "Biobío",
+  "12" = "La Araucanía",
+  "13" = "Los Ríos",
+  "14" = "Los Lagos",
+  "15" = "Aysén",
+  "16" = "Magallanes"
+)
+
+# Orden geográfico de norte a sur (para factor ordenado)
+orden_norte_sur <- c(
+  "Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", 
+  "Coquimbo", "Valparaíso", "Metropolitana", "O'Higgins", 
+  "Maule", "Ñuble", "Biobío", "La Araucanía", 
+  "Los Ríos", "Los Lagos", "Aysén", "Magallanes"
+)
+
 # Cargar base CASEN 2022
-#casen <- read_dta("Base_de_datos_Casen_2022_STATA_18_marzo_2024.dta")
+casen <- read_dta("Base_de_datos_Casen_2022_STATA_18_marzo_2024.dta")
 # Alternativa si ya está cargada:
-casen <- Base_de_datos_Casen_2022_STATA_18_marzo_2024
+# casen <- Base_de_datos_Casen_2022_STATA_18_marzo_2024
 
 # Filtrar jefes de hogar con manejo correcto de NA
 jefes <- casen %>%
@@ -52,14 +80,14 @@ print(table(jefes$es_pobre, useNA = "ifany"))
 diseno_casen <- svydesign(ids = ~1, weights = ~expr, data = jefes)
 diseno_srvyr <- jefes %>% as_survey_design(weights = expr)
 
-#Opción B: Diseño complejo (RECOMENDADO para producción)
-diseno_casen <- svydesign(
-   ids = ~varunit,
-   strata = ~varstrat,
-   weights = ~expr,
-   data = jefes,
-   nest = TRUE
- )
+# Opción B: Diseño complejo (RECOMENDADO para producción)
+# diseno_casen <- svydesign(
+#   ids = ~varunit,
+#   strata = ~varstrat,
+#   weights = ~expr,
+#   data = jefes,
+#   nest = TRUE
+# )
 
 # ============================================================================
 # EJE 1: DISTRIBUCIÓN DE LA POBREZA
@@ -305,15 +333,21 @@ cat("Diferencia relativa:",
 # GRÁFICOS
 # ============================================================================
 
-# Gráfico 1: Pobreza por Región
-g1 <- ggplot(pobreza_region, aes(x = reorder(factor(region), prop_pobreza), 
-                                 y = prop_pobreza)) +
+# Gráfico 1: Pobreza por Región (ordenado geográficamente norte-sur)
+# Preparar datos con nombres de región y orden geográfico
+pobreza_region_plot <- pobreza_region %>%
+  mutate(
+    region_nombre = regiones_chile[as.character(region)],
+    region_nombre = factor(region_nombre, levels = rev(orden_norte_sur))  # rev() para que norte quede arriba en coord_flip
+  )
+
+g1 <- ggplot(pobreza_region_plot, aes(x = region_nombre, y = prop_pobreza)) +
   geom_col(fill = "#4A90D9", alpha = 0.8) +
   geom_errorbar(aes(ymin = prop_pobreza_low, ymax = prop_pobreza_upp), width = 0.2) +
   coord_flip() +
   scale_y_continuous(labels = percent_format()) +
   labs(title = "Incidencia de Pobreza por Región",
-       subtitle = "CASEN 2022 - Jefes de Hogar",
+       subtitle = "CASEN 2022 - Jefes de Hogar | Orden geográfico norte-sur",
        x = "Región", y = "Proporción en Pobreza",
        caption = "Fuente: Elaboración propia con datos CASEN 2022") +
   theme_minimal(base_size = 12)
@@ -419,7 +453,7 @@ g6 <- escolaridad_zona %>%
 
 print(g6)
 
-# Gráfico 7: Pobreza por Región y Zona (Facetado)
+# Gráfico 7: Pobreza por Región y Zona (ordenado geográficamente norte-sur)
 pobreza_region_zona <- diseno_srvyr %>%
   mutate(area_label = ifelse(area == 1, "Urbano", "Rural")) %>%
   group_by(region, area_label) %>%
@@ -427,16 +461,20 @@ pobreza_region_zona <- diseno_srvyr %>%
     prop_pobreza = survey_mean(es_pobre, vartype = "ci", na.rm = TRUE),
     n = unweighted(n())
   ) %>%
-  ungroup()
+  ungroup() %>%
+  mutate(
+    region_nombre = regiones_chile[as.character(region)],
+    region_nombre = factor(region_nombre, levels = rev(orden_norte_sur))
+  )
 
 g7 <- pobreza_region_zona %>%
-  ggplot(aes(x = reorder(factor(region), prop_pobreza), y = prop_pobreza, fill = area_label)) +
+  ggplot(aes(x = region_nombre, y = prop_pobreza, fill = area_label)) +
   geom_col(position = "dodge", alpha = 0.8) +
   coord_flip() +
   scale_y_continuous(labels = percent_format()) +
   scale_fill_manual(values = c("Rural" = "#8B4513", "Urbano" = "#4682B4")) +
   labs(title = "Incidencia de Pobreza por Región y Zona",
-       subtitle = "Brecha urbano-rural consistente en todas las regiones",
+       subtitle = "Brecha urbano-rural consistente en todas las regiones | Orden geográfico norte-sur",
        x = "Región", y = "Proporción en Pobreza", fill = "Zona",
        caption = "Fuente: CASEN 2022 - Jefes de hogar") +
   theme_minimal(base_size = 11) +
@@ -576,3 +614,4 @@ ggsave("figuras/g10_diagrama_mediacion.png", g10, width = 10, height = 7, dpi = 
 cat("\n========== EXPORTACIÓN COMPLETADA ==========\n")
 cat("Archivos CSV en: ./resultados/\n")
 cat("Gráficos PNG en: ./figuras/\n")
+
