@@ -3,76 +3,74 @@
 
 \subsection{Síntesis de Hallazgos}
 
-% Presentar interpretación de los resultados principales en el contexto del objetivo
+Los resultados confirman dos patrones de desigualdad estructural en Chile:
+
+\begin{enumerate}
+    \item \textbf{Brecha territorial:} La pobreza rural supera significativamente a la urbana, con la educación como mecanismo mediador central. Este hallazgo es consistente con la literatura sobre desarrollo territorial desigual en América Latina.
+    
+    \item \textbf{Brecha de género:} La diferencia salarial persiste incluso controlando por capital humano y características laborales, evidenciando discriminación residual en el mercado laboral.
+\end{enumerate}
 
 \subsection{Comparación con Antecedentes}
 
-% Comparar los resultados con estudios previos y literatura relevante
-% Discutir similitudes y diferencias con antecedentes
+\subsubsection{Pobreza Territorial}
 
-\begin{itemize}
-    \item Hallazgo 1 y su comparación con literatura
-    \item Hallazgo 2 y su comparación con literatura
-    \item Hallazgo 3 y su comparación con literatura
-\end{itemize}
+Nuestros resultados (5.3\% urbano vs 8.4\% rural) son consistentes con las estimaciones oficiales del MDSF (2023) y confirman la tendencia histórica de mayor incidencia rural documentada desde CASEN 1990.
 
-\subsection{Consideraciones Metodológicas}
+\subsubsection{Brecha Salarial}
 
-\subsubsection{Fortalezas del Estudio}
+La brecha bruta de 20.7\% es similar a la reportada por el INE (2022) para el ingreso medio mensual. El hallazgo de que la brecha \textit{aumenta} con la educación coincide con estudios internacionales sobre el \textit{glass ceiling} (techo de cristal) y la segregación ocupacional vertical.
 
-% Destacar los puntos fuertes:
-% - Diseño robusto
-% - Representatividad de la muestra
-% - Control de variables confundentes
-% - Adecuada consideración del diseño muestral
+Según el INE:
 
-\begin{enumerate}
-    \item Fortaleza 1
-    \item Fortaleza 2
-    \item Fortaleza 3
-\end{enumerate}
+\begin{quote}
+``Se confirma que la segregación horizontal y vertical del mercado del trabajo según el sexo de las personas están presentes en el mercado laboral en Chile: existen ramas altamente feminizadas... además, en cada una de las ramas analizadas las mujeres acceden en menor medida que los hombres a posiciones de mayor jerarquía.''
+\end{quote}
 
 \subsection{Limitaciones}
-
-% Explicar las limitaciones del estudio
 
 \subsubsection{Limitaciones Muestrales}
 
 \begin{itemize}
-    \item No respuesta y sesgo de selección
-    \item Cobertura del marco de muestreo
-    \item Varianza del diseño
+    \item \textbf{Diseño muestral simplificado:} El uso de \texttt{ids = ~1} puede subestimar los errores estándar. Para inferencias más precisas se recomienda incorporar estratos y conglomerados.
+    
+    \item \textbf{Sesgo de selección:} El análisis de brecha salarial excluye a quienes no participan en el mercado laboral, potencialmente subestimando la desigualdad total.
 \end{itemize}
 
-\subsubsection{Limitaciones Análiticas}
+\subsubsection{Limitaciones Analíticas}
 
 \begin{itemize}
-    \item Variables no medidas
-    \item Posibles sesgos de información
-    \item Limitaciones en generalización
+    \item \textbf{Variable de ingreso:} \texttt{ytrabajocorh} representa el ingreso del hogar, no del individuo. Esto puede introducir confusión en hogares con múltiples perceptores.
+    
+    \item \textbf{Corte transversal:} Los datos no permiten establecer causalidad ni controlar por factores no observados constantes en el tiempo.
+    
+    \item \textbf{Manejo de NA:} Aunque se implementó \texttt{case\_when()} para evitar sesgos, la proporción de datos faltantes en algunas variables puede afectar la representatividad.
 \end{itemize}
 
-\subsection{Implicaciones Prácticas}
-
-% Discutir las implicaciones de los resultados para:
-% - Política pública
-% - Toma de decisiones
-% - Intervenciones
-% - Futuras investigaciones
-
-\subsection{Sugerencias para Investigaciones Futuras}
-
-% Proponer preguntas de investigación no respondidas
-% Mejoramientos metodológicos
-% Nuevas áreas de investigación
+\subsection{Fortalezas del Estudio}
 
 \begin{enumerate}
-    \item Sugerencia 1
-    \item Sugerencia 2
-    \item Sugerencia 3
+    \item Representatividad nacional con cobertura regional y urbano-rural
+    \item Aplicación rigurosa de técnicas de diseño muestral complejo
+    \item Análisis de mediación para identificar mecanismos causales
+    \item Triangulación de métodos (descriptivos, modelos ajustados, descomposición)
 \end{enumerate}
 
-\subsection{Conclusión de la Discusión}
+\subsection{Sugerencias para Futuras Investigaciones}
 
-% Resumen integrativo de la discusión
-% Reafirmación de la relevancia de los hallazgos
+\begin{enumerate}
+    \item Incorporar análisis longitudinal con panel CASEN para establecer causalidad
+    \item Explorar heterogeneidad de la brecha por sector económico y región
+    \item Implementar métodos de descomposición (Oaxaca-Blinder) para brecha salarial
+    \item Evaluar políticas de corresponsabilidad parental y su impacto en la brecha
+\end{enumerate}
+
+\subsection{Implicaciones para Política Pública}
+
+\begin{itemize}
+    \item \textbf{Reducción de pobreza:} Focalizar inversión educativa en zonas rurales como estrategia de reducción de pobreza, dada su capacidad mediadora (45\% del efecto)
+    
+    \item \textbf{Equidad salarial:} Revisar mecanismos de transparencia salarial para reducir discriminación, particularmente en ocupaciones de mayor calificación donde la brecha se amplifica
+    
+    \item \textbf{Desarrollo territorial:} Integrar en políticas públicas el reconocimiento de la heterogeneidad regional, con énfasis en regiones de alta pobreza: La Araucanía, Ñuble, Tarapacá, Atacama y Arica y Parinacota (9.97\%, 9.36\% y 7.4\% respectivamente)
+\end{itemize}

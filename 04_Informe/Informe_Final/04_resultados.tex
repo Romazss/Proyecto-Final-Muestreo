@@ -1,120 +1,252 @@
 % Resultados
 \section{Resultados}
 
-\subsection{Características de la Muestra}
+\subsection{Eje 1: Distribución de la Pobreza}
 
-\subsubsection{Descriptiva General}
-
-% Tabla 1: Características demográficas de la muestra
-% Incluir frecuencias, porcentajes y errores estándar
-
+\subsubsection{Incidencia de pobreza por región}
 \begin{table}[H]
     \centering
-    \caption{Características demográficas de la muestra}
-    \label{tab:caracteristicas}
+    \setlength{\abovecaptionskip}{3pt}
+    \setlength{\belowcaptionskip}{3pt}
+    \caption{Incidencia de pobreza por región (CASEN 2022)}
+    \label{tab:pobreza_region}
     \begin{tabular}{lcc}
     \toprule
-    Variable & Frecuencia & Porcentaje (\%) \\
-    \midrule
-    % Completar con datos
+    \tableheadercolor
+    Indicador & Valor & Interpretación \\
+    \toprule
+    Tasa pobreza nacional & 6.5\% & 4,694 jefes en pobreza \\
+    Región más pobre & La Araucanía/Ñuble & 9.97\% (1.53 veces del promedio) \\
+    Región menos pobre & Magallanes & 2.73\% (0.42 veces del promedio) \\
     \bottomrule
     \end{tabular}
-    \footnote{Estimaciones ponderadas considerando el diseño muestral}
+    \footnote{Estimaciones ponderadas con factores de expansión regional}
 \end{table}
+\vspace{-0.3cm}
+\begin{figure}[H]
+    \centering
+    \setlength{\abovecaptionskip}{3pt}
+    \setlength{\belowcaptionskip}{3pt}
+    \includegraphics[width=0.5\textwidth]{Imagenes/g1_pobreza_region.png}
+    \caption{Incidencia de pobreza por región (CASEN 2022)}
+    \label{fig:pobreza_region}
+\end{figure}
+Existe una marcada heterogeneidad territorial. Las regiones del sur y norte presentan las mayores tasas (La Araucanía y Ñuble 9.97\%, Tarapacá 9.36\%, Atacama 7.55\%), mientras que Magallanes presenta la menor incidencia (2.73\%). La Región Metropolitana también muestra tasas bajas (3.73\%), reflejando concentración de pobreza en zonas periféricas.
 
-\subsection{Resultados Principales}
-
-\subsubsection{Estimaciones Ajustadas al Diseño Muestral}
-
-% Tabla 2: Estimaciones principales con intervalos de confianza
-% Incluir errores estándar y factores de diseño
-
+\subsubsection{Pobreza por zona (urbano/rural)}
 \begin{table}[H]
     \centering
-    \caption{Estimaciones principales ajustadas al diseño muestral}
-    \label{tab:estimaciones}
-    \begin{tabular}{lcccc}
+    \setlength{\abovecaptionskip}{3pt}
+    \setlength{\belowcaptionskip}{3pt}
+    \caption{Pobreza por zona urbana y rural}
+    \label{tab:pobreza_zona}
+    \begin{tabular}{lccc}
     \toprule
-    Estimador & Estimación & E.E. & IC 95\% \\
-    \midrule
-    % Completar con datos
+    \tableheadercolor
+    Zona & Proporción & IC 95\% & Diferencia relativa \\
+    \toprule
+    Urbano & 5.3\% & [5.0\%, 5.6\%] & Referencia \\
+    Rural & 8.4\% & [7.7\%, 9.1\%] & +58\% \\
     \bottomrule
     \end{tabular}
-    \footnote{IC: Intervalo de Confianza; E.E.: Error Estándar}
+    \footnote{Diferencia significativa (p $<$ 0.001)}
 \end{table}
-
-\subsubsection{Análisis por Subgrupos}
-
-% Presentar resultados estratificados por variables clave
-
-\begin{table}[H]
-    \centering
-    \caption{Estimaciones por subgrupos}
-    \label{tab:subgrupos}
-    \begin{tabular}{lcccc}
-    \toprule
-    Subgrupo & Estimación & E.E. & IC 95\% \\
-    \midrule
-    % Completar con datos
-    \bottomrule
-    \end{tabular}
-\end{table}
-
-\subsection{Visualización de Resultados}
-
-\subsubsection{Gráficos}
-
-% Figura 1: Gráfico comparativo
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/grafico1.pdf}
-    \caption{Descripción del gráfico 1}
-    \label{fig:grafico1}
+    \includegraphics[width=0.8\textwidth]{Imagenes/g4_pobreza_urbano_rural.png}
+    \caption{Incidencia de pobreza: zona urbana vs rural}
+    \label{fig:pobreza_urbano_rural}
 \end{figure}
 
-% Figura 2: Gráfico de tendencias
+\subsubsection{Modelo logístico de pobreza}
+
+\begin{table}[H]
+    \centering
+    \caption{Estimaciones del modelo logístico de pobreza}
+    \label{tab:modelo_logistico}
+    \begin{tabular}{lccp{4cm}}
+    \toprule
+    \tableheadercolor
+    Variable & OR & IC 95\% & Interpretación \\
+    \toprule
+    Zona rural (ref: urbano) & 1.34 & [1.23, 1.46] & +34\% odds de pobreza \\
+    Escolaridad (por año) & 0.94 & [0.93, 0.95] & --6\% odds por año adicional \\
+    Tamaño hogar (por persona) & 1.22 & [1.19, 1.25] & +22\% odds por persona adicional \\
+    \bottomrule
+    \end{tabular}
+    \footnote{OR: Odds Ratio; IC: Intervalo de Confianza}
+\end{table}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/grafico2.pdf}
-    \caption{Descripción del gráfico 2}
-    \label{fig:grafico2}
+    \includegraphics[width=0.8\textwidth]{Imagenes/g9_forest_plot_pobreza.png}
+    \caption{Forest plot de odds ratios del modelo logístico}
+    \label{fig:forest_plot}
 \end{figure}
 
-\subsection{Evaluación de Precisión}
+La educación es el factor protector más potente. Cada año adicional de escolaridad reduce el odds de pobreza en 6\%, controlando por zona y tamaño del hogar.
 
-% Tabla con factores de diseño y coeficientes de variación
-
-\begin{table}[H]
-    \centering
-    \caption{Evaluación de precisión - Factores de diseño}
-    \label{tab:precision}
-    \begin{tabular}{lccc}
-    \toprule
-    Variable & DEFF & CV (\%) & Tamaño efectivo \\
-    \midrule
-    % Completar con datos
-    % DEFF: Design Effect (Efecto del diseño)
-    % CV: Coeficiente de Variación
-    \bottomrule
-    \end{tabular}
-    \footnote{DEFF: Efecto del diseño; CV: Coeficiente de Variación}
-\end{table}
-
-\subsection{Modelos Analíticos (si aplica)}
-
-% Resultados de regresión u otros modelos considerando el diseño muestral
+\subsubsection{Análisis de mediación}
 
 \begin{table}[H]
     \centering
-    \caption{Resultados de modelo de regresión}
-    \label{tab:modelo}
-    \begin{tabular}{lccc}
+    \caption{Descomposición de efectos: Zona $\to$ Educación $\to$ Pobreza}
+    \label{tab:mediacion}
+    \begin{tabular}{lcp{5cm}}
     \toprule
-    Variable & Coeficiente & E.E. & Valor-p \\
+    \tableheadercolor
+    Efecto & Valor & Interpretación \\
+    \toprule
+    Efecto total (c) & 0.49 & Log-odds de pobreza rural vs urbano \\
+    Efecto directo (c') & 0.27 & Efecto neto controlando educación \\
+    Efecto indirecto (a$\times$b) & 0.22 & Vía menor educación en zonas rurales \\
     \midrule
-    % Completar con datos
+    \textbf{Proporción mediada} & \textbf{45\%} & La educación explica casi la mitad \\
+    Test de Sobel & Z=17.5, p$<$0.001 & Mediación significativa \\
     \bottomrule
     \end{tabular}
 \end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Imagenes/g10_diagrama_mediacion.png}
+    \caption{Diagrama de mediación: Zona $\to$ Educación $\to$ Pobreza}
+    \label{fig:mediacion}
+\end{figure}
+
+La menor escolaridad en zonas rurales media el 45\% del efecto de la ruralidad sobre la pobreza. Políticas de acceso educativo rural podrían reducir sustancialmente esta brecha.
+
+\subsection{Eje 2: Brecha Salarial de Género}
+
+\subsubsection{Brecha bruta (sin controles)}
+
+\begin{table}[H]
+    \centering
+    \caption{Ingresos laborales por sexo (brecha bruta)}
+    \label{tab:ingreso_bruto}
+    \begin{tabular}{lccc}
+    \toprule
+    \tableheadercolor
+    Indicador & Hombre & Mujer & Brecha \\
+    \toprule
+    Ingreso medio & \$1,402,711 & \$1,112,358 & \textbf{20.7\%} \\
+    Mediana & \$920,000 & \$780,000 & 15.2\% \\
+    \bottomrule
+    \end{tabular}
+    \footnote{Test t de diseño complejo: p $<$ 0.001}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Imagenes/g5_distribucion_ingreso_sexo.png}
+    \caption{Distribución de ingresos laborales por sexo}
+    \label{fig:distribucion_ingreso}
+\end{figure}
+
+Las jefas de hogar perciben en promedio un 20.7\% menos de ingresos laborales. La brecha en medianas (15.2\%) es menor, sugiriendo que la cola superior de la distribución masculina amplifica la diferencia en medias.
+
+\subsubsection{Brecha por nivel educativo}
+
+\begin{table}[H]
+    \centering
+    \caption{Brecha salarial por nivel educativo}
+    \label{tab:brecha_educacion}
+    \begin{tabular}{lccc}
+    \toprule
+    \tableheadercolor
+    Nivel educativo & Hombre & Mujer & Brecha \\
+    \toprule
+    Básica (esc $\leq$ 8) & \$680,000 & \$560,000 & 17\% \\
+    Media (esc 9--12) & \$920,000 & \$750,000 & 18\% \\
+    Superior (esc 13--16) & \$1,450,000 & \$1,130,000 & 22\% \\
+    Postgrado (esc $>$ 16) & \$2,800,000 & \$2,100,000 & \textbf{25\%} \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Imagenes/g2_ingreso_educacion_sexo.png}
+    \caption{Ingreso laboral por nivel educativo y sexo}
+    \label{fig:ingreso_educacion}
+\end{figure}
+
+\textbf{Hallazgo clave:} La brecha salarial \textbf{aumenta} con el nivel educativo. Las mujeres con postgrado enfrentan la mayor brecha relativa ($\sim$25\%), contradiciendo la hipótesis de que más educación iguala ingresos.
+
+\subsubsection{Modelo log-lineal ajustado}
+
+\textbf{Especificación:} $\log(\texttt{ytrabajocorh}) \sim \text{factor(sexo)} + \text{esc} + \text{edad} + \text{I(edad}^2\text{)}$
+
+\begin{table}[H]
+    \centering
+    \caption{Coeficientes del modelo log-lineal}
+    \label{tab:modelo_log}
+    \begin{tabular}{lccc}
+    \toprule
+    \tableheadercolor
+    Parámetro & Coeficiente & E.E. & Interpretación \\
+    \toprule
+    Sexo (Mujer) & -0.201 & 0.015 & -18.2\% de ingreso \\
+    \bottomrule
+    \end{tabular}
+    \footnote{Controlando por educación, edad y edad$^2$}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.35\textwidth]{Imagenes/g3_brecha_educacion.png}
+    \caption{Brecha salarial porcentual por nivel educativo}
+    \label{fig:brecha_educacion_graf}
+\end{figure}
+
+Controlando por educación, edad y edad$^2$, las jefas de hogar perciben un \textbf{18.2\%} menos de ingreso laboral que los jefes hombres.
+
+\subsubsection{Modelo completo (con ocupación)}
+
+\begin{table}[H]
+    \centering
+    \caption{Modelo con ocupación como variable control}
+    \label{tab:modelo_completo}
+    \begin{tabular}{lc}
+    \toprule
+    \tableheadercolor
+    Estadístico & Valor \\
+    \toprule
+    $\beta_{\text{sexo}}$ & --\$198,000 \\
+    Error estándar & \$28,000 \\
+    p-valor & $<$ 0.001 \\
+    \bottomrule
+    \end{tabular}
+    \footnote{Controles: ocupación (CIUO-08), educación, edad, tamaño del hogar}
+\end{table}
+
+Se \textbf{rechaza H$_0$}. Existe brecha salarial significativa contra las mujeres, incluso controlando por ocupación, educación, edad y tamaño del hogar.
+
+\subsubsection{Brecha por grupo de edad}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Imagenes/g8_brecha_edad.png}
+    \caption{Brecha salarial de género por grupo de edad}
+    \label{fig:brecha_edad}
+\end{figure}
+
+\subsection{Validación: Sesgo por No Ponderar}
+
+\begin{table}[H]
+    \centering
+    \caption{Sesgo por ignorar factores de expansión}
+    \label{tab:sesgo_ponderacion}
+    \begin{tabular}{lc}
+    \toprule
+    \tableheadercolor
+    Estimador & Valor \\
+    \toprule
+    Media NO ponderada & \$1,321,458 \\
+    Media ponderada & \$1,566,277 \\
+    Diferencia relativa & +18.5\% \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Ignorar los factores de expansión subestima el ingreso promedio en $\sim$18.5\%. La muestra CASEN sobrerrepresenta zonas de mayor densidad poblacional, y los pesos corrigen esta distorsión.

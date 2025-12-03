@@ -1,51 +1,148 @@
-% Documento principal - Informe Final
-% Este archivo incluye todos los módulos del informe
+% ============================================================================
+% ARCHIVO PRINCIPAL: informe_principal.tex
+% ============================================================================
+% Documento LaTeX modular que integra todas las secciones del informe final
+% Proyecto CASEN 2022 - Muestreo
+%
+% Para compilar:
+%   pdflatex -interaction=nonstopmode informe_principal.tex
+%   pdflatex -interaction=nonstopmode informe_principal.tex
+%
+% Estructura modular:
+% - Preámbulo: Paquetes y configuración
+% - Portada: Título, integrantes y datos del grupo
+% - Tabla de Contenidos: En página separada
+% - Cuerpo: Resumen, introducción, métodos, resultados, discusión, conclusiones
+% - Bibliografía: Referencias
 
-\input{00_preambulo}
+\documentclass[12pt, a4paper, oneside]{article}
 
+% ============================================================================
+% PREÁMBULO (Paquetes y configuración)
+% ============================================================================
+\input{00_preambulo.tex}
+
+% ============================================================================
+% INICIO DEL DOCUMENTO
+% ============================================================================
 \begin{document}
 
-% Página de título
-\maketitle
+% ============================================================================
+% PORTADA PROFESIONAL
+% ============================================================================
+\begin{titlepage}
+    \thispagestyle{empty}
+    \centering
+    
+    \vspace*{0.3cm}
+    
+    % Logo UC
+    \includegraphics[width=0.28\textwidth]{Imagenes/logo_uc.png}
+    
+    \vspace{0.7cm}
+    
+    {\Large\textcolor{celesteoscuro}{\textbf{Pontificia Universidad Católica de Chile}}}
+    
+    \vspace{0.15cm}
+    {\large\textcolor{grisoscuro}{Facultad de Matemáticas}}
+    
+    \vspace{1.5cm}
+    
+    {\Huge\textcolor{celesteprincipal}{\textbf{CASEN 2022}}}
+    
+    \vspace{0.3cm}
+    
+    {\LARGE\textcolor{celesteoscuro}{\textbf{Análisis de Desigualdad Territorial y}}}
+    
+    \vspace{0.15cm}
+    
+    {\LARGE\textcolor{celesteoscuro}{\textbf{Brecha Salarial de Género}}}
+    
+    \vspace{1.5cm}
+    
+    \begin{tcolorbox}[colback=celestefondo, colframe=celesteprincipal, boxrule=2pt, arc=5pt]
+        \centering
+        {\Large\textbf{\textcolor{celesteoscuro}{EYP2417-1 Muestreo}}}
+        
+        \vspace{0.3cm}
+        {\normalsize\textcolor{grisoscuro}{Profesor: Guillermo Marshall}}
+        
+        \vspace{0.15cm}
+        {\small\textcolor{grisoscuro}{Profesor Asistente: Esteban Grawe}}
+        
+        \vspace{0.2cm}
+        {\small\textcolor{grisoscuro}{Segundo Semestre 2025}}
+    \end{tcolorbox}
+    
+    \vspace{1.2cm}
+    
+    \begin{flushleft}
+    {\large\textbf{\textcolor{celesteoscuro}{Integrantes del Proyecto}}}
+    
+    \vspace{0.4cm}
+    
+    {\normalsize\textcolor{grisoscuro}{
+    \begin{tabular}{l}
+        $\bullet$ \quad Esteban Román \\[0.2cm]
+        $\bullet$ \quad Julián Vargas \\[0.2cm]
+        $\bullet$ \quad Francisca Sepúlveda \\[0.2cm]
+        $\bullet$ \quad Alexander Pinto \\
+    \end{tabular}
+    }}
+    \end{flushleft}
+    
+    \vfill
+    
+    {\normalsize\textcolor{celesteoscuro}{3 de diciembre de 2025}}
+    
+\end{titlepage}
 
-% Tabla de contenidos
+% ============================================================================
+% TABLA DE CONTENIDOS (Nueva página)
+% ============================================================================
+\newpage
+\thispagestyle{plain}
 \tableofcontents
 \newpage
 
-% Resumen
-\input{01_resumen}
-\newpage
+% ============================================================================
+% RESUMEN (Comenzando página 1 de contenido)
+% ============================================================================
+\setcounter{page}{1}
 
-% Introducción
-\input{02_introduccion}
-\newpage
+\input{01_resumen.tex}
 
-% Métodos
-\input{03_metodos}
-\newpage
+% ============================================================================
+% INTRODUCCIÓN
+% ============================================================================
+\input{02_introduccion.tex}
 
-% Resultados
-\input{04_resultados}
-\newpage
+% ============================================================================
+% MÉTODOS
+% ============================================================================
+\input{03_metodos.tex}
 
-% Discusión
-\input{05_discusion}
-\newpage
+% ============================================================================
+% RESULTADOS
+% ============================================================================
+\input{04_resultados.tex}
 
-% Conclusiones
-\input{06_conclusiones}
-\newpage
+% ============================================================================
+% DISCUSIÓN
+% ============================================================================
+\input{05_discusion.tex}
 
-% Bibliografía
-\input{07_referencias}
+% ============================================================================
+% CONCLUSIONES
+% ============================================================================
+\input{06_conclusiones.tex}
 
-% Para usar biblatex/biber descomenta la siguiente línea
-% (y comenta las líneas anteriores de \input{07_referencias})
-% \printbibliography[title=Bibliografía]
+% ============================================================================
+% REFERENCIAS BIBLIOGRÁFICAS
+% ============================================================================
+\input{07_referencias.tex}
 
-% Apéndices (opcional)
-% \appendix
-% \section{Apéndice A: Instrumentos}
-% \input{appendix_a}
-
+% ============================================================================
+% FIN DEL DOCUMENTO
+% ============================================================================
 \end{document}

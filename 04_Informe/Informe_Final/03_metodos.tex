@@ -1,74 +1,132 @@
 % Métodos
 \section{Métodos}
 
+\subsection{Fuente de Datos}
+
+\begin{table}[H]
+    \centering
+    \caption{Características de la fuente de datos}
+    \label{tab:fuente}
+    \begin{tabular}{ll}
+    \toprule
+    \tableheadercolor
+    Elemento & Descripción \\
+    \toprule
+    Encuesta & CASEN 2022 (Ministerio de Desarrollo Social y Familia) \\
+    Archivo & \texttt{Base\_de\_datos\_Casen\_2022\_STATA} \\
+    Universo & Hogares particulares ocupados en Chile \\
+    Muestra analítica & 72,056 jefes de hogar (\texttt{pco1 == 1}) \\
+    \bottomrule
+    \end{tabular}
+\end{table}
 \subsection{Diseño Muestral}
 
-\subsubsection{Población Objetivo}
+La CASEN 2022 utiliza un \textbf{diseño muestral probabilístico, estratificado y bietápico}:
 
-% Describir la población de interés
-% Incluir criterios de inclusión/exclusión
+\subsubsection{Etapa 1 -- Selección de UPM}
 
-\subsubsection{Marco de Muestreo}
+\begin{itemize}
+    \item 12,545 Unidades Primarias de Muestreo (conglomerados geográficos)
+    \item Selección mediante Probabilidad Proporcional al Tamaño (PPT) sistemática
+    \item Estratificación en 764 estratos (Comuna $\times$ Área $\times$ NSE)
+\end{itemize}
 
-% Explicar el marco muestral utilizado
-% Indicar cobertura y actualización
+\subsubsection{Etapa 2 -- Selección de Viviendas}
 
-\subsubsection{Estrategia de Muestreo}
+\begin{itemize}
+    \item Muestreo Aleatorio Simple (MAS) dentro de cada UPM
+    \item Tamaño total: 106,856 viviendas
+\end{itemize}
 
-% Descripción detallada del diseño:
-% - Tipo de muestreo (aleatorio simple, estratificado, por conglomerados, etc.)
-% - Variables de estratificación
-% - Tamaño de muestra
-% - Procedimiento de selección
+\subsubsection{Variables del Diseño Muestral}
 
-\subsection{Recolección de Datos}
+\begin{table}[H]
+    \centering
+    \caption{Variables del diseño muestral en R}
+    \label{tab:diseno}
+    \begin{tabular}{lll}
+    \toprule
+    \tableheadercolor
+    Variable & Código & Descripción \\
+    \toprule
+    Factor de expansión & \texttt{expr} & Peso regional (persona) \\
+    Estrato & \texttt{varstrat} & 764 estratos geográficos \\
+    Conglomerado & \texttt{varunit} & 12,545 UPM \\
+    \bottomrule
+    \end{tabular}
+\end{table}
 
-\subsubsection{Instrumento}
+\textbf{Nota metodológica:} Este análisis utiliza un diseño simplificado (\texttt{ids = ~1}) con pesos \texttt{expr}. Esto puede subestimar los errores estándar al ignorar la correlación intra-conglomerado. Para estimaciones de producción se recomienda usar el diseño complejo completo.
 
-% Descripción del cuestionario o instrumento de recolección
-% Variables principales
-
-\subsubsection{Procedimiento}
-
-% Cómo se recolectaron los datos
-% Período de recolección
-% Tasa de respuesta
-
-\subsection{Variables de Estudio}
+\subsection{Variables de Análisis}
 
 \subsubsection{Variables Dependientes}
 
-% Definir variables de resultado
+\begin{table}[H]
+    \centering
+    \caption{Variables dependientes}
+    \label{tab:vdep}
+    \begin{tabular}{lll}
+    \toprule
+    \tableheadercolor
+    Variable & Tipo & Construcción \\
+    \toprule
+    \texttt{es\_pobre} & Dicotómica & 1 si pobreza $\in \{1, 2\}$, 0 si pobreza = 3 \\
+    \texttt{es\_pobre\_extremo} & Dicotómica & 1 si pobreza = 1, 0 en otro caso \\
+    \texttt{ytrabajocorh} & Continua & Ingreso del trabajo del hogar corregido \\
+    \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsubsection{Variables Independientes}
 
-% Definir variables explicativas
+\begin{table}[H]
+    \centering
+    \caption{Variables independientes}
+    \label{tab:vind}
+    \begin{tabular}{lll}
+    \toprule
+    \tableheadercolor
+    Variable & Código CASEN & Valores \\
+    \toprule
+    Zona & \texttt{area} & 1 = Urbano, 2 = Rural \\
+    Sexo & \texttt{sexo} & 1 = Hombre, 2 = Mujer \\
+    Escolaridad & \texttt{esc} & Años de educación formal (0--29) \\
+    Edad & \texttt{edad} & Años cumplidos \\
+    Tamaño hogar & \texttt{tot\_per\_h} & Número de personas \\
+    Ocupación & \texttt{oficio4\_08} & Clasificación CIUO-08 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
 
-\subsection{Análisis Estadístico}
+\subsection{Estrategia Analítica}
 
-\subsubsection{Estimación}
+\subsubsection{Eje 1 -- Pobreza}
 
-% Descripción de métodos para estimación considerando el diseño muestral:
-% - Ponderación
-% - Factores de expansión
-% - Estimadores considerados
+\begin{enumerate}
+    \item Estimación de proporciones ponderadas por región y zona
+    \item Tests de independencia ($\chi^2$ de diseño complejo)
+    \item Modelo logístico (\texttt{quasibinomial}) con odds ratios
+    \item Análisis de mediación: Zona $\to$ Educación $\to$ Pobreza (Test de Sobel)
+\end{enumerate}
 
-\subsubsection{Análisis de Precisión}
+\subsubsection{Eje 2 -- Brecha Salarial}
 
-% Cálculo de errores estándar
-% Intervalos de confianza
-% Consideración de la varianza del diseño
+\begin{enumerate}
+    \item Análisis bivariado (brecha bruta sin controles)
+    \item Modelo ajustado (controles socioeconómicos: educación, edad)
+    \item Modelo completo (controles laborales: ocupación, tamaño hogar)
+    \item Modelo log-lineal para interpretación porcentual
+\end{enumerate}
 
-\subsubsection{Procedimientos Analíticos}
+\subsection{Software}
 
-% Métodos estadísticos utilizados:
-% - Análisis descriptivo
-% - Comparaciones entre grupos
-% - Modelos de regresión (si aplica)
-% - Ajuste por covariables
+Se utilizaron las siguientes librerías en R:
 
-\subsection{Software y Herramientas}
-
-% Especificar software utilizado (R, Python, Stata, etc.)
-% Versiones relevantes
-% Librerías especializadas
+\begin{itemize}
+    \item \texttt{tidyverse}: Manipulación de datos
+    \item \texttt{survey}: Diseño muestral complejo
+    \item \texttt{srvyr}: Interfaz tidyverse para survey
+    \item \texttt{haven}: Lectura de archivos .dta
+    \item \texttt{scales}: Formateo de números
+\end{itemize}

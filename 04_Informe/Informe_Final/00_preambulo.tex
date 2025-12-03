@@ -1,17 +1,22 @@
 % Preámbulo del informe final
-% Configuración de paquetes y estilos
+% Configuración de paquetes y estilos con consistencia visual PUC
 
 \documentclass[12pt, a4paper, oneside]{article}
 
 % Paquetes de idioma y codificación
-\usepackage[utf-8]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 
 % Márgenes y espaciado
-\usepackage[margin=2.5cm]{geometry}
+\usepackage[margin=2.3cm]{geometry}
 \usepackage{setspace}
-\onehalfspacing
+\singlespacing
+
+% Reducir espacios entre párrafos
+\setlength{\parskip}{2pt}
+\setlength{\partopsep}{0pt}
+\setlength{\topsep}{1pt}
 
 % Tipografía
 \usepackage{times}
@@ -24,44 +29,109 @@
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{float}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
 
 % Enlaces y referencias
 \usepackage{hyperref}
 \usepackage{cleveref}
 
 % Colores
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{tcolorbox}
 
 % Numeración y estilos de secciones
 \usepackage{titlesec}
-\titleformat{\section}{\normalfont\Large\bfseries}{\thesection.}{0.5em}{}
-\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection.}{0.5em}{}
+\usepackage{titletoc}
 
 % Encabezados y pies de página
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{Informe Final - Proyecto de Muestreo}
-\lfoot{\today}
-\rfoot{\thepage}
+\rhead{\textcolor{celesteoscuro}{\small\thepage}}
+\lhead{\textcolor{celesteoscuro}{\small\textit{EYP2417-1 Muestreo - CASEN 2022}}}
+\rfoot{\includegraphics[width=0.08\textwidth]{Imagenes/logo_kovan.jpg}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{celesteprincipal}\leaders\hrule height \headrulewidth\hfill}}
 
-% Configuración de referencias bibliográficas
-\usepackage[style=authoryear, backend=biber]{biblatex}
-\addbibresource{referencias.bib}
+% Definición de colores PUC (celestes)
+\definecolor{celesteprincipal}{RGB}{0,150,200}
+\definecolor{celestesuave}{RGB}{135,206,235}
+\definecolor{celesteclaro}{RGB}{173,216,230}
+\definecolor{celesteoscuro}{RGB}{0,105,148}
+\definecolor{celestefondo}{RGB}{230,245,255}
+\definecolor{grisoscuro}{RGB}{64,64,64}
 
-% Configuración de código (si es necesario)
-\usepackage{listings}
-\lstset{
-    language=R,
-    breaklines=true,
-    basicstyle=\ttfamily\small,
-    keywordstyle=\color{blue},
-    commentstyle=\color{gray},
-    stringstyle=\color{red},
-    showstringspaces=false
+% Configuración de enlaces
+\hypersetup{
+    colorlinks=true,
+    linkcolor=celesteoscuro,
+    citecolor=celesteprincipal,
+    urlcolor=celesteprincipal,
+    pdfborder={0 0 0}
 }
 
+% Configuración de títulos
+\titleformat{\section}
+{\Large\bfseries\color{celesteoscuro}}
+{\thesection}{1em}{}
+[\vspace{-0.3em}{\color{celesteprincipal}\hrule height 1.5pt}\vspace{0.4em}]
+
+\titleformat{\subsection}
+{\large\bfseries\color{celesteprincipal}}
+{\thesubsection}{1em}{}
+[\vspace{-0.1em}]
+
+\titleformat{\subsubsection}
+{\normalsize\bfseries\color{celesteoscuro}}
+{\thesubsubsection}{1em}{}
+[\vspace{0em}]
+
+% Configuración de captions
+\captionsetup{
+    labelfont={bf,color=celesteoscuro},
+    textfont={small,color=grisoscuro},
+    justification=justified,
+    margin=8pt
+}
+
+% Cajas destacadas
+\newtcolorbox{hallazgobox}{
+    colback=celestefondo,
+    colframe=celesteprincipal,
+    boxrule=1.5pt,
+    arc=3pt,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt
+}
+
+% Estilos de tablas
+\newcommand{\tableheadercolor}{\rowcolor{celesteclaro}}
+
+% Configuración de listas
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=2pt, topsep=2pt, partopsep=0pt}
+\setlist[itemize]{itemsep=2pt, topsep=2pt, partopsep=0pt}
+\titlecontents{section}
+    [0em]
+    {\vspace{3pt}\large\bfseries\color{celesteoscuro}}
+    {\contentslabel{1.5em}}
+    {}
+    {\normalfont\color{celesteprincipal}\dotfill\thecontentspage}
+
+\titlecontents{subsection}
+    [2em]
+    {\vspace{1pt}\small\color{grisoscuro}}
+    {\contentslabel{1.5em}}
+    {}
+    {\normalfont\color{celesteprincipal}\dotfill\thecontentspage}
+
+% Ocultar subsubsecciones del TOC
+\setcounter{tocdepth}{2}
+
 % Configuración de títulos y autores
-\title{Informe Final - Proyecto de Muestreo}
-\author{Equipo de Proyecto}
-\date{\today}
+% NOTA: Se utiliza \titlepage en informe_principal.tex en su lugar
+% Este archivo ya no define \title, \author, \date (se usa en portada manual)
