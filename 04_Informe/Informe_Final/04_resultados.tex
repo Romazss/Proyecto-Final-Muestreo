@@ -4,57 +4,60 @@
 \subsection{Eje 1: Distribución de la Pobreza}
 
 \subsubsection{Incidencia de pobreza por región}
+
 \begin{table}[H]
     \centering
-    \setlength{\abovecaptionskip}{3pt}
-    \setlength{\belowcaptionskip}{3pt}
     \caption{Incidencia de pobreza por región (CASEN 2022)}
     \label{tab:pobreza_region}
-    \begin{tabular}{lcc}
+    \begin{tabular}{lp{4cm}p{4.5cm}}
     \toprule
     \tableheadercolor
-    Indicador & Valor & Interpretación \\
-    \toprule
-    Tasa pobreza nacional & 6.5\% & 4,694 jefes en pobreza \\
-    Región más pobre & La Araucanía/Ñuble & 9.97\% (1.53 veces del promedio) \\
-    Región menos pobre & Magallanes & 2.73\% (0.42 veces del promedio) \\
+    \textbf{Indicador} & \textbf{Valor} & \textbf{Interpretación} \\
+    \midrule
+    Tasa pobreza nacional & $\sim$6.5\% & 4,694 jefes en pobreza \\
+    Regiones más pobres & Maule, Arica y Parinacota, Magallanes & $\sim$9--10\% (casi el doble) \\
+    Regiones menos pobres & La Araucanía, Biobío, Los Ríos & $\sim$2.5--3.5\% (menos de la mitad) \\
     \bottomrule
     \end{tabular}
-    \footnote{Estimaciones ponderadas con factores de expansión regional}
+    
+    \vspace{2pt}
+    {\small\textit{Nota: Estimaciones ponderadas con factores de expansión regional.}}
 \end{table}
-\vspace{-0.3cm}
+
+Existe una marcada heterogeneidad territorial. Contraintuitivamente, las regiones del Maule, Arica y Parinacota, y zonas extremas como Magallanes concentran las mayores tasas de pobreza ($\sim$9--10\%), mientras que La Araucanía ($\sim$2.5\%), Biobío ($\sim$3\%) y Los Ríos ($\sim$3.5\%) presentan los menores niveles entre jefes de hogar. La Figura \ref{fig:pobreza_region} ilustra esta distribución.
+
 \begin{figure}[H]
     \centering
-    \setlength{\abovecaptionskip}{3pt}
-    \setlength{\belowcaptionskip}{3pt}
-    \includegraphics[width=0.5\textwidth]{Imagenes/g1_pobreza_region.png}
+    \includegraphics[width=0.52\textwidth]{Imagenes/g1_pobreza_region.png}
     \caption{Incidencia de pobreza por región (CASEN 2022)}
     \label{fig:pobreza_region}
 \end{figure}
-Existe una marcada heterogeneidad territorial. Las regiones del sur y norte presentan las mayores tasas (La Araucanía y Ñuble 9.97\%, Tarapacá 9.36\%, Atacama 7.55\%), mientras que Magallanes presenta la menor incidencia (2.73\%). La Región Metropolitana también muestra tasas bajas (3.73\%), reflejando concentración de pobreza en zonas periféricas.
 
 \subsubsection{Pobreza por zona (urbano/rural)}
+
 \begin{table}[H]
     \centering
-    \setlength{\abovecaptionskip}{3pt}
-    \setlength{\belowcaptionskip}{3pt}
     \caption{Pobreza por zona urbana y rural}
     \label{tab:pobreza_zona}
     \begin{tabular}{lccc}
     \toprule
     \tableheadercolor
-    Zona & Proporción & IC 95\% & Diferencia relativa \\
-    \toprule
+    \textbf{Zona} & \textbf{Proporción} & \textbf{IC 95\%} & \textbf{Diferencia relativa} \\
+    \midrule
     Urbano & 5.3\% & [5.0\%, 5.6\%] & Referencia \\
     Rural & 8.4\% & [7.7\%, 9.1\%] & +58\% \\
     \bottomrule
     \end{tabular}
-    \footnote{Diferencia significativa (p $<$ 0.001)}
+    
+    \vspace{2pt}
+    {\small\textit{Nota: Diferencia significativa (p $<$ 0.001).}}
 \end{table}
+
+La pobreza rural es significativamente mayor que la urbana, con una diferencia relativa del 58\%. La Figura \ref{fig:pobreza_urbano_rural} visualiza esta brecha.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Imagenes/g4_pobreza_urbano_rural.png}
+    \includegraphics[width=0.52\textwidth]{Imagenes/g4_pobreza_urbano_rural.png}
     \caption{Incidencia de pobreza: zona urbana vs rural}
     \label{fig:pobreza_urbano_rural}
 \end{figure}
@@ -68,24 +71,26 @@ Existe una marcada heterogeneidad territorial. Las regiones del sur y norte pres
     \begin{tabular}{lccp{4cm}}
     \toprule
     \tableheadercolor
-    Variable & OR & IC 95\% & Interpretación \\
-    \toprule
+    \textbf{Variable} & \textbf{OR} & \textbf{IC 95\%} & \textbf{Interpretación} \\
+    \midrule
     Zona rural (ref: urbano) & 1.34 & [1.23, 1.46] & +34\% odds de pobreza \\
-    Escolaridad (por año) & 0.94 & [0.93, 0.95] & --6\% odds por año adicional \\
-    Tamaño hogar (por persona) & 1.22 & [1.19, 1.25] & +22\% odds por persona adicional \\
+    Escolaridad (por año) & 0.93 & [0.91, 0.95] & $-$7\% odds por año \\
+    Tamaño hogar (por persona) & 1.21 & [1.18, 1.24] & +21\% odds por persona \\
     \bottomrule
     \end{tabular}
-    \footnote{OR: Odds Ratio; IC: Intervalo de Confianza}
+    
+    \vspace{2pt}
+    {\small\textit{Nota: OR = Odds Ratio; IC = Intervalo de Confianza.}}
 \end{table}
+
+La educación es el factor protector más potente. Cada año adicional de escolaridad reduce el odds de pobreza en \textbf{7\%}, controlando por zona y tamaño del hogar (Figura \ref{fig:forest_plot}).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Imagenes/g9_forest_plot_pobreza.png}
+    \includegraphics[width=0.55\textwidth]{Imagenes/g9_forest_plot_pobreza.png}
     \caption{Forest plot de odds ratios del modelo logístico}
     \label{fig:forest_plot}
 \end{figure}
-
-La educación es el factor protector más potente. Cada año adicional de escolaridad reduce el odds de pobreza en 6\%, controlando por zona y tamaño del hogar.
 
 \subsubsection{Análisis de mediación}
 
@@ -93,31 +98,33 @@ La educación es el factor protector más potente. Cada año adicional de escola
     \centering
     \caption{Descomposición de efectos: Zona $\to$ Educación $\to$ Pobreza}
     \label{tab:mediacion}
-    \begin{tabular}{lcp{5cm}}
+    \begin{tabular}{lcp{4.5cm}}
     \toprule
     \tableheadercolor
-    Efecto & Valor & Interpretación \\
-    \toprule
-    Efecto total (c) & 0.49 & Log-odds de pobreza rural vs urbano \\
-    Efecto directo (c') & 0.27 & Efecto neto controlando educación \\
-    Efecto indirecto (a$\times$b) & 0.22 & Vía menor educación en zonas rurales \\
+    \textbf{Efecto} & \textbf{Valor} & \textbf{Interpretación} \\
     \midrule
-    \textbf{Proporción mediada} & \textbf{45\%} & La educación explica casi la mitad \\
+    Efecto total (c) & 0.49 & Log-odds pobreza rural vs urbano \\
+    Efecto directo (c') & 0.27 & Efecto neto controlando educación \\
+    Efecto indirecto (a$\times$b) & 0.22 & Vía menor educación rural \\
+    \midrule
+    \textbf{Proporción mediada} & \textbf{45\%} & Educación explica casi la mitad \\
     Test de Sobel & Z=17.5, p$<$0.001 & Mediación significativa \\
     \bottomrule
     \end{tabular}
 \end{table}
 
+La menor escolaridad en zonas rurales media el 45\% del efecto de la ruralidad sobre la pobreza (Figura \ref{fig:mediacion}). Políticas de acceso educativo rural podrían reducir sustancialmente esta brecha.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Imagenes/g10_diagrama_mediacion.png}
+    \includegraphics[width=0.52\textwidth]{Imagenes/g10_diagrama_mediacion.png}
     \caption{Diagrama de mediación: Zona $\to$ Educación $\to$ Pobreza}
     \label{fig:mediacion}
 \end{figure}
 
-La menor escolaridad en zonas rurales media el 45\% del efecto de la ruralidad sobre la pobreza. Políticas de acceso educativo rural podrían reducir sustancialmente esta brecha.
-
+%-------------------------------------------------------------------------------
 \subsection{Eje 2: Brecha Salarial de Género}
+%-------------------------------------------------------------------------------
 
 \subsubsection{Brecha bruta (sin controles)}
 
@@ -128,23 +135,25 @@ La menor escolaridad en zonas rurales media el 45\% del efecto de la ruralidad s
     \begin{tabular}{lccc}
     \toprule
     \tableheadercolor
-    Indicador & Hombre & Mujer & Brecha \\
-    \toprule
+    \textbf{Indicador} & \textbf{Hombre} & \textbf{Mujer} & \textbf{Brecha} \\
+    \midrule
     Ingreso medio & \$1,402,711 & \$1,112,358 & \textbf{20.7\%} \\
     Mediana & \$920,000 & \$780,000 & 15.2\% \\
     \bottomrule
     \end{tabular}
-    \footnote{Test t de diseño complejo: p $<$ 0.001}
+    
+    \vspace{2pt}
+    {\small\textit{Nota: Test t de diseño complejo, p $<$ 0.001.}}
 \end{table}
+
+Las jefas de hogar perciben en promedio un 20.7\% menos de ingresos laborales. La brecha en medianas (15.2\%) es menor, sugiriendo que la cola superior de la distribución masculina amplifica la diferencia en medias (Figura \ref{fig:distribucion_ingreso}).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Imagenes/g5_distribucion_ingreso_sexo.png}
+    \includegraphics[width=0.55\textwidth]{Imagenes/g5_distribucion_ingreso_sexo.png}
     \caption{Distribución de ingresos laborales por sexo}
     \label{fig:distribucion_ingreso}
 \end{figure}
-
-Las jefas de hogar perciben en promedio un 20.7\% menos de ingresos laborales. La brecha en medianas (15.2\%) es menor, sugiriendo que la cola superior de la distribución masculina amplifica la diferencia en medias.
 
 \subsubsection{Brecha por nivel educativo}
 
@@ -152,86 +161,96 @@ Las jefas de hogar perciben en promedio un 20.7\% menos de ingresos laborales. L
     \centering
     \caption{Brecha salarial por nivel educativo}
     \label{tab:brecha_educacion}
-    \begin{tabular}{lccc}
+    \begin{tabular}{lcp{4.5cm}}
     \toprule
     \tableheadercolor
-    Nivel educativo & Hombre & Mujer & Brecha \\
-    \toprule
-    Básica (esc $\leq$ 8) & \$680,000 & \$560,000 & 17\% \\
-    Media (esc 9--12) & \$920,000 & \$750,000 & 18\% \\
-    Superior (esc 13--16) & \$1,450,000 & \$1,130,000 & 22\% \\
-    Postgrado (esc $>$ 16) & \$2,800,000 & \$2,100,000 & \textbf{25\%} \\
+    \textbf{Nivel educativo} & \textbf{Brecha} & \textbf{Interpretación} \\
+    \midrule
+    Básica o menos & \textbf{8.2\%} & Menor brecha relativa \\
+    Media & 16.9\% & Cerca del promedio nacional \\
+    Técnico Superior & \textbf{21.1\%} & Mayor brecha absoluta \\
+    Profesional & 14.1\% & Menor que técnico superior \\
+    Postgrado & \textbf{20.8\%} & Segunda mayor brecha \\
     \bottomrule
     \end{tabular}
 \end{table}
 
+\textbf{Hallazgo clave:} La brecha salarial presenta un patrón \textbf{no lineal} con la educación (Figura \ref{fig:brecha_educacion_combined}). Es mínima en educación básica (8.2\%), aumenta drásticamente en media y técnica superior (16.9\%--21.1\%), disminuye en profesionales (14.1\%), y vuelve a subir en postgrado (20.8\%). Este patrón sugiere que la brecha no se explica únicamente por capital humano.
+
+% Figuras lado a lado: Ingreso por educación y Brecha por educación
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Imagenes/g2_ingreso_educacion_sexo.png}
-    \caption{Ingreso laboral por nivel educativo y sexo}
-    \label{fig:ingreso_educacion}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Imagenes/g2_ingreso_educacion_sexo.png}
+        \caption{Ingreso por nivel educativo y sexo}
+        \label{fig:ingreso_educacion}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Imagenes/g3_brecha_educacion.png}
+        \caption{Brecha salarial porcentual}
+        \label{fig:brecha_educacion_graf}
+    \end{subfigure}
+    \caption{Análisis de brecha salarial por nivel educativo}
+    \label{fig:brecha_educacion_combined}
 \end{figure}
 
-\textbf{Hallazgo clave:} La brecha salarial \textbf{aumenta} con el nivel educativo. Las mujeres con postgrado enfrentan la mayor brecha relativa ($\sim$25\%), contradiciendo la hipótesis de que más educación iguala ingresos.
-
-\subsubsection{Modelo log-lineal ajustado}
-
-\textbf{Especificación:} $\log(\texttt{ytrabajocorh}) \sim \text{factor(sexo)} + \text{esc} + \text{edad} + \text{I(edad}^2\text{)}$
+\subsubsection{Modelos de regresión}
 
 \begin{table}[H]
     \centering
-    \caption{Coeficientes del modelo log-lineal}
-    \label{tab:modelo_log}
-    \begin{tabular}{lccc}
+    \caption{Modelos de brecha salarial ajustados}
+    \label{tab:modelos_brecha}
+    \begin{tabular}{lcc}
     \toprule
     \tableheadercolor
-    Parámetro & Coeficiente & E.E. & Interpretación \\
-    \toprule
-    Sexo (Mujer) & -0.201 & 0.015 & -18.2\% de ingreso \\
+    \textbf{Modelo} & \textbf{Coef. Sexo (Mujer)} & \textbf{Interpretación} \\
+    \midrule
+    Log-lineal (educación, edad) & $-$0.201 (E.E.=0.015) & $-$18.2\% ingreso \\
+    Completo (+ ocupación, hogar) & $-$\$198,000 (E.E.=\$28,000) & Brecha absoluta \\
     \bottomrule
     \end{tabular}
-    \footnote{Controlando por educación, edad y edad$^2$}
-\end{table}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.35\textwidth]{Imagenes/g3_brecha_educacion.png}
-    \caption{Brecha salarial porcentual por nivel educativo}
-    \label{fig:brecha_educacion_graf}
-\end{figure}
-
-Controlando por educación, edad y edad$^2$, las jefas de hogar perciben un \textbf{18.2\%} menos de ingreso laboral que los jefes hombres.
-
-\subsubsection{Modelo completo (con ocupación)}
-
-\begin{table}[H]
-    \centering
-    \caption{Modelo con ocupación como variable control}
-    \label{tab:modelo_completo}
-    \begin{tabular}{lc}
-    \toprule
-    \tableheadercolor
-    Estadístico & Valor \\
-    \toprule
-    $\beta_{\text{sexo}}$ & --\$198,000 \\
-    Error estándar & \$28,000 \\
-    p-valor & $<$ 0.001 \\
-    \bottomrule
-    \end{tabular}
-    \footnote{Controles: ocupación (CIUO-08), educación, edad, tamaño del hogar}
+    
+    \vspace{2pt}
+    {\small\textit{Nota: Ambos modelos con p $<$ 0.001. Se rechaza H$_0$.}}
 \end{table}
 
-Se \textbf{rechaza H$_0$}. Existe brecha salarial significativa contra las mujeres, incluso controlando por ocupación, educación, edad y tamaño del hogar.
+Controlando por educación, edad, ocupación y tamaño del hogar, las jefas de hogar perciben un \textbf{18.2\%} menos de ingreso laboral. Se \textbf{rechaza H$_0$}: existe brecha salarial significativa contra las mujeres incluso con controles completos.
 
 \subsubsection{Brecha por grupo de edad}
 
+\begin{table}[H]
+    \centering
+    \caption{Brecha salarial por grupo de edad}
+    \label{tab:brecha_edad}
+    \begin{tabular}{lcp{5cm}}
+    \toprule
+    \tableheadercolor
+    \textbf{Grupo de edad} & \textbf{Brecha} & \textbf{Interpretación} \\
+    \midrule
+    $\leq$30 años & \textbf{13.1\%} & Menor brecha (entrada al mercado) \\
+    31--40 años & 20.8\% & Cerca del promedio ($\sim$20\%) \\
+    41--50 años & \textbf{24.5\%} & Alta brecha (pico de carrera) \\
+    51--60 años & 17.8\% & Reducción respecto al anterior \\
+    60+ años & \textbf{24.8\%} & Mayor brecha (pre-jubilación) \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+La brecha salarial presenta un patrón de \textbf{U invertida con rebote} (Figura \ref{fig:brecha_edad}). Es menor al inicio de la carrera laboral (13.1\%), alcanza su máximo en 41--50 años (24.5\%), disminuye en 51--60 (17.8\%), pero vuelve a aumentar en mayores de 60 (24.8\%). Esto sugiere efectos de cohorte y posible discriminación en etapas avanzadas.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Imagenes/g8_brecha_edad.png}
+    \includegraphics[width=0.52\textwidth]{Imagenes/g8_brecha_edad.png}
     \caption{Brecha salarial de género por grupo de edad}
     \label{fig:brecha_edad}
 \end{figure}
 
+%-------------------------------------------------------------------------------
 \subsection{Validación: Sesgo por No Ponderar}
+%-------------------------------------------------------------------------------
 
 \begin{table}[H]
     \centering
@@ -240,11 +259,11 @@ Se \textbf{rechaza H$_0$}. Existe brecha salarial significativa contra las mujer
     \begin{tabular}{lc}
     \toprule
     \tableheadercolor
-    Estimador & Valor \\
-    \toprule
+    \textbf{Estimador} & \textbf{Valor} \\
+    \midrule
     Media NO ponderada & \$1,321,458 \\
     Media ponderada & \$1,566,277 \\
-    Diferencia relativa & +18.5\% \\
+    \textbf{Diferencia relativa} & \textbf{+18.5\%} \\
     \bottomrule
     \end{tabular}
 \end{table}

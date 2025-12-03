@@ -7,13 +7,13 @@
     \centering
     \caption{Características de la fuente de datos}
     \label{tab:fuente}
-    \begin{tabular}{ll}
+    \begin{tabular}{lp{9cm}}
     \toprule
     \tableheadercolor
-    Elemento & Descripción \\
-    \toprule
+    \textbf{Elemento} & \textbf{Descripción} \\
+    \midrule
     Encuesta & CASEN 2022 (Ministerio de Desarrollo Social y Familia) \\
-    Archivo & \texttt{Base\_de\_datos\_Casen\_2022\_STATA} \\
+    Archivo & {\small\texttt{Base\_de\_datos\_Casen\_2022\_STATA\_18\_marzo\_2024.dta}} \\
     Universo & Hogares particulares ocupados en Chile \\
     Muestra analítica & 72,056 jefes de hogar (\texttt{pco1 == 1}) \\
     \bottomrule
@@ -44,11 +44,11 @@ La CASEN 2022 utiliza un \textbf{diseño muestral probabilístico, estratificado
     \centering
     \caption{Variables del diseño muestral en R}
     \label{tab:diseno}
-    \begin{tabular}{lll}
+    \begin{tabular}{llp{5cm}}
     \toprule
     \tableheadercolor
-    Variable & Código & Descripción \\
-    \toprule
+    \textbf{Variable} & \textbf{Código} & \textbf{Descripción} \\
+    \midrule
     Factor de expansión & \texttt{expr} & Peso regional (persona) \\
     Estrato & \texttt{varstrat} & 764 estratos geográficos \\
     Conglomerado & \texttt{varunit} & 12,545 UPM \\
@@ -56,7 +56,9 @@ La CASEN 2022 utiliza un \textbf{diseño muestral probabilístico, estratificado
     \end{tabular}
 \end{table}
 
-\textbf{Nota metodológica:} Este análisis utiliza un diseño simplificado (\texttt{ids = ~1}) con pesos \texttt{expr}. Esto puede subestimar los errores estándar al ignorar la correlación intra-conglomerado. Para estimaciones de producción se recomienda usar el diseño complejo completo.
+\begin{hallazgobox}
+\textbf{Nota metodológica:} Este análisis utiliza un diseño simplificado (\texttt{ids = \textasciitilde1}) con pesos \texttt{expr}. Esto puede subestimar los errores estándar al ignorar la correlación intra-conglomerado. Para estimaciones de producción se recomienda usar el diseño complejo completo.
+\end{hallazgobox}
 
 \subsection{Variables de Análisis}
 
@@ -66,11 +68,11 @@ La CASEN 2022 utiliza un \textbf{diseño muestral probabilístico, estratificado
     \centering
     \caption{Variables dependientes}
     \label{tab:vdep}
-    \begin{tabular}{lll}
+    \begin{tabular}{llp{6cm}}
     \toprule
     \tableheadercolor
-    Variable & Tipo & Construcción \\
-    \toprule
+    \textbf{Variable} & \textbf{Tipo} & \textbf{Construcción} \\
+    \midrule
     \texttt{es\_pobre} & Dicotómica & 1 si pobreza $\in \{1, 2\}$, 0 si pobreza = 3 \\
     \texttt{es\_pobre\_extremo} & Dicotómica & 1 si pobreza = 1, 0 en otro caso \\
     \texttt{ytrabajocorh} & Continua & Ingreso del trabajo del hogar corregido \\
@@ -84,11 +86,11 @@ La CASEN 2022 utiliza un \textbf{diseño muestral probabilístico, estratificado
     \centering
     \caption{Variables independientes}
     \label{tab:vind}
-    \begin{tabular}{lll}
+    \begin{tabular}{llp{5cm}}
     \toprule
     \tableheadercolor
-    Variable & Código CASEN & Valores \\
-    \toprule
+    \textbf{Variable} & \textbf{Código CASEN} & \textbf{Valores} \\
+    \midrule
     Zona & \texttt{area} & 1 = Urbano, 2 = Rural \\
     Sexo & \texttt{sexo} & 1 = Hombre, 2 = Mujer \\
     Escolaridad & \texttt{esc} & Años de educación formal (0--29) \\
