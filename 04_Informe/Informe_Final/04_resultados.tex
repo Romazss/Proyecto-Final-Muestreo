@@ -14,9 +14,9 @@
     \tableheadercolor
     \textbf{Indicador} & \textbf{Valor} & \textbf{Interpretación} \\
     \midrule
-    Tasa pobreza nacional & $\sim$6.5\% & 4,694 jefes en pobreza \\
-    Regiones más pobres & Maule, Arica y Parinacota, Magallanes & $\sim$9--10\% (casi el doble) \\
-    Regiones menos pobres & La Araucanía, Biobío, Los Ríos & $\sim$2.5--3.5\% (menos de la mitad) \\
+    Tasa pobreza nacional & $\sim$6.5\% & Promedio ponderado nacional \\
+    Regiones más pobres & La Araucanía, Ñuble, Tarapacá & $\sim$9--10\% (casi el doble) \\
+    Regiones menos pobres & Magallanes, Aysén, Metropolitana & $\sim$2.7--3.7\% (menos de la mitad) \\
     \bottomrule
     \end{tabular}
     
@@ -24,7 +24,7 @@
     {\small\textit{Nota: Estimaciones ponderadas con factores de expansión regional.}}
 \end{table}
 
-Existe una marcada heterogeneidad territorial. Contraintuitivamente, las regiones del Maule, Arica y Parinacota, y zonas extremas como Magallanes concentran las mayores tasas de pobreza ($\sim$9--10\%), mientras que La Araucanía ($\sim$2.5\%), Biobío ($\sim$3\%) y Los Ríos ($\sim$3.5\%) presentan los menores niveles entre jefes de hogar. La Figura \ref{fig:pobreza_region} ilustra esta distribución.
+Existe una marcada heterogeneidad territorial. Las regiones de La Araucanía y Ñuble presentan las mayores tasas de pobreza ($\sim$10\%), seguidas por Tarapacá (9.4\%) y Atacama (7.6\%). En contraste, las regiones extremas de Magallanes (2.7\%) y Aysén (3.4\%), junto con la Región Metropolitana (3.7\%), presentan los menores niveles de pobreza entre jefes de hogar. La Figura \ref{fig:pobreza_region} ilustra esta distribución.
 
 \begin{figure}[H]
     \centering
@@ -57,9 +57,21 @@ La pobreza rural es significativamente mayor que la urbana, con una diferencia r
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.52\textwidth]{Imagenes/g4_pobreza_urbano_rural.png}
-    \caption{Incidencia de pobreza: zona urbana vs rural}
-    \label{fig:pobreza_urbano_rural}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Imagenes/g4_pobreza_urbano_rural.png}
+        \caption{Pobreza urbano vs rural}
+        \label{fig:pobreza_urbano_rural}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Imagenes/g7_pobreza_region_zona.png}
+        \caption{Pobreza por región y zona}
+        \label{fig:pobreza_region_zona}
+    \end{subfigure}
+    \caption{Análisis de pobreza territorial}
+    \label{fig:pobreza_territorial}
 \end{figure}
 
 \subsubsection{Modelo logístico de pobreza}
@@ -117,9 +129,21 @@ La menor escolaridad en zonas rurales media el 45\% del efecto de la ruralidad s
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.52\textwidth]{Imagenes/g10_diagrama_mediacion.png}
-    \caption{Diagrama de mediación: Zona $\to$ Educación $\to$ Pobreza}
-    \label{fig:mediacion}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Imagenes/g10_diagrama_mediacion.png}
+        \caption{Diagrama de mediación}
+        \label{fig:mediacion}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Imagenes/g6_escolaridad_zona.png}
+        \caption{Escolaridad por zona}
+        \label{fig:escolaridad_zona}
+    \end{subfigure}
+    \caption{Análisis de mediación: Zona $\to$ Educación $\to$ Pobreza}
+    \label{fig:mediacion_combined}
 \end{figure}
 
 %-------------------------------------------------------------------------------
