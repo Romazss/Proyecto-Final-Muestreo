@@ -38,6 +38,22 @@ La CASEN 2022 utiliza un \textbf{diseño muestral probabilístico, estratificado
     \item Tamaño total: 106,856 viviendas
 \end{itemize}
 
+\subsubsection{Implementación en R}
+
+El diseño muestral complejo se implementó mediante el paquete \texttt{survey}:
+
+\begin{verbatim}
+diseno_casen <- svydesign(
+  ids = ~varunit,      # Conglomerados (UPM)
+  strata = ~varstrat,  # Estratos
+  weights = ~expr,     # Factor de expansión
+  data = jefes,
+  nest = TRUE
+)
+\end{verbatim}
+
+Esta especificación garantiza que los errores estándar reflejen correctamente la correlación intra-conglomerado y la ganancia de precisión por estratificación.
+
 \subsubsection{Variables del Diseño Muestral}
 
 \begin{table}[H]
@@ -57,7 +73,7 @@ La CASEN 2022 utiliza un \textbf{diseño muestral probabilístico, estratificado
 \end{table}
 
 \begin{hallazgobox}
-\textbf{Nota metodológica:} Este análisis utiliza un diseño simplificado (\texttt{ids = \textasciitilde1}) con pesos \texttt{expr}. Esto puede subestimar los errores estándar al ignorar la correlación intra-conglomerado. Para estimaciones de producción se recomienda usar el diseño complejo completo.
+\textbf{Nota metodológica:} Este análisis utiliza el \textbf{diseño muestral complejo completo}, incorporando estratificación (\texttt{varstrat}), conglomerados (\texttt{varunit}) y factores de expansión (\texttt{expr}). Esto garantiza estimaciones insesgadas y errores estándar correctos que reflejan la correlación intra-conglomerado.
 \end{hallazgobox}
 
 \subsection{Variables de Análisis}

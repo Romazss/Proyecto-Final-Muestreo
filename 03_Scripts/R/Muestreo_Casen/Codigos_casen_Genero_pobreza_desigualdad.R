@@ -1,7 +1,8 @@
 # ============================================================================
 # ANÁLISIS CASEN 2022 - CÓDIGO CONSOLIDADO
-# Proyecto Final Muestreo (EYP2417)
-# Autor: Esteban Román
+# Proyecto Final Muestreo (EYP2417)- el documento para ejecutarlo requiere ,
+# Autores: Esteban Román  • Julián Vargas • Francisca Sepúlveda • Alexander Pinto
+#                                 - a lo menos 22 GB  de RAM para el GEV
 # Fecha: Diciembre 2025
 # ============================================================================
 
@@ -16,38 +17,53 @@ library(scales)
 
 # --- 1. CARGA Y PREPARACIÓN DE DATOS ----------------------------------------
 
-# Diccionario de regiones con orden geográfico (norte a sur)
+# Diccionario de regiones con códigos CASEN 2022
+# NOTA: Los códigos NO siguen orden geográfico norte-sur
+# Código 15 = Arica (más al norte), Código 1 = Tarapacá, Código 13 = RM (centro)
 regiones_chile <- c(
-  "1"  = "Arica y Parinacota",
-  "2"  = "Tarapacá",
-  "3"  = "Antofagasta",
-  "4"  = "Atacama",
-  "5"  = "Coquimbo",
-  "6"  = "Valparaíso",
-  "7"  = "Metropolitana",
-  "8"  = "O'Higgins",
-  "9"  = "Maule",
-  "10" = "Ñuble",
-  "11" = "Biobío",
-  "12" = "La Araucanía",
-  "13" = "Los Ríos",
-  "14" = "Los Lagos",
-  "15" = "Aysén",
-  "16" = "Magallanes"
+  "1"  = "Tarapacá (I)",
+  "2"  = "Antofagasta (II)",
+  "3"  = "Atacama (III)",
+  "4"  = "Coquimbo (IV)",
+  "5"  = "Valparaíso (V)",
+  "6"  = "O'Higgins (VI)",
+  "7"  = "Maule (VII)",
+  "8"  = "Biobío (VIII)",
+  "9"  = "La Araucanía (IX)",
+  "10" = "Los Lagos (X)",
+  "11" = "Aysén (XI)",
+  "12" = "Magallanes (XII)",
+  "13" = "Metropolitana (RM)",
+  "14" = "Los Ríos (XIV)",
+  "15" = "Arica y Parinacota (XV)",
+  "16" = "Ñuble (XVI)"
 )
 
-# Orden geográfico de norte a sur (para factor ordenado)
+# Orden geográfico REAL de norte a sur (para factor ordenado en gráficos)
+# Arica (15) es la más al norte, RM (13) está al centro, Ñuble (16) entre Maule y Biobío
 orden_norte_sur <- c(
-  "Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", 
-  "Coquimbo", "Valparaíso", "Metropolitana", "O'Higgins", 
-  "Maule", "Ñuble", "Biobío", "La Araucanía", 
-  "Los Ríos", "Los Lagos", "Aysén", "Magallanes"
+  "Arica y Parinacota (XV)",
+  "Tarapacá (I)",
+  "Antofagasta (II)",
+  "Atacama (III)",
+  "Coquimbo (IV)",
+  "Valparaíso (V)",
+  "Metropolitana (RM)",
+  "O'Higgins (VI)",
+  "Maule (VII)",
+  "Ñuble (XVI)",
+  "Biobío (VIII)",
+  "La Araucanía (IX)",
+  "Los Ríos (XIV)",
+  "Los Lagos (X)",
+  "Aysén (XI)",
+  "Magallanes (XII)"
 )
 
 # Cargar base CASEN 2022
-casen <- read_dta("Base_de_datos_Casen_2022_STATA_18_marzo_2024.dta")
+#casen <- read_dta("Base_de_datos_Casen_2022_STATA_18_marzo_2024.dta")
 # Alternativa si ya está cargada:
-# casen <- Base_de_datos_Casen_2022_STATA_18_marzo_2024
+casen <- Base_de_datos_Casen_2022_STATA_18_marzo_2024
 
 # Filtrar jefes de hogar con manejo correcto de NA
 jefes <- casen %>%
@@ -76,18 +92,27 @@ print(table(jefes$es_pobre, useNA = "ifany"))
 
 # --- 2. DISEÑO MUESTRAL -----------------------------------------------------
 
-# Opción A: Diseño simplificado (usado en este análisis)
-diseno_casen <- svydesign(ids = ~1, weights = ~expr, data = jefes)
-diseno_srvyr <- jefes %>% as_survey_design(weights = expr)
+# Opción A: Diseño simplificado (NO RECOMENDADO - subestima errores estándar)
+# diseno_casen <- svydesign(ids = ~1, weights = ~expr, data = jefes)
+# diseno_srvyr <- jefes %>% as_survey_design(weights = expr)
 
-# Opción B: Diseño complejo (RECOMENDADO para producción)
-# diseno_casen <- svydesign(
-#   ids = ~varunit,
-#   strata = ~varstrat,
-#   weights = ~expr,
-#   data = jefes,
-#   nest = TRUE
-# )
+# Opción B: Diseño complejo COMPLETO (USADO en este análisis)
+# Incorpora estratificación (varstrat) y conglomerados (varunit)
+diseno_casen <- svydesign(
+  ids = ~varunit,
+  strata = ~varstrat,
+  weights = ~expr,
+  data = jefes,
+  nest = TRUE
+)
+
+diseno_srvyr <- jefes %>% 
+  as_survey_design(
+    ids = varunit,
+    strata = varstrat,
+    weights = expr,
+    nest = TRUE
+  )
 
 # ============================================================================
 # EJE 1: DISTRIBUCIÓN DE LA POBREZA
@@ -167,7 +192,13 @@ cat("\n--- Análisis de Mediación ---\n")
 
 # Filtrar NA para análisis de mediación
 jefes_mediacion <- jefes %>% drop_na(es_pobre, area_rural, esc)
-diseno_mediacion <- svydesign(ids = ~1, weights = ~expr, data = jefes_mediacion)
+diseno_mediacion <- svydesign(
+  ids = ~varunit,
+  strata = ~varstrat,
+  weights = ~expr,
+  data = jefes_mediacion,
+  nest = TRUE
+)
 
 # Efecto total (c): Zona → Pobreza
 modelo_total <- svyglm(es_pobre ~ area_rural, design = diseno_mediacion, family = quasibinomial())
@@ -228,8 +259,21 @@ jefes_trabajo <- jefes %>%
                                    "Profesional", "Postgrado"))
   )
 
-diseno_trabajo <- svydesign(ids = ~1, weights = ~expr, data = jefes_trabajo)
-diseno_trabajo_srvyr <- jefes_trabajo %>% as_survey_design(weights = expr)
+diseno_trabajo <- svydesign(
+  ids = ~varunit,
+  strata = ~varstrat,
+  weights = ~expr,
+  data = jefes_trabajo,
+  nest = TRUE
+)
+
+diseno_trabajo_srvyr <- jefes_trabajo %>% 
+  as_survey_design(
+    ids = varunit,
+    strata = varstrat,
+    weights = expr,
+    nest = TRUE
+  )
 
 # --- 2.1 Etapa 1: Brecha Bruta (sin controles) ------------------------------
 cat("\n--- Etapa 1: Análisis Bivariado ---\n")
@@ -614,4 +658,3 @@ ggsave("figuras/g10_diagrama_mediacion.png", g10, width = 10, height = 7, dpi = 
 cat("\n========== EXPORTACIÓN COMPLETADA ==========\n")
 cat("Archivos CSV en: ./resultados/\n")
 cat("Gráficos PNG en: ./figuras/\n")
-

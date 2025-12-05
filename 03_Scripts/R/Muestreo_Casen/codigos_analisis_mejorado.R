@@ -6,7 +6,7 @@
 # ============================================================================
 
 # --- 0. CONFIGURACIÓN INICIAL -----------------------------------------------
-Sys.setlocale("LC_ALL", "Spanish_Chile.UTF-8")
+
 
 library(tidyverse)
 library(survey)

@@ -7,28 +7,48 @@
 
 \begin{table}[H]
     \centering
-    \caption{Incidencia de pobreza por región (CASEN 2022)}
+    \caption{Incidencia de pobreza por región (CASEN 2022, diseño complejo)}
     \label{tab:pobreza_region}
-    \begin{tabular}{lp{4cm}p{4.5cm}}
+    \begin{tabular}{lccc}
     \toprule
     \tableheadercolor
-    \textbf{Indicador} & \textbf{Valor} & \textbf{Interpretación} \\
+    \textbf{Región} & \textbf{Prop.} & \textbf{IC 95\%} & \textbf{n} \\
     \midrule
-    Tasa pobreza nacional & $\sim$6.5\% & Promedio ponderado nacional \\
-    Regiones más pobres & La Araucanía, Ñuble, Tarapacá & $\sim$9--10\% (casi el doble) \\
-    Regiones menos pobres & Magallanes, Aysén, Metropolitana & $\sim$2.7--3.7\% (menos de la mitad) \\
+    La Araucanía & 9.97\% & [8.95\%, 11.0\%] & 4,916 \\
+    Ñuble & 9.97\% & [8.78\%, 11.2\%] & 3,308 \\
+    Tarapacá & 9.36\% & [7.23\%, 11.5\%] & 2,806 \\
+    Atacama & 7.55\% & [6.17\%, 8.93\%] & 3,211 \\
+    Arica y Parinacota & 7.42\% & [6.16\%, 8.69\%] & 2,718 \\
+    Maule & 7.36\% & [6.56\%, 8.16\%] & 5,169 \\
+    Biobío & 7.15\% & [6.46\%, 7.84\%] & 7,076 \\
+    \midrule
+    Metropolitana & 3.73\% & [3.35\%, 4.11\%] & 13,202 \\
+    Aysén & 3.38\% & [2.26\%, 4.49\%] & 1,449 \\
+    Magallanes & 2.73\% & [1.55\%, 3.91\%] & 1,964 \\
     \bottomrule
     \end{tabular}
     
     \vspace{2pt}
-    {\small\textit{Nota: Estimaciones ponderadas con factores de expansión regional.}}
+    {\small\textit{Nota: Estimaciones con diseño muestral complejo (estratos y conglomerados). Se muestran las 7 regiones con mayor y las 3 con menor incidencia.}}
 \end{table}
 
-Existe una marcada heterogeneidad territorial. Las regiones de La Araucanía y Ñuble presentan las mayores tasas de pobreza ($\sim$10\%), seguidas por Tarapacá (9.4\%) y Atacama (7.6\%). En contraste, las regiones extremas de Magallanes (2.7\%) y Aysén (3.4\%), junto con la Región Metropolitana (3.7\%), presentan los menores niveles de pobreza entre jefes de hogar. La Figura \ref{fig:pobreza_region} ilustra esta distribución.
+Existe una marcada heterogeneidad territorial. Las regiones de La Araucanía y Ñuble presentan las mayores tasas de pobreza (9.97\% cada una, IC 95\%: $\sim$9--11\%), seguidas por Tarapacá (9.36\%) y Atacama (7.55\%). En contraste, las regiones extremas de Magallanes (2.73\%, IC: [1.55\%, 3.91\%]) y Aysén (3.38\%), junto con la Región Metropolitana (3.73\%), presentan los menores niveles de pobreza entre jefes de hogar. La Figura \ref{fig:pobreza_region} ilustra esta distribución.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.52\textwidth]{Imagenes/g1_pobreza_region.png}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Imagenes/g1_pobreza_region.png}
+        \caption{Gráfico: Pobreza por región}
+        \label{fig:pobreza_region_graf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.38\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Imagenes/mapa_chile.pdf}
+        \caption{Mapa de Chile}
+        \label{fig:mapa_chile}
+    \end{subfigure}
     \caption{Incidencia de pobreza por región (CASEN 2022)}
     \label{fig:pobreza_region}
 \end{figure}
@@ -37,23 +57,23 @@ Existe una marcada heterogeneidad territorial. Las regiones de La Araucanía y �
 
 \begin{table}[H]
     \centering
-    \caption{Pobreza por zona urbana y rural}
+    \caption{Pobreza por zona urbana y rural (diseño complejo)}
     \label{tab:pobreza_zona}
-    \begin{tabular}{lccc}
+    \begin{tabular}{lcccc}
     \toprule
     \tableheadercolor
-    \textbf{Zona} & \textbf{Proporción} & \textbf{IC 95\%} & \textbf{Diferencia relativa} \\
+    \textbf{Zona} & \textbf{Proporción} & \textbf{E.E.} & \textbf{IC 95\%} & \textbf{n expandido} \\
     \midrule
-    Urbano & 5.3\% & [5.0\%, 5.6\%] & Referencia \\
-    Rural & 8.4\% & [7.7\%, 9.1\%] & +58\% \\
+    Urbano & 5.28\% & 0.12\% & [5.04\%, 5.52\%] & 6,193,975 \\
+    Rural & 8.37\% & 0.30\% & [7.79\%, 8.95\%] & 804,118 \\
     \bottomrule
     \end{tabular}
     
     \vspace{2pt}
-    {\small\textit{Nota: Diferencia significativa (p $<$ 0.001).}}
+    {\small\textit{Nota: Diferencia de 3.09 pp, significativa ($\chi^2$ Rao-Scott = 131.79, p $<$ 0.001).}}
 \end{table}
 
-La pobreza rural es significativamente mayor que la urbana, con una diferencia relativa del 58\%. La Figura \ref{fig:pobreza_urbano_rural} visualiza esta brecha.
+La pobreza rural es significativamente mayor que la urbana, con una diferencia relativa del 58\%. El test Chi-cuadrado de Rao \& Scott confirma la asociación ($\chi^2 = 131.79$, $df = 1$, $p < 2.2 \times 10^{-16}$), y el test t de diseño complejo arroja una diferencia de 3.09 puntos porcentuales ($t = 9.62$, $df = 11306$, $p < 0.001$, IC 95\%: [2.46\%, 3.72\%]). La Figura \ref{fig:pobreza_urbano_rural} visualiza esta brecha.
 
 \begin{figure}[H]
     \centering
@@ -85,17 +105,39 @@ La pobreza rural es significativamente mayor que la urbana, con una diferencia r
     \tableheadercolor
     \textbf{Variable} & \textbf{OR} & \textbf{IC 95\%} & \textbf{Interpretación} \\
     \midrule
-    Zona rural (ref: urbano) & 1.34 & [1.23, 1.46] & +34\% odds de pobreza \\
-    Escolaridad (por año) & 0.93 & [0.91, 0.95] & $-$7\% odds por año \\
-    Tamaño hogar (por persona) & 1.21 & [1.18, 1.24] & +21\% odds por persona \\
+    Zona rural (ref: urbano) & 1.34 & [1.22, 1.47] & +34\% odds de pobreza \\
+    Escolaridad (por año) & 0.93 & [0.93, 0.94] & $-$7\% odds por año \\
+    Tamaño hogar (por persona) & 1.21 & [1.19, 1.24] & +21\% odds por persona \\
     \bottomrule
     \end{tabular}
     
     \vspace{2pt}
-    {\small\textit{Nota: OR = Odds Ratio; IC = Intervalo de Confianza.}}
+    {\small\textit{Nota: Modelo quasibinomial con diseño complejo. Dispersión = 0.98. Todas las variables $p < 2 \times 10^{-16}$.}}
 \end{table}
 
-La educación es el factor protector más potente. Cada año adicional de escolaridad reduce el odds de pobreza en \textbf{7\%}, controlando por zona y tamaño del hogar (Figura \ref{fig:forest_plot}).
+\subsubsection{Ingreso por tamaño de hogar}
+
+\begin{table}[H]
+    \centering
+    \caption{Ingreso total del hogar por tamaño (CASEN 2022)}
+    \label{tab:ingreso_tamano}
+    \begin{tabular}{lccc}
+    \toprule
+    \tableheadercolor
+    \textbf{Tamaño hogar} & \textbf{Ingreso medio} & \textbf{IC 95\%} \\
+    \midrule
+    1 persona & \$1,061,844 & [\$1,024,718; \$1,098,970] \\
+    2 personas & \$1,462,260 & [\$1,411,060; \$1,513,460] \\
+    3--4 personas & \$1,738,278 & [\$1,703,459; \$1,773,097] \\
+    5+ personas & \$2,006,078 & [\$1,942,601; \$2,069,556] \\
+    \bottomrule
+    \end{tabular}
+    
+    \vspace{2pt}
+    {\small\textit{Nota: Variable \texttt{ytotcorh} (ingreso total corregido del hogar).}}
+\end{table}
+
+La educación es el factor protector más potente. Cada año adicional de escolaridad reduce el odds de pobreza en \textbf{7\%}, controlando por zona y tamaño del hogar. El modelo presenta un parámetro de dispersión de 0.98, indicando buen ajuste. Todas las variables son altamente significativas ($p < 2 \times 10^{-16}$). La Figura \ref{fig:forest_plot} presenta los odds ratios con sus intervalos de confianza.
 
 \begin{figure}[H]
     \centering
@@ -115,17 +157,17 @@ La educación es el factor protector más potente. Cada año adicional de escola
     \tableheadercolor
     \textbf{Efecto} & \textbf{Valor} & \textbf{Interpretación} \\
     \midrule
-    Efecto total (c) & 0.49 & Log-odds pobreza rural vs urbano \\
-    Efecto directo (c') & 0.27 & Efecto neto controlando educación \\
-    Efecto indirecto (a$\times$b) & 0.22 & Vía menor educación rural \\
+    Efecto total (c) & 0.4949 & Log-odds pobreza rural vs urbano \\
+    Efecto directo (c') & 0.2746 & Efecto neto controlando educación \\
+    Efecto indirecto (a$\times$b) & 0.2224 & Vía menor educación rural \\
     \midrule
-    \textbf{Proporción mediada} & \textbf{45\%} & Educación explica casi la mitad \\
-    Test de Sobel & Z=17.5, p$<$0.001 & Mediación significativa \\
+    \textbf{Proporción mediada} & \textbf{44.9\%} & Educación explica casi la mitad \\
+    Test de Sobel & Z=16.795, p$<$0.001 & Mediación significativa \\
     \bottomrule
     \end{tabular}
 \end{table}
 
-La menor escolaridad en zonas rurales media el 45\% del efecto de la ruralidad sobre la pobreza (Figura \ref{fig:mediacion}). Políticas de acceso educativo rural podrían reducir sustancialmente esta brecha.
+La menor escolaridad en zonas rurales media el 44.9\% del efecto de la ruralidad sobre la pobreza (Figura \ref{fig:mediacion}). El análisis de mediación se realizó con diseño muestral complejo, filtrando observaciones con valores faltantes. Políticas de acceso educativo rural podrían reducir sustancialmente esta brecha.
 
 \begin{figure}[H]
     \centering
@@ -162,12 +204,13 @@ La menor escolaridad en zonas rurales media el 45\% del efecto de la ruralidad s
     \textbf{Indicador} & \textbf{Hombre} & \textbf{Mujer} & \textbf{Brecha} \\
     \midrule
     Ingreso medio & \$1,402,711 & \$1,112,358 & \textbf{20.7\%} \\
+    IC 95\% (media) & [\$1,365,373; \$1,440,050] & [\$1,087,319; \$1,137,398] & --- \\
     Mediana & \$920,000 & \$780,000 & 15.2\% \\
     \bottomrule
     \end{tabular}
     
     \vspace{2pt}
-    {\small\textit{Nota: Test t de diseño complejo, p $<$ 0.001.}}
+    {\small\textit{Nota: Test t de diseño complejo: $t = -14.53$, $df = 11261$, diferencia = \$290,353 ($p < 2.2 \times 10^{-16}$).}}
 \end{table}
 
 Las jefas de hogar perciben en promedio un 20.7\% menos de ingresos laborales. La brecha en medianas (15.2\%) es menor, sugiriendo que la cola superior de la distribución masculina amplifica la diferencia en medias (Figura \ref{fig:distribucion_ingreso}).
@@ -232,16 +275,17 @@ Las jefas de hogar perciben en promedio un 20.7\% menos de ingresos laborales. L
     \tableheadercolor
     \textbf{Modelo} & \textbf{Coef. Sexo (Mujer)} & \textbf{Interpretación} \\
     \midrule
-    Log-lineal (educación, edad) & $-$0.201 (E.E.=0.015) & $-$18.2\% ingreso \\
-    Completo (+ ocupación, hogar) & $-$\$198,000 (E.E.=\$28,000) & Brecha absoluta \\
+    Ajustado (educación, edad) & $-$\$243,330 (E.E.=\$18,112) & $t = -13.44$, $p < 0.001$ \\
+    Log-lineal (educación, edad, edad$^2$) & $-$0.200 (E.E.=0.010) & $-$18.2\% ingreso \\
+    Completo (+ ocupación, hogar) & $-$\$169,923 (E.E.=\$26,000) & $p = 8.8 \times 10^{-11}$ \\
     \bottomrule
     \end{tabular}
     
     \vspace{2pt}
-    {\small\textit{Nota: Ambos modelos con p $<$ 0.001. Se rechaza H$_0$.}}
+    {\small\textit{Nota: Todos los modelos estimados con diseño muestral complejo. Se rechaza H$_0$ en todos los casos.}}
 \end{table}
 
-Controlando por educación, edad, ocupación y tamaño del hogar, las jefas de hogar perciben un \textbf{18.2\%} menos de ingreso laboral. Se \textbf{rechaza H$_0$}: existe brecha salarial significativa contra las mujeres incluso con controles completos.
+Controlando por educación, edad, ocupación y tamaño del hogar, las jefas de hogar perciben un \textbf{18.2\%} menos de ingreso laboral (modelo log-lineal). Se \textbf{rechaza H$_0$}: existe brecha salarial significativa contra las mujeres incluso con controles completos.
 
 \subsubsection{Brecha por grupo de edad}
 
@@ -293,3 +337,5 @@ La brecha salarial presenta un patrón de \textbf{U invertida con rebote} (Figur
 \end{table}
 
 Ignorar los factores de expansión subestima el ingreso promedio en $\sim$18.5\%. La muestra CASEN sobrerrepresenta zonas de mayor densidad poblacional, y los pesos corrigen esta distorsión.
+
+\clearpage

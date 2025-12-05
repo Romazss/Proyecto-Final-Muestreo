@@ -1,9 +1,11 @@
 # Proyecto Final EYP2417 - Muestreo (Grupo 4)
-## "Entender la realidad chilena a partir de la encuesta CASEN"
+## Análisis de Desigualdad Territorial y Brecha Salarial de Género en Chile
+### Encuesta CASEN 2022
 
-**Entrega:** Viernes 24 de octubre de 2025  
-**Formato:** PDF de 3-4 páginas en LaTeX  
+**Estado:** ✅ **COMPLETADO**  
+**Entrega:** 3 de diciembre de 2025  
 **Profesor:** Guillermo Marshall Rivera  
+**Profesor Asistente:** Esteban Grawe  
 **Institución:** Pontificia Universidad Católica de Chile
 
 ---
@@ -12,192 +14,175 @@
 
 ```
 📦 Proyecto-Final-Muestreo
-├── 📂 00_Documentacion/          ← Guías y especificaciones
-├── 📂 01_Datos/                  ← Base de datos CASEN 2022
-├── 📂 02_Analisis/               ← Notebooks y análisis exploratorios
-│   ├── 01_Pobreza/               ← Análisis de distribución de pobreza (Esteban)
-│   └── 02_Brecha_Salarial/       ← Análisis brecha salarial de género (Francisca)
-├── 📂 03_Scripts/                ← Funciones reutilizables en Python
-├── 📂 04_Informe/                ← Documento LaTeX modular
-│   ├── 01_Estructura/            ← Archivos .tex por sección
-│   └── 02_Figuras/               ← Gráficos y tablas generadas
-├── 📂 05_Outputs/                ← Resultados finales
-├── README.md                     ← Este archivo
-└── PROYECTO.md                   ← Especificaciones técnicas detalladas
+├── 📂 00_Documentacion/              ← Guías, manuales CASEN y entregas
+│   ├── Documentos_Casen/             ← Documentación oficial CASEN 2022
+│   └── Entregas_equipo/              ← Entregas parciales del equipo
+├── 📂 02_Data/                       ← Base de datos CASEN 2022
+├── 📂 03_Scripts/                    ← Código de análisis
+│   ├── Python/                       ← Notebooks de análisis
+│   │   ├── Analisis_casen.ipynb      ← Análisis principal
+│   │   └── mapa.ipynb                ← Generación de mapas
+│   └── R/                            ← Scripts R para diseño muestral
+│       └── Muestreo_Casen/           ← Análisis con diseño complejo
+│           ├── codigos_analisis_mejorado.R
+│           ├── figuras/              ← Gráficos generados (10 figuras)
+│           └── resultados/           ← Tablas CSV exportadas
+├── 📂 04_Informe/                    ← Documentos LaTeX
+│   ├── Informe_Final/                ← 📄 INFORME PRINCIPAL
+│   │   ├── informe_principal.tex     ← Documento maestro
+│   │   ├── 00_preambulo.tex          ← Configuración y paquetes
+│   │   ├── 01_resumen.tex            ← Resumen ejecutivo
+│   │   ├── 02_introduccion.tex       ← Marco teórico
+│   │   ├── 03_metodos.tex            ← Metodología
+│   │   ├── 04_resultados.tex         ← Resultados
+│   │   ├── 05_discusion.tex          ← Discusión
+│   │   ├── 06_conclusiones.tex       ← Conclusiones
+│   │   ├── 07_referencias.tex        ← Bibliografía
+│   │   └── Imagenes/                 ← Figuras del informe
+│   └── informes1y2/                  ← Entregas anteriores
+├── 📂 notebook_verificacion/         ← Validación de resultados
+├── README.md                         ← Este archivo
+├── PROYECTO.md                       ← Especificaciones del proyecto
+└── requirements.txt                  ← Dependencias Python
 ```
 
 ---
 
 ## 👥 Integrantes del Grupo 4
 
-| Nombre | Responsabilidad | Email |
-|--------|-----------------|-------|
-| **Francisca Sepúlveda** | Brecha salarial de género | - |
-| **Esteban Román** | Distribución de pobreza | esteban.roman@uc.cl |
-| **Alexander Pinto** | - | - |
-| **Julian Vargas** | - | - |
+| Nombre | Rol |
+|--------|-----|
+| **Esteban Román** | Análisis de pobreza territorial y coordinación |
+| **Francisca Sepúlveda** | Análisis de brecha salarial de género |
+| **Alexander Pinto** | Revisión y validación |
+| **Julián Vargas** | Documentación y presentación |
 
 ---
 
-## 🎯 Objetivos Específicos del Proyecto
+## 🎯 Resumen del Proyecto
 
-### 1️⃣ **BRECHA SALARIAL DE GÉNERO** (Francisca Sepúlveda)
-Analizar diferencias salariales entre jefes de hogar hombres y mujeres
+Este estudio analiza dos fenómenos de desigualdad socioeconómica en Chile utilizando datos de la **Encuesta CASEN 2022** (n = 72,056 jefes de hogar):
 
-**Variables clave:**
-- `sexo`: Sexo del jefe de hogar
-- `yoprinc`: Ingreso del trabajo principal
-- `esc`: Escolaridad (variable de control)
-- `edad`: Edad (variable de control)
-- `region`: Región de residencia
+### Eje 1: Distribución de la Pobreza
+- **Hallazgo principal:** La pobreza rural (8.37%) es significativamente mayor que la urbana (5.28%)
+- **Mediación:** La menor escolaridad rural explica el **44.9%** del efecto sobre la pobreza
+- **Test estadístico:** χ² Rao-Scott = 131.79, p < 0.001
 
-**Preguntas de investigación:**
-- ¿Cuál es la diferencia salarial promedio entre hombres y mujeres jefas de hogar?
-- ¿Persiste la brecha después de controlar por educación y experiencia?
-- ¿Varía la brecha entre regiones?
+### Eje 2: Brecha Salarial de Género
+- **Brecha bruta:** 20.7% (diferencia de $290,353 CLP)
+- **Brecha ajustada:** 18.2% controlando por educación, edad y ocupación
+- **Patrón no lineal:** Máxima en técnico superior (21.1%) y postgrado (20.8%)
 
 ---
 
-### 2️⃣ **DISTRIBUCIÓN DE LA POBREZA EN CHILE** (Esteban Román)
-Caracterizar la distribución geográfica y demográfica de la pobreza
+## 🔬 Metodología
 
-**Variables clave:**
-- `pobreza`: Situación de pobreza (no pobre/pobre/extremadamente pobre)
-- `region`: Región de residencia
-- `area`: Zona (urbano/rural)
-- `esc`: Escolaridad
-- `ytotcorh`: Ingreso total corregido del hogar
+### Diseño Muestral Complejo
+Se implementó el diseño muestral completo de CASEN 2022:
 
-**Preguntas de investigación:**
-- ¿Cómo se distribuye la pobreza geográficamente en Chile?
-- ¿Cuáles son las características demográficas de la población pobre?
-- ¿Existen diferencias significativas entre zonas urbanas y rurales?
-
----
-
-## 📊 Datos Utilizados
-
-**Encuesta CASEN 2022**
-- Institución: Ministerio de Desarrollo Social y Familia
-- Cobertura: Nacional, regional, comunal
-- Tamaño: ~202,000 personas (~70,000 hogares)
-- Diseño: Estratificado polietápico (Thompson, Cap. 8-9)
-- Archivo: `Base de datos Casen 2022 STATA_18 marzo 2024.dta`
-
-### Características del diseño muestral:
-- **UPM (Unidades Primarias):** Secciones censales
-- **US (Unidades Secundarias):** Viviendas
-- **Ponderadores:** Variable `expr` (factor de expansión)
-- **Estratificación:** Región, zona (urbano/rural)
-
----
-
-## 🔄 Flujo de Trabajo
-
-### Fase 1: Exploración y limpieza de datos
-- ✅ Cargar base CASEN 2022
-- ⏳ Identificar variables relevantes
-- ⏳ Verificar completitud de datos
-- ⏳ Crear variables derivadas si es necesario
-
-### Fase 2: Análisis descriptivo ponderado
-- ⏳ Estadísticas descriptivas usando factor `expr`
-- ⏳ Tablas de contingencia ponderadas
-- ⏳ Análisis estratificado por región/zona
-
-### Fase 3: Análisis inferencial
-- ⏳ Modelos de regresión (considerando diseño muestral)
-- ⏳ Intervalos de confianza ajustados por diseño
-- ⏳ Contrastes de hipótesis
-
-### Fase 4: Redacción del informe
-- ⏳ Integrar resultados en LaTeX
-- ⏳ Generar figuras y tablas
-- ⏳ Revisión y ajustes finales
-
----
-
-## 📚 Bibliografía de Referencia
-
-**Muestreo (Thompson, 2012):**
-- Cap. 8: Diseños multietápicos
-- Cap. 9: Estimación en muestreo multietápico
-- Cap. 2: Fundamentos de muestreo
-
-**Métodos con datos complejos:**
-- Lumley, T. (2010). Complex surveys
-- Lohr, S. L. (2009). Sampling: Design and analysis
-- Särndal, C. E., Swensson, B., & Wretman, J. (2013). Model assisted survey sampling
-
-**CASEN:**
-- Ministerio de Desarrollo Social y Familia (2023). Manual metodológico CASEN 2022
-- Manual del Investigador CASEN 2022
-
----
-
-## 🛠️ Herramientas Técnicas
-
-| Herramienta | Función |
-|------------|---------|
-| **Python 3.x** | Análisis de datos, visualizaciones |
-| **pandas** | Manipulación de datos |
-| **numpy** | Cálculos numéricos |
-| **matplotlib/seaborn** | Visualizaciones |
-| **statsmodels/scipy** | Análisis estadístico |
-| **LaTeX** | Redacción del informe |
-| **Git** | Control de versiones |
-
----
-
-## 📝 Cómo Usar Este Repositorio
-
-### 1. Clonar el repositorio
-```bash
-git clone https://github.com/Romazss/Proyecto-Final-Muestreo.git
-cd Proyecto-Final-Muestreo
+```r
+diseno_casen <- svydesign(
+  ids = ~varunit,      # 12,545 conglomerados (UPM)
+  strata = ~varstrat,  # 764 estratos
+  weights = ~expr,     # Factor de expansión
+  data = jefes,
+  nest = TRUE
+)
 ```
 
-### 2. Instalar dependencias
-```bash
-pip install pandas numpy matplotlib seaborn scipy statsmodels
-```
+### Análisis Realizados
+- ✅ Estimaciones ponderadas con IC 95%
+- ✅ Tests Chi-cuadrado de Rao-Scott
+- ✅ Modelos logísticos (quasibinomial)
+- ✅ Análisis de mediación (Test de Sobel)
+- ✅ Modelos log-lineales para brecha salarial
 
-### 3. Ejecutar análisis
-```bash
-# Análisis de pobreza
-jupyter notebook 02_Analisis/01_Pobreza/analisis_pobreza.ipynb
+---
 
-# Análisis brecha salarial
-jupyter notebook 02_Analisis/02_Brecha_Salarial/analisis_brecha.ipynb
-```
+## 📊 Resultados Principales
 
-### 4. Compilar informe
+| Indicador | Valor | IC 95% |
+|-----------|-------|--------|
+| Pobreza urbana | 5.28% | [5.04%, 5.52%] |
+| Pobreza rural | 8.37% | [7.79%, 8.95%] |
+| Brecha salarial bruta | 20.7% | p < 0.001 |
+| Brecha salarial ajustada | 18.2% | p < 0.001 |
+| Proporción mediada (educación) | 44.9% | Z = 16.80 |
+
+### Regiones con Mayor Pobreza
+1. La Araucanía: 9.97%
+2. Ñuble: 9.97%
+3. Tarapacá: 9.36%
+
+### Regiones con Menor Pobreza
+1. Magallanes: 2.73%
+2. Aysén: 3.38%
+3. Metropolitana: 3.73%
+
+---
+
+## 📁 Outputs Generados
+
+### Figuras (en `03_Scripts/R/Muestreo_Casen/figuras/`)
+- `g1_pobreza_region.png` - Pobreza por región
+- `g2_ingreso_educacion_sexo.png` - Ingreso por educación y sexo
+- `g3_brecha_educacion.png` - Brecha salarial por educación
+- `g4_pobreza_urbano_rural.png` - Comparación urbano/rural
+- `g5_distribucion_ingreso_sexo.png` - Distribución de ingresos
+- `g6_escolaridad_zona.png` - Escolaridad por zona
+- `g7_pobreza_region_zona.png` - Pobreza por región y zona
+- `g8_brecha_edad.png` - Brecha por edad
+- `g9_forest_plot_pobreza.png` - Odds ratios
+- `g10_diagrama_mediacion.png` - Análisis de mediación
+
+### Tablas CSV (en `03_Scripts/R/Muestreo_Casen/resultados/`)
+- `pobreza_por_region.csv`
+- `pobreza_por_area.csv`
+- `ingreso_por_sexo.csv`
+- `brecha_por_educacion.csv`
+- `brecha_por_edad.csv`
+
+---
+
+## 🛠️ Herramientas Utilizadas
+
+| Herramienta | Versión | Uso |
+|------------|---------|-----|
+| **R** | 4.x | Análisis estadístico principal |
+| **survey** | - | Diseño muestral complejo |
+| **srvyr** | - | Interfaz tidyverse para survey |
+| **ggplot2** | - | Visualizaciones |
+| **Python** | 3.x | Análisis complementario |
+| **LaTeX** | TeX Live 2025 | Redacción del informe |
+
+---
+
+## 📝 Compilar el Informe
+
 ```bash
-cd 04_Informe
+cd 04_Informe/Informe_Final
 pdflatex -interaction=nonstopmode informe_principal.tex
+pdflatex -interaction=nonstopmode informe_principal.tex  # Segunda pasada
 ```
+
+El PDF final tiene **16 páginas** con todas las figuras y tablas integradas.
 
 ---
 
-## 📈 Próximos Pasos
+## 📚 Referencias Principales
 
-- [ ] Completar análisis exploratorio en notebooks
-- [ ] Generar tablas y figuras principales
-- [ ] Redactar metodología en LaTeX
-- [ ] Integrar resultados en informe final
-- [ ] Revisión final y validación
+- Ministerio de Desarrollo Social y Familia (2023). *Informe de Resultados CASEN 2022*
+- Lumley, T. (2010). *Complex Surveys: A Guide to Analysis Using R*
+- Baron, R. M., & Kenny, D. A. (1986). The moderator-mediator variable distinction
+- Thompson, S. K. (2012). *Sampling* (3rd ed.)
 
 ---
 
 ## 📞 Contacto
 
-**Responsable:** Esteban Román  
-**Email:** esteban.roman@uc.cl  
-**GitHub:** @Romazss  
-
-Para preguntas o cambios en la estructura, contactar al responsable del proyecto.
+**Repositorio:** [github.com/Romazss/Proyecto-Final-Muestreo](https://github.com/Romazss/Proyecto-Final-Muestreo)
 
 ---
 
-**Última actualización:** 23 de octubre de 2025  
-**Estado:** En desarrollo 🔄
+**Última actualización:** 3 de diciembre de 2025  
+**Estado:** ✅ Completado y entregado

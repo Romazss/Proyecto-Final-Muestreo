@@ -32,8 +32,6 @@ Según el INE:
 \subsubsection{Limitaciones Muestrales}
 
 \begin{itemize}
-    \item \textbf{Diseño muestral simplificado:} El uso de \texttt{ids = ~1} puede subestimar los errores estándar. Para inferencias más precisas se recomienda incorporar estratos y conglomerados.
-    
     \item \textbf{Sesgo de selección:} El análisis de brecha salarial excluye a quienes no participan en el mercado laboral, potencialmente subestimando la desigualdad total.
 \end{itemize}
 
@@ -47,30 +45,4 @@ Según el INE:
     \item \textbf{Manejo de NA:} Aunque se implementó \texttt{case\_when()} para evitar sesgos, la proporción de datos faltantes en algunas variables puede afectar la representatividad.
 \end{itemize}
 
-\subsection{Fortalezas del Estudio}
 
-\begin{enumerate}
-    \item Representatividad nacional con cobertura regional y urbano-rural
-    \item Aplicación rigurosa de técnicas de diseño muestral complejo
-    \item Análisis de mediación para identificar mecanismos causales
-    \item Triangulación de métodos (descriptivos, modelos ajustados, descomposición)
-\end{enumerate}
-
-\subsection{Sugerencias para Futuras Investigaciones}
-
-\begin{enumerate}
-    \item Incorporar análisis longitudinal con panel CASEN para establecer causalidad
-    \item Explorar heterogeneidad de la brecha por sector económico y región
-    \item Implementar métodos de descomposición (Oaxaca-Blinder) para brecha salarial
-    \item Evaluar políticas de corresponsabilidad parental y su impacto en la brecha
-\end{enumerate}
-
-\subsection{Implicaciones para Política Pública}
-
-\begin{itemize}
-    \item \textbf{Reducción de pobreza:} Focalizar inversión educativa en zonas rurales como estrategia de reducción de pobreza, dada su capacidad mediadora (45\% del efecto)
-    
-    \item \textbf{Equidad salarial:} Revisar mecanismos de transparencia salarial para reducir discriminación, particularmente en ocupaciones de mayor calificación donde la brecha se amplifica
-    
-    \item \textbf{Desarrollo territorial:} Integrar en políticas públicas el reconocimiento de la heterogeneidad regional, con énfasis en regiones de alta pobreza: La Araucanía ($\sim$10\%), Ñuble ($\sim$10\%) y Tarapacá ($\sim$9.4\%)
-\end{itemize}
